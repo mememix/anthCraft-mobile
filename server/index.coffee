@@ -1,6 +1,7 @@
 
 async = require 'async'
 express = require 'express'
+mongoose = require 'mongoose'
 path = require 'path'
 Livereload = require 'connect-livereload'
 
@@ -21,7 +22,12 @@ exports.launch = (callback)->
 			cb()
 		]
 		connect_db: [ 'init_logger', (cb)->
-			cb()
+			mongoose.connect __config.mongodb.url
+			db = mongoose.connection
+			db.on 'error', ()->
+				console.error.bind(console, 'connection error:')
+
+			db.once 'open', -> cb()
 		]
 		load_models: [ 'connect_db', (cb)->
 			cb()
@@ -48,11 +54,10 @@ exports.launch = (callback)->
 
 			app.use express.bodyParser()
 			app.use express.methodOverride()
-			app.use app.router
 
 			# development only
 			if __config.debug
-				app.use(Livereload({port: __config.liveReloadPort }))
+				app.use(Livereload({ port: __config.liveReloadPort }))
 				app.use(express.static(path.join(__dirname, '../.tmp')))
 				app.use(express.static(path.join(__dirname, '../app')))
 				app.use(express.errorHandler())
@@ -60,6 +65,8 @@ exports.launch = (callback)->
 			else
 				app.use(express.favicon(path.join(__dirname, '../public/favicon.ico')))
 				app.use(express.static(path.join(__dirname, '../public')))
+
+			app.use app.router
 
 			cb()
 		]

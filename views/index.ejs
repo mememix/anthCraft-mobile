@@ -86,7 +86,13 @@
                 <p>installed.</p>
                 <h3>Enjoy coding! - Yeoman</h3>
 
-    <p><button id="fullscreenTest" class="btn btn-primary btn-large">Go Fullscreen</button>
+                <h3>Wallpaper List From MongoDB: </h3>
+                <ul>
+                  {{ wallpapers.forEach(function(wp, idx) { }}
+                    <li> {{=wp.title}}({{=wp.author}}) </li>
+                  {{ }); }}
+                </ul>
+
     </p><p><span id="status"></span></p>
   </div>
 

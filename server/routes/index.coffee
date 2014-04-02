@@ -1,8 +1,12 @@
+WallpaperModel = require '../models/Wallpaper'
+
 module.exports = (app)->
 
 	app.get '/', (req, res)->
 
-		# res.end("hello world")
-		res.render 'index', {
-			appName: "anthCraft Mobile"
-		}
+		WallpaperModel.find {}, (err, list)->
+
+			res.render 'index', {
+				appName: "anthCraft Mobile"
+				wallpapers: list
+			}

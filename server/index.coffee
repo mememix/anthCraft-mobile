@@ -4,7 +4,7 @@ express = require 'express'
 mongoose = require 'mongoose'
 path = require 'path'
 Livereload = require 'connect-livereload'
-
+log4js = require 'log4js'
 fileUtil = require './utils/fileUtil'
 
 exports.launch = (callback)->
@@ -19,13 +19,16 @@ exports.launch = (callback)->
 			cb()
 		]
 		init_logger: [ 'load_configs', (cb)->
+			log4js.configure __config.log4js
+			global.__logger = log4js.getLogger('master')
+			global.__log = -> __logger.info.apply __logger, arguments
 			cb()
 		]
 		connect_db: [ 'init_logger', (cb)->
 			mongoose.connect __config.mongodb.url
 			db = mongoose.connection
 			db.on 'error', ()->
-				console.error.bind(console, 'connection error:')
+				__logger.error 'MongoDB connection error!'
 
 			db.once 'open', -> cb()
 		]
@@ -74,7 +77,7 @@ exports.launch = (callback)->
 
 			fileUtil.traverseFolderSync __config.routePath, /^[._]/, (isErr, file)->
 				if isErr
-					console.log('Error: loading route file ', file)
+					__logger.error('Load route file ', file)
 					throw 'Load routes error!'
 				require(file)(app)
 

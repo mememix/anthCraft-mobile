@@ -2,7 +2,7 @@
 async = require 'async'
 express = require 'express'
 path = require 'path'
-
+Livereload = require 'connect-livereload'
 
 exports.launch = (callback)->
 	app = express()
@@ -32,7 +32,7 @@ exports.launch = (callback)->
 
 			app.use express.cookieParser()
 			app.use express.cookieSession({
-				secret: "anthcraft"
+				secret: "anthcraft-mobile"
 			})
 
 			app.use express.bodyParser()
@@ -41,15 +41,16 @@ exports.launch = (callback)->
 
 			# development only
 			if __config.debug
-			  app.use(express.static(path.join(__dirname, '../.tmp')))
-			  app.use(express.static(path.join(__dirname, '../app')))
-			  app.use(express.errorHandler());
+				app.use(Livereload({port: __config.liveReloadPort }))
+				app.use(express.static(path.join(__dirname, '../.tmp')))
+				app.use(express.static(path.join(__dirname, '../app')))
+				app.use(express.errorHandler())
 			# production or others env
 			else
-			  app.use(express.favicon(path.join(__dirname, '../public/favicon.ico')))
-			  app.use(express.static(path.join(__dirname, '../public')))
+				app.use(express.favicon(path.join(__dirname, '../public/favicon.ico')))
+				app.use(express.static(path.join(__dirname, '../public')))
 
-			 cb()
+			cb()
 		]
 		load_routes: [ 'init_app', (cb)->
 			cb()

@@ -134,7 +134,7 @@ module.exports = function (grunt) {
         express: {
             options: {
                 // Override defaults here
-                cmd: 'coffee',
+                // cmd: 'coffee',
                 port: 9527
             },
             dev: {
@@ -142,7 +142,7 @@ module.exports = function (grunt) {
                     script: 'launch.js'
                 }
             },
-            prod: {
+            dist: {
                 options: {
                     script: 'launch.js',
                     node_env: 'production'
@@ -508,13 +508,13 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run(['build', 'open', 'express:dist:keepalive']);
         }
 
         grunt.task.run([
             'clean:server',
             'concurrent:server',
-            'connect:livereload',
+            'express:dev',
             'open:server',
             'watch'
         ]);
@@ -523,7 +523,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
-        'connect:test',
+        'express:test',
         'mocha'
     ]);
 
@@ -550,7 +550,7 @@ module.exports = function (grunt) {
     grunt.registerTask('screenshots', [
         'clean:server',
         'concurrent:server',
-        'connect:livereload',
+        'express:dev',
         'autoshot'
     ]);
     

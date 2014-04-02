@@ -4,7 +4,8 @@
   "dependencies": {
     "coffee-script": "~1.7.1",
     "async": "~0.6.2",
-    "express": "~3.5.1"
+    "express": "~3.5.1",
+    "ejs": "~1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

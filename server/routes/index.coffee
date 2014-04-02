@@ -1,4 +1,5 @@
 WallpaperModel = require '../models/Wallpaper'
+
 module.exports = (app)->
 
 	app.get '/', (req, res)->

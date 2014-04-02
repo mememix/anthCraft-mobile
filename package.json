@@ -5,7 +5,9 @@
     "coffee-script": "~1.7.1",
     "async": "~0.6.2",
     "express": "~3.5.1",
-    "ejs": "~1.0.0"
+    "connect-livereload": "~0.1.4",
+    "ejs": "~1.0.0",
+    "mongoose": "~3.8.8"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -33,7 +35,6 @@
     "grunt-svgmin": "~0.2.0",
     "grunt-concurrent": "~0.4.0",
     "load-grunt-tasks": "~0.2.0",
-    "connect-livereload": "~0.1.4",
     "time-grunt": "~0.2.0",
     "grunt-webp": "~0.0.1",
     "grunt-modernizr": "~0.3.0",

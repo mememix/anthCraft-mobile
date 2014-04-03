@@ -12,22 +12,31 @@
 		</div>
 	</nav>
 
-	<span class="logo">CLauncher</span>
+	<div class="logo">
+		<a href="#">CLauncher</a>
+	</div>
 	
 	<h1>Welcome to CLauncher</h1>
 
-	<form role="form">
+	<form role="form" class="form login">
 		<div class="form-group">
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="User name">
+			<input type="email" class="form-control" placeholder="User name">
 		</div>
 		<div class="form-group">
-			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="PassWord">
+			<input type="password" class="form-control" placeholder="PassWord">
 		</div>
-		<button type="submit" class="btn btn-default btn-lg">Login</button>
+		<button type="submit" class="btn btn-default btn-lg cy-btn">Login</button>
 		<div class="checkbox">
 			<label>
-				<input type="checkbox"> remember me
+				<input type="checkbox">Remember me
 			</label>
+		<a href="#" class="pull-right">Retrieve password</a>
+		</div>
+	</form>
+	<hr>
+	<form role="form" class="form sinup">
+		<div class="form-group">
+			<button type="submit" class="btn btn-default btn-lg cy-btn">Sign up</button>
 		</div>
 	</form>
 </div>

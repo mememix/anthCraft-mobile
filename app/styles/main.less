@@ -1,5 +1,8 @@
-@import 'variables.less';
+@import 'variables';
+@import "bg";
+@import "button";
 @import "./module/home.less";
+@import "./module/login.less";
 
 body {
     background: @gray;
@@ -9,10 +12,19 @@ body {
 .navbar-default {
     padding: 0 13px;
     overflow: hidden;
-    color: #fef4e9;
-    background: #2a8c93;
-    background: -webkit-gradient(linear, left top, left bottom, from(#36b9ba), to(#278090));
-    background: -moz-linear-gradient(top,  #36b9ba,  #278090);
+		.navbar-brand {
+			color: inherit;
+		}
+}
+
+.logo{ text-align:center;
+	a {
+		display:inline-block;
+		text-indent:-9999px;
+		width:125px;
+		height:125px;
+		.box-shadow(1px,1px,5px,#ddd);
+	}
 }
 
 .hero-unit {
@@ -31,3 +43,4 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+

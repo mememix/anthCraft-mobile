@@ -4,32 +4,33 @@
 
   {{-include partials/headerRegister.ejs }}
 
-	<form role="form" class="form login">
+	<form role="form" class="form login" method="post" action="/register">
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-mail"></i></span>
-				<input type="text" class="form-control" placeholder="Email address">
+				<input type="text" class="form-control" name="email" placeholder="Email address" autofocus>
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-adult"></i></span>
-				<input type="text" class="form-control" placeholder="Username">
+				<input type="text" class="form-control" name="username" placeholder="Username">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-key"></i></span>
-				<input type="password" class="form-control" placeholder="PassWord">
+				<input type="password" class="form-control" name="password" placeholder="PassWord">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-key"></i></span>
-				<input type="password" class="form-control" placeholder="Re-enter PassWord">
+				<input type="password" class="form-control" name="password2" placeholder="Re-enter PassWord">
 			</div>
 		</div>
 		<div class="form-group">
+			{{=message}}
 			<button type="submit" class="btn btn-default btn-lg cy-btn">Sign up</button>
 		</div>
 	</form>

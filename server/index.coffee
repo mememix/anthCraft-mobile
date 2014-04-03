@@ -25,6 +25,7 @@ exports.launch = (callback)->
 			log4js.configure __config.log4js
 			global.__logger = log4js.getLogger('master')
 			global.__log = -> __logger.info.apply __logger, arguments
+			global.__debug = -> __logger.debug.apply __logger, arguments
 			cb()
 		]
 		connect_db: [ 'init_logger', (cb)->

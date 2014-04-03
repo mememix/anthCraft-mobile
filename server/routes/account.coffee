@@ -4,13 +4,27 @@ module.exports = (app)->
 
 	app.get '/login', (req, res)->
 
+		# Restore username from cookies
+		username = req.cookies.username
+
 		# res.end("hello world")
 		res.render 'login', {
-			page: "login page todo"
+			username: username
 		}
 
-	app.post '/login', passport.authenticate 'local', {
+	app.post '/login', (req, res, next)->
+		username = req.param('username')
+		remember = req.param('remember')
+		res.cookie 'username', username, {
+			# domain: '.c-launcher.com',
+			path: '/',
+			# Keep 30 days
+			maxAge: 1000*60*60*24*30
+		} if remember
+
+		next()
+	, passport.authenticate 'local', {
 		successRedirect: '/',
 		failureRedirect: '/login'
+		failureFlash: true
 	}
-

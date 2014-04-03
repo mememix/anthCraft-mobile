@@ -62,7 +62,8 @@ exports.launch = (callback)->
 			app.use express.bodyParser()
 			app.use express.session({
 				secret: "anthcraft-mobile"
-				# cookie: { maxAge: 60 * 60 * 1000 }
+				# Session keep 1h alive
+				cookie: { maxAge: 60 * 60 * 1000 }
 			})
 			app.use express.methodOverride()
 			app.use flash()

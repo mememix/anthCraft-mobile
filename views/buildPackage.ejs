@@ -1,0 +1,38 @@
+{{-include partials/pageHead.ejs }}
+
+<div class="page-package">
+  {{-include partials/headerRegister.ejs }}
+
+	<div class="form">
+		<div class="row">
+			<label for="inputPassword" class="col-xs-2 control-label">Name:</label>
+			<div class="col-xs-10">
+				<input type="text" class="form-control" id="inputPassword" placeholder="Happy Family">
+			</div>
+		</div>
+
+		<div class="row">
+			<label class="col-xs-2">
+				Share:
+			</label>
+			<div class="col-xs-10">
+				<label class="radio-inline">
+					<input type="radio" name="share"> Public
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="share"> Private
+				</label>
+			</div>
+		</div>
+		
+
+		<div class="form-group">
+			<button class="btn btn-default btn-lg cy-btn">Package</button>
+		</div>
+
+	</div>
+
+{{-include partials/themePreview.ejs }}
+{{-include partials/footerDiy.ejs }}
+</div>
+{{-include partials/pageFoot.ejs }}

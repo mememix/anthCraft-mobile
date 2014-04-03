@@ -11,11 +11,9 @@ exports.initPassport = ->
 	}
 
 	passport.serializeUser (user, done)->
-		__log "serializeUser", arguments
 		done(null, user)
 
 	passport.deserializeUser (user, done)->
-		# __log "deserializeUser", arguments
 		done(null, user)
 
 	passport.use(new LocalStrategy(

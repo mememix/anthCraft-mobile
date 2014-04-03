@@ -1,0 +1,55 @@
+@import '../variables.less';
+@import '../button.less';
+
+.page-login{
+	 input[type='email'],input[type='password']
+	 ,input[type='text']{
+		 height: 40px;
+	 }
+
+	 .sinup{
+		 .btn{
+			 .cy-btn(@orange);
+		 }
+	 }
+
+	 .login{
+		 .btn{
+			 .cy-btn(@brand-green);
+		 }
+	 }
+
+
+	 .brand-green{
+		 color:@brand-green;
+	 }
+}
+
+.page-package{
+	p,li{
+		color:#999;
+	}
+	p{
+		margin-top:30px;
+	}
+	.form {
+		padding-top:25px;
+	}
+	h1 {
+		color:darken(#ddd,30%);
+		margin-bottom:30px;
+	}
+	.icon-yes{
+		color:#009944;
+	}
+
+	.share-group{
+		margin-top:30px;
+	}
+
+	.share-icon{
+		.icon;
+		margin-right:15px;
+		cursor:pointer;
+	}
+}

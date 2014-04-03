@@ -1,0 +1,20 @@
+{{-include partials/pageHead.ejs }}
+{{-include partials/navBar.ejs }}
+
+
+<div class="container">
+  <div class="wrap">
+  	<div class="content">
+	    <div class="top clearfix">
+	    	<a class="btn-clGreen">Download</a>
+	  		<p><label>Name:</label>{{=theme.title}}</p>
+	  		<p><label>Rate:</label></p>
+	  		<p><label>Label:</label>{{=theme.size}}</p>
+	  	</div>
+	</div>
+
+	{{-include partials/themePreview.ejs }}
+
+  </div>
+</div>
+{{-include partials/pageFoot.ejs }}

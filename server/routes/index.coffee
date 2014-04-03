@@ -9,4 +9,15 @@ module.exports = (app)->
 			res.render 'index', {
 				appName: "anthCraft Mobile"
 				wallpapers: list
+				theme: {
+					id: '123'
+					title: 'Just for you'
+					charge: '0'
+					src: '/styles/image/default.png'
+				}
+				wallpaper: {
+					id: '123'
+					title: 'Just for you'
+					src: '/styles/image/default.png'
+				}
 			}

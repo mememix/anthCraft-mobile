@@ -1,33 +1,39 @@
 {{-include partials/pageHead.ejs }}
 
 <div class="page-login">
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Login</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<p class="navbar-text navbar-right"><a href="#" class="navbar-link">CLauncher</a></p>
-			</div>
-		</div>
-	</nav>
 
-	<img src="logo" alt="" class="logo">
+  {{-include partials/headerLogin.ejs }}
+
+	<div class="logo">
+		<a href="#">CLauncher</a>
+	</div>
 
 	<h1>Welcome to CLauncher</h1>
-
-	<form role="form" action="/login" method="post">
+	<form role="form" class="form login" action="/login" method="post">
 		<div class="form-group">
-			<input type="text" class="form-control" name="username" placeholder="User name" value="tester">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="icon-adult"></i></span>
+				<input type="text" name="username" class="form-control" placeholder="Username">
+			</div>
 		</div>
 		<div class="form-group">
-			<input type="password" class="form-control" name="password" placeholder="PassWord" value="mypassword">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="icon-key"></i></span>
+				<input type="password" name="password" class="form-control" placeholder="PassWord">
+			</div>
 		</div>
-		<button type="submit" class="btn btn-default btn-lg">Login</button>
+		<button type="submit" class="btn btn-default btn-lg cy-btn">Login</button>
 		<div class="checkbox">
 			<label>
-				<input type="checkbox"> remember me
+				<input type="checkbox">Remember me
 			</label>
+		<a href="#" class="pull-right brand-green">Retrieve password</a>
+		</div>
+	</form>
+	<hr>
+	<form role="form" class="form sinup">
+		<div class="form-group">
+			<button type="submit" class="btn btn-default btn-lg cy-btn">Sign up</button>
 		</div>
 	</form>
 </div>

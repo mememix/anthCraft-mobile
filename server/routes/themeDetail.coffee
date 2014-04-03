@@ -1,13 +1,12 @@
 module.exports = (app)->
 
-	app.get '/store/theme', (req, res)->
+	app.get '/themeDetail', (req, res)->
 
-		# res.end("hello world")
-		res.render 'themeStore', {
+		res.render 'themeDetail', {
 			theme: {
 				id: '123'
 				title: 'Just for you'
-				charge: '0'
+				size: '17.3'
 				src: '/styles/image/default.png'
 			}
 		}

@@ -26,6 +26,15 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+
+        notify_hooks: {
+            options: {
+                enabled: true,
+                max_jshint_notifications: 5, // maximum number of notifications from jshint output
+                title: "AnthCraft Mobile" // defaults to the name in package.json, or will use project directory's name
+            }
+        },
+
         // TODO: Make this conditional
         watch: {
             express: {
@@ -340,7 +349,7 @@ module.exports = function (grunt) {
             }
         },
 
-        
+
         modernizr: {
 
             // Path to the build you're using for development.
@@ -510,6 +519,8 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.task.run('notify_hooks');
+
     grunt.registerTask('server', function (target) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
         grunt.task.run(['serve:' + target]);
@@ -555,12 +566,12 @@ module.exports = function (grunt) {
         'test',
         'build'
     ]);
-    
+
     grunt.registerTask('screenshots', [
         'clean:server',
         'concurrent:server',
         'express:dev',
         'autoshot'
     ]);
-    
+
 };

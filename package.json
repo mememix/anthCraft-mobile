@@ -7,7 +7,8 @@
     "express": "~3.5.1",
     "connect-livereload": "~0.1.4",
     "ejs": "~1.0.0",
-    "mongoose": "~3.8.8"
+    "mongoose": "~3.8.8",
+    "log4js": "~0.6.12"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

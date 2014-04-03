@@ -4,5 +4,10 @@ module.exports = (app)->
 
 		# res.end("hello world")
 		res.render 'themeStore', {
-			page: "theme store page todo"
+			theme: {
+				id: '123'
+				title: 'Just for you'
+				charge: '0'
+				src: '/styles/image/default.png'
+			}
 		}

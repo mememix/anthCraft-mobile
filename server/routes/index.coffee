@@ -15,4 +15,9 @@ module.exports = (app)->
 					charge: '0'
 					src: '/styles/image/default.png'
 				}
+				wallpaper: {
+					id: '123'
+					title: 'Just for you'
+					src: '/styles/image/default.png'
+				}
 			}

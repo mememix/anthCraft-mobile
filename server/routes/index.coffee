@@ -2,7 +2,7 @@ WallpaperModel = require '../models/Wallpaper'
 
 module.exports = (app)->
 
-	app.get '/', (req, res)->
+	app.get '/', __auth, (req, res)->
 
 		WallpaperModel.find {}, (err, list)->
 

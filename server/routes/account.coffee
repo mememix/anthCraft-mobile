@@ -1,3 +1,5 @@
+passport = require 'passport'
+
 module.exports = (app)->
 
 	app.get '/login', (req, res)->
@@ -6,3 +8,9 @@ module.exports = (app)->
 		res.render 'login', {
 			page: "login page todo"
 		}
+
+	app.post '/login', passport.authenticate 'local', {
+		successRedirect: '/',
+		failureRedirect: '/login'
+	}
+

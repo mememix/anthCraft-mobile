@@ -4,8 +4,11 @@ express = require 'express'
 mongoose = require 'mongoose'
 path = require 'path'
 Livereload = require 'connect-livereload'
+flash = require 'connect-flash'
+
 log4js = require 'log4js'
 fileUtil = require './utils/fileUtil'
+passportUtil = require './utils/passport'
 
 exports.launch = (callback)->
 	app = express()
@@ -35,6 +38,11 @@ exports.launch = (callback)->
 		load_models: [ 'connect_db', (cb)->
 			cb()
 		]
+		init_passport: [ 'init_app', (cb)->
+			passportUtil.initPassport()
+			global.__auth = passportUtil.auth
+			cb()
+		]
 		init_app: [ 'connect_db', (cb)->
 			app.set 'port', process.env.PORT or __config.port or 3000
 			app.set 'host', process.env.HOST or __config.host or '0.0.0.0'
@@ -51,12 +59,13 @@ exports.launch = (callback)->
 			app.use express.logger('dev') if __config.debug
 
 			app.use express.cookieParser()
-			app.use express.cookieSession({
-				secret: "anthcraft-mobile"
-			})
-
 			app.use express.bodyParser()
+			app.use express.session({
+				secret: "anthcraft-mobile"
+				# cookie: { maxAge: 60 * 60 * 1000 }
+			})
 			app.use express.methodOverride()
+			app.use flash()
 
 			# development only
 			if __config.debug
@@ -68,6 +77,11 @@ exports.launch = (callback)->
 			else
 				app.use(express.favicon(path.join(__dirname, '../public/favicon.ico')))
 				app.use(express.static(path.join(__dirname, '../public')))
+
+			# Passport
+			passport = passportUtil.passport
+			app.use passport.initialize()
+			app.use passport.session()
 
 			app.use app.router
 

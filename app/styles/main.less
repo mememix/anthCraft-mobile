@@ -1,7 +1,33 @@
 @import 'variables.less';
+@import "./module/home.less";
 
 body {
     background: @gray;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: @brand-white;
+}
+.navbar-default {
+    padding: 0 13px;
+    overflow: hidden;
+    color: #fef4e9;
+    background: #2a8c93;
+    background: -webkit-gradient(linear, left top, left bottom, from(#36b9ba), to(#278090));
+    background: -moz-linear-gradient(top,  #36b9ba,  #278090);
+}
+
+.hero-unit {
+    margin: 0 auto;
+    max-width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
 }

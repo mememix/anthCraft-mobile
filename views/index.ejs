@@ -1,54 +1,88 @@
 {{-include partials/pageHead.ejs }}
-    <!-- Page content of course! -->
-    <!-- Custom styles for this template -->
-<style>
-  /* Move down content because we have a fixed navbar that is 50px tall */
-  body {
-    padding-bottom: 20px;
-  }
-
-  /* Set widths on the navbar form inputs since otherwise they're 100% wide */
-  .navbar-form input[type="text"],
-  .navbar-form input[type="password"] {
-    width: 180px;
-  }
-
-  /* Wrapping element */
-  /* Set some basic padding to keep content from hitting the edges */
-  .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  /* Responsive: Portrait tablets and up */
-  @media screen and (min-width: 768px) {
-    /* Let the jumbotron breathe */
-    .jumbotron {
-      margin-top: 20px;
-    }
-    /* Remove padding from wrapping element since we kick in the grid classes here */
-    .body-content {
-      padding: 0;
-    }
-  }
-</style>
-
-
 {{-include partials/header.ejs }}
+
 <div class="container">
-
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-
-                <h3>Wallpaper List From MongoDB: </h3>
-                <ul>
-                  {{ wallpapers.forEach(function(wp, idx) { }}
-                    <li> {{=wp.title}}({{=wp.author}}) </li>
-                  {{ }); }}
-                </ul>
-
+  <div class="wrap" id="tabBox">
+    <div class="hd clearfix">
+      <ul class="fix-inner">
+        <li><a href="#" class="theme"><span>Theme</span></a></li>
+        <li><a href="#" class="wallpaper"><span>Wallpaper</span></a></li>
+        <li><a href="#" class="diy"><span>DIY</span></a></li>
+      </ul>
+    </div>
+    <div class="bd" id="tabBox-bd">
+      <div class="con">
+        <div class="themes" id="themes">
+          <div>
+            <div class="theme">
+              <a class="pic" href="/theme/detail.do?themeId={{=theme.id}}">
+                <img src="{{=theme.src}}" min-width="77px" min-height="138px" style="width: 100%" alt="Just for you"/>
+              </a>
+              <a class="title">
+                <span class="new">{{=theme.charge}}</span>
+                <p title="{{=theme.title}}">{{=theme.title}}</p>
+              </a>
+            </div>
+          </div>
+          <a class="more" id="morethemes" href="http://www.c-launcher.com/theme/list.do">More</a>
+        </div>
+      </div>
+      <div class="con">
+        <div class="wallpapers" id="wallpapers">
+          <div class="wallpaper">
+            <a href="./img/0b7b02087bf40ad1d00782e6552c11dfa8ecced0.jpg">
+              <img src="./img/0b7b02087bf40ad1d00782e6552c11dfa8ecced0.jpg" min-width="128px" min-height="95px" style="width: 100%" alt="Just for you"/>
+            </a>
+          </div>
+          <div class="wallpaper">
+            <a href="/theme/detail.do?themeId=399">
+              <img src="./img/wallpaper.jpg" min-width="128px" min-height="95px" style="width: 100%" alt="Just for you"/>
+            </a>
+          </div>
+          <div class="wallpaper">
+            <a href="/theme/detail.do?themeId=399">
+              <img src="./img/wallpaper.jpg" min-width="128px" min-height="95px" style="width: 100%" alt="Just for you"/>
+            </a>
+          </div>
+          <div class="wallpaper">
+            <a href="/theme/detail.do?themeId=399">
+              <img src="./img/wallpaper.jpg" min-width="128px" min-height="95px" style="width: 100%" alt="Just for you"/>
+            </a>
+          </div>
+          <div class="wallpaper">
+            <a href="/theme/detail.do?themeId=399">
+              <img src="./img/wallpaper.jpg" min-width="128px" min-height="95px" style="width: 100%" alt="Just for you"/>
+            </a>
+          </div>
+          <div class="wallpaper">
+            <a href="/theme/detail.do?themeId=399">
+              <img src="./img/wallpaper.jpg" min-width="128px" min-height="95px" style="width: 100%" alt="Just for you"/>
+            </a>
+          </div>
+          <a class="more" id="morewallpapers" href="http://www.c-launcher.com/wallpaper/list.do">More</a>
+        </div>
+      </div>
+      <div class="con">
+        <div class="cyou-diy">
+          <h2 class="title">visit<br/><a href="http://www.c-launcher.com" target="_blank" ><strong>www.c-launcher.com</strong></a><br/><em>Create your theme</em></h2>
+          <img src="./img/diy.jpg" min-width="131px" min-height="232px" style="width: 100%" alt="Just for you"/>
+        </div>
+      </div>
+    </div>
   </div>
-
-</div> <!-- /container -->
+</div>
+<script src="/scripts/module/TouchSlide.1.1.js"></script>
+<script type="text/javascript">
+    TouchSlide({
+        slideCell: '#tabBox',
+        endFun: function(i) { //高度自适应
+            var bd = document.getElementById('tabBox-bd');
+            bd.parentNode.style.height = bd.children[i].children[0].offsetHeight + 'px';
+            if (i > 0) {
+                bd.parentNode.style.transition = '200ms';//添加动画效果
+            }
+        }
+    })
+</script>
 
 {{-include partials/pageFoot.ejs }}

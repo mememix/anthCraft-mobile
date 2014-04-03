@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "./module/button.less";
 @import "./module/home.less";
 @import "./module/themeDetail.less";
@@ -11,6 +12,27 @@ body {
     color: #333;
     background: #fafafa;
     overflow: hidden;
+=======
+@import 'variables';
+@import "bg";
+@import "button";
+@import "./module/home.less";
+@import "./module/login.less";
+
+body {
+    background: @gray;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: @brand-white;
+}
+
+.logo{ text-align:center;
+	a {
+		display:inline-block;
+		text-indent:-9999px;
+		width:125px;
+		height:125px;
+		.box-shadow(1px,1px,5px,#ddd);
+	}
 }
 
 .clearfix {
@@ -83,3 +105,4 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+

@@ -1,0 +1,35 @@
+@import '../variables.less';
+@import '../button.less';
+
+.page-login{
+	 input[type='email'],input[type='password'] {
+		 height: 40px;
+	 }
+	 .form{
+		 padding:0 35px;
+		 color:#000;
+		 font-size:15px;
+	 }
+
+	 .btn{
+		 display:block;
+		 margin:0 auto;
+	 }
+
+	 .sinup{
+		 .btn{
+			 .cy-btn(@orange);
+		 }
+	 }
+
+	 .login{
+		 .btn{
+			 .cy-btn(@brand-green);
+		 }
+	 }
+
+	 h1{
+		 color:@black;
+		 text-align:center;
+	 }
+}

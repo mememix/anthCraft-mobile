@@ -1,6 +1,9 @@
-<<<<<<< HEAD
-@import "./module/button.less";
+@import 'variables';
+@import "bg";
+@import "button";
 @import "./module/home.less";
+@import "./module/button.less";
+@import "./module/login.less";
 @import "./module/themeDetail.less";
 
 body {
@@ -9,20 +12,9 @@ body {
     margin: 0;
     padding: 0;
     font: normal 100% 'arial','Microsoft Yahei';
-    color: #333;
-    background: #fafafa;
-    overflow: hidden;
-=======
-@import 'variables';
-@import "bg";
-@import "button";
-@import "./module/home.less";
-@import "./module/login.less";
-
-body {
+    color: @brand-white;
     background: @gray;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		color: @brand-white;
+    overflow: auto;
 }
 
 .logo{ text-align:center;
@@ -34,6 +26,12 @@ body {
 		.box-shadow(1px,1px,5px,#ddd);
 	}
 }
+@media (min-width: 768px) {
+	.navbar-header{
+		float:none;
+	}
+}
+
 
 .clearfix {
     clear: both;

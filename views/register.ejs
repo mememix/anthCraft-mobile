@@ -2,14 +2,15 @@
 
 <div class="page-login">
 
-  {{-include partials/header-login.ejs }}
+  {{-include partials/header-register.ejs }}
 
-	<div class="logo">
-		<a href="#">CLauncher</a>
-	</div>
-
-	<h1>Welcome to CLauncher</h1>
 	<form role="form" class="form login">
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="icon-mail"></i></span>
+				<input type="text" class="form-control" placeholder="Email address">
+			</div>
+		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-adult"></i></span>
@@ -22,16 +23,12 @@
 				<input type="password" class="form-control" placeholder="PassWord">
 			</div>
 		</div>
-		<button type="submit" class="btn btn-default btn-lg cy-btn">Login</button>
-		<div class="checkbox">
-			<label>
-				<input type="checkbox">Remember me
-			</label>
-		<a href="#" class="pull-right brand-green">Retrieve password</a>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="icon-key"></i></span>
+				<input type="password" class="form-control" placeholder="Re-enter PassWord">
+			</div>
 		</div>
-	</form>
-	<hr>
-	<form role="form" class="form sinup">
 		<div class="form-group">
 			<button type="submit" class="btn btn-default btn-lg cy-btn">Sign up</button>
 		</div>

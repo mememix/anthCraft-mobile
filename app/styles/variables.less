@@ -22,3 +22,11 @@
 .border-raius (@top: 1px,@right: 1px,@bottom: 1px,@left: 1px){
 	border-radius: @arguments;
 }
+
+.icon (@w:75px;@h:75px;){
+	display:inline-block;
+	text-indent:-9999px;
+	width:@w;
+	height:@h;
+	.box-shadow(1px,1px,5px,#ddd);
+}

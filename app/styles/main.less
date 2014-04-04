@@ -1,7 +1,8 @@
 @import 'variables';
 @import "bg";
 @import "button";
-@import "./module/home.less";
+@import "slide";
+@import "./module/store.less";
 @import "./module/login.less";
 @import "./module/themeDetail.less";
 @import "./module/package.less";
@@ -25,7 +26,7 @@ body {
 }
 
 .diy-footer{
-	height:80px;
+	height:@nav-height;
 	.active {
 		background-color:@brand-green;
 		color:@brand-white;
@@ -64,75 +65,35 @@ h1{
 	}
 }
 
+.layout {
 
-.clearfix {
-    clear: both;
-    z-index: 9999;
-}
-.clearfix:after {
-    clear: both;
-    content: "";
-    height: 0;
-    display:block;
-}
-.wrap {
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-.content {
-    padding: 0 16px;
-}
-.navbar-default {
-    display: block;
-    width: 100%;
-    .wrap {
-        overflow: hidden;
-        color: #fef4e9;
-        background: #2a8c93;
-        background: -webkit-gradient(linear, left top, left bottom, from(#36b9ba), to(#278090));
-        background: -moz-linear-gradient(top,  #36b9ba,  #278090);
-    }
-}
-.navbar-default {
-    a {
-        display: block;
-        color: #FFFFFF;
-        text-decoration: none;
-        &.download {
-            float: right;
-            width: 100px;
-            height: 18px;
-            margin: 5px 0;
-            padding-top: 30px;
-            line-height:18px;
-            font-size: 0.75em;
-        }
-        &.logo {
-            float: left;
-            width: 145px;
-            height: 42px;
-            margin: 7px 0;
-            padding-left: 45px;
-            line-height: 42px;
-            font-size: 1em;
-        }
-    }
-}
-.hero-unit {
-    margin: 0 auto;
-    max-width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
-}
+	&:before,&:after{
+		display: table;
+		content: ' ';
+		clear: both;
+	}
+	.layout-container{
+		width:100%;
+		text-align:center;
+		margin:20px auto 0;
+		padding:5px;
+		color:#000;
+		font-size: 1.2em;
 
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+		.box-shadow(1px,1px,3px,#ccc);
+
+		img {
+			max-width:100%;
+		}
+
+		.info {
+			margin: 10px 0 0 0;
+			text-align:left;
+		}
+
+		.price {
+			color:@brand-green;
+		}
+	}
 }
 

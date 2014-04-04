@@ -5,7 +5,7 @@ module.exports = (app)->
 	app.get '/login', (req, res)->
 
 		# Restore username from cookies
-		username = req.cookies.username
+		username = req.cookies.username || 'tester'
 
 		# res.end("hello world")
 		res.render 'login', {

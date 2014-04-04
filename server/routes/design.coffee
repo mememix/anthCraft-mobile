@@ -1,20 +1,20 @@
 module.exports = (app)->
 
-	app.get '/diy', (req, res)->
+	app.get '/design', (req, res)->
 		# res.end("hello world")
-		res.render 'diy', {
+		res.render 'design/diy', {
 			page: "diy page todo"
 		}
 
 
 	app.get '/build', (req, res)->
 		# res.end("hello world")
-		res.render 'buildPackage', {
+		res.render 'design/buildPackage', {
 			page: "diy page todo"
 		}
 
 	app.get '/diyicon', (req, res)->
 		# res.end("hello world")
-		res.render 'diyicon', {
+		res.render 'design/diyicon', {
 			page: "diy page todo"
 		}

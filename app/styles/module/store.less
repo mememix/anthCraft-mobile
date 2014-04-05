@@ -14,33 +14,41 @@
 			border: none;
 			border-right:1px solid #ddd;
 			box-shadow:none;
+			border-bottom:2px solid transparent;
 		}
 
 		.active {
 			color:@brand-green;
 			background:#fff;
+			border-bottom-color:@brand-green;
 		}
 		.box-shadow(1px,1px,3px,#ddd);
 	}
 
-	.wallpaper{
-		.layout-container {
-				height: 200px;
-				overflow: hidden;
-				padding: 0;
-		}
 
-		img{
-			width:100%;
-		}
+	margin-bottom:50px;
+}
+
+.wallpaper{
+	.layout-container {
+		height: 200px;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	img{
+		width:100%;
+	}
+
+}
+
+.layout{
+
+	.col-xs-4 {
+		padding: 0 5px;
 	}
 	.col-xs-6 {
 		padding: 0 2px;
 	}
-	.col-xs-4 {
-		padding: 0 5px;
-	}
-
-	margin-bottom:50px;
 }
 

@@ -1,19 +1,7 @@
 module.exports = (app)->
 
-	app.get '/design(/wallpaper)?', (req, res)->
+	app.get '/design', (req, res)->
 		# res.end("hello world")
-		res.render 'design/diywallpaper', {
-			page: "diy page todo"
-		}
-
-	app.get '/design/package', (req, res)->
-		# res.end("hello world")
-		res.render 'design/package', {
-			page: "diy page todo"
-		}
-
-	app.get '/design/iconset', (req, res)->
-		# res.end("hello world")
-		res.render 'design/diyiconset', {
+		res.render 'design/index', {
 			page: "diy page todo"
 		}

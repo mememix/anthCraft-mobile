@@ -12,7 +12,8 @@
     "passport": "~0.2.0",
     "passport-local": "~1.0.0",
     "connect-flash": "~0.1.1",
-    "anthpack": "~2.0.8"
+    "anthpack": "~2.0.8",
+    "get-methodoverride": "~0.1.2"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

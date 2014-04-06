@@ -4,6 +4,7 @@ express = require 'express'
 mongoose = require 'mongoose'
 path = require 'path'
 Livereload = require 'connect-livereload'
+getMethodOverride = require 'get-methodoverride'
 flash = require 'connect-flash'
 
 log4js = require 'log4js'
@@ -78,6 +79,7 @@ exports.launch = (callback)->
 				cookie: { maxAge: 60 * 60 * 1000 }
 			})
 			app.use express.methodOverride()
+			app.use getMethodOverride
 			app.use flash()
 
 			# Passport

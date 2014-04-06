@@ -1,4 +1,6 @@
 anthpack = require 'anthpack'
+fs = require 'fs'
+path = require 'path'
 
 module.exports = (app)->
 
@@ -17,11 +19,28 @@ module.exports = (app)->
 
 	app.post '/design/theme/:themeId/upload/wallpaper', __auth, (req, res, next)->
 		themeId = req.param('themeId')
-		wpFile = req.files.wpFile
 
-		anthpack.format
-		res.end 'todo: upload images'
+		imgPath = req.files.wpFile
 
+		anthPack.format {
+			themeId: themeId
+			type: 'wallpaper'
+			name: 'wallpaper'
+			file: imgPath
+			scale: {
+				width: 481
+				height: 428
+				force: false
+			}
+		}, (err, result)->
+			return next(err) if err
+
+			# Remove temp files
+			fs.unlink(imgPath)
+
+			res.json {
+				url: path.resolve(result)
+			}
 
 	app.put '/design/theme/:themeId/chose/wallpaper/:wpId', __auth, (req, res, next)->
 		themeId = req.param('themeId')

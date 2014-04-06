@@ -22,6 +22,36 @@ module.exports = {
 		url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"
 	}
 
+	apiService: {
+		account: {
+			# http://themes.c-launcher.com/user/login3.do?username=chenhua&password=asdf1234(正式路径)
+			# http://test.themes.c-launcher.com/user/login3.do?username=chenhua&password=asdf1234(测试路径)
+			# http://10.12.0.71:8080/shop/user/login3.do?username=chenhua&password=asdf1234(本地访问)
+			validateUser: {
+				host: 'localhost',
+				port: 9527,
+				path: '/user/login3.do',
+				method: 'GET',
+				headers: {
+					accept: 'application/json'
+				}
+			}
+
+			# http://themes.c-launcher.com/user/register2.do?email=&username=&password=&source=4(正式路径)
+			# http://test.themes.c-launcher.com/user/register2.do?email=&username=&password=&source=4(测试路径)
+			# http://10.12.0.71:8080/shop/user/register2.do?email=&username=&password=&source=4(本地访问)
+			registerUser: {
+			    host: 'localhost',
+			    port: 9527,
+			    path: '/user/register2.do',
+			    method: 'GET',
+			    headers: {
+			        accept: 'application/json'
+			    }
+			}
+		}
+	}
+
 	log4js: {
 		appenders: [
 			{ type: "console" }

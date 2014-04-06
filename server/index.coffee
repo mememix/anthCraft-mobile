@@ -100,11 +100,12 @@ exports.launch = (callback)->
 
 			# 404
 			app.use (req, res, next)->
+				res.status = 404
 				res.render 404, { status: 404, url: req.url }
 
 			# 500, When next(err)...
 			app.use (err, req, res, next)->
-				__log '500 error!'
+				res.status = 500
 				res.render '500', {
 					status: err.status or 500
 					error: err
@@ -115,6 +116,7 @@ exports.launch = (callback)->
 		load_routes: [ 'load_models', 'init_app', (cb)->
 
 			fileUtil.traverseFolderSync __config.routePath, /^[._]/, (isErr, file)->
+				__log 'load route: ', file
 				if isErr
 					__logger.error('Load route file ', file)
 					throw 'Load routes error!'

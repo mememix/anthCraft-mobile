@@ -1,0 +1,13 @@
+<div class="layout wallpaper">
+
+	<input type="file" />
+
+	{{ wallpapers.forEach(function(wallpaper) { }}
+		<div class="col-xs-6">
+			<div class="layout-container">
+				<img src="{{RESOURCE_PATH}}{{wallpaper.smallPath}}"></img>
+			</div>
+		</div>
+	{{ }) }}
+
+</div>

@@ -35,11 +35,15 @@ module.exports = (app)->
 	# Load details
 	app.get '/store/theme/:id', (req, res, next)->
 		themeId = req.param('id')
-		ThemeModel.findOneById themeId, (err, theme)->
+		ThemeModel.findById themeId, (err, theme)->
 			return next(err) if err
 
-			res.render 'themeDetail', theme
+			res.render 'themeDetail', {
+				theme: theme
+			}
 
 
 	# Download theme with statistic
 	app.get '/store/theme/:id/download', (req, res, next)->
+
+		res.end 'todo: statistic and download file'

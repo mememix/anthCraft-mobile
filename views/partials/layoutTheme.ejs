@@ -1,11 +1,11 @@
 <div class="layout theme">
 
 	{{themes.forEach(function(theme) { }}
-		<div class="col-xs-4">
+		<a href="/store/theme/{{=theme._id}}" class="col-xs-4">
 			<div class="layout-container">
 				<img src="/styles/image/detail.jpg"></img>
 				<p class="info"><span>{{=theme.title}}</span><span class="pull-right price">Free</span></p>
 			</div>
-		</div>
+		</a>
 	{{ }) }}
 </div>

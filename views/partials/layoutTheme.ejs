@@ -1,26 +1,11 @@
 <div class="layout theme">
-	<div class="col-xs-4">
-		<div class="layout-container">
-			<img src="/styles/image/detail.jpg"></img>
-			<p class="info"><span>Happy Familiy</span><span class="pull-right price">Free</span></p>
+
+	{{themes.forEach(function(theme) { }}
+		<div class="col-xs-4">
+			<div class="layout-container">
+				<img src="/styles/image/detail.jpg"></img>
+				<p class="info"><span>{{=theme.title}}</span><span class="pull-right price">Free</span></p>
+			</div>
 		</div>
-	</div>
-	<div class="col-xs-4">
-		<div class="layout-container">
-			<img src="/styles/image/detail.jpg"></img>
-			<p class="info"><span>Happy Familiy</span><span class="pull-right price">Free</span></p>
-		</div>
-	</div>
-	<div class="col-xs-4">
-		<div class="layout-container">
-			<img src="/styles/image/detail.jpg"></img>
-			<p class="info"><span>Happy Familiy</span><span class="pull-right price">Free</span></p>
-		</div>
-	</div>
-	<div class="col-xs-4">
-		<div class="layout-container">
-			<img src="/styles/image/detail.jpg"></img>
-			<p class="info"><span>Happy Familiy</span><span class="pull-right price">Free</span></p>
-		</div>
-	</div>
+	{{ }) }}
 </div>

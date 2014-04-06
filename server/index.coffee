@@ -37,6 +37,11 @@ exports.launch = (callback)->
 			db.once 'open', -> cb()
 		]
 		load_models: [ 'connect_db', (cb)->
+			fileUtil.traverseFolderSync __config.modelPath, /^[._]/, (isErr, file)->
+				if isErr
+					__logger.error('Load model file ', file)
+					throw 'Load models error!'
+				require(file)(app)
 			cb()
 		]
 		init_passport: [ 'init_app', (cb)->
@@ -56,6 +61,9 @@ exports.launch = (callback)->
 				pretty: true
 			})
 			app.set('views', __config.viewPath)
+
+			# Set default global view variables
+			app.locals(__config.viewVars)
 
 			app.use express.logger('dev') if __config.debug
 
@@ -89,7 +97,7 @@ exports.launch = (callback)->
 
 			cb()
 		]
-		load_routes: [ 'init_app', (cb)->
+		load_routes: [ 'load_models', 'init_app', (cb)->
 
 			fileUtil.traverseFolderSync __config.routePath, /^[._]/, (isErr, file)->
 				if isErr

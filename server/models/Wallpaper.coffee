@@ -73,6 +73,16 @@ WallpaperSchema = new Schema {
 	}
 }
 
-WallpaperModel = mongoose.model 'Wallpaper', WallpaperSchema
+WallpaperSchema.statics.listByPage = (page, pageCount, cb)->
+	skipCount = (page - 1) * pageCount
+	this
+		.find({
+			status: 2
+		})
+		.sort('-sortNums')
+		.skip(skipCount)
+		.limit(pageCount)
+		.exec cb
 
-module.exports = WallpaperModel
+
+module.exports = WallpaperModel = mongoose.model 'wallpaper', WallpaperSchema

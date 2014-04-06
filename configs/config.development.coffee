@@ -11,7 +11,12 @@ module.exports = {
 	resourcePath: "e:/worktop/anthCraft/app/resources"
 
 	routePath: "#{basePath}/server/routes"
+	modelPath: "#{basePath}/server/models"
 	viewPath: "#{basePath}/views"
+
+	viewVars: {
+		RESOURCE_PATH: '/resources'
+	}
 
 	mongodb: {
 		url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"

@@ -12,6 +12,7 @@ private Map<String,Map<String,Map<String,Object>>> icons = new HashMap<String,Ma
 private Date createTime;//生成时间
 private int status;//状态
 private int orderNum;//显示顺序
+我不能如此孤独，可是我却恋上了这样的孤独
 ###
 
 # READONLY Model
@@ -26,6 +27,17 @@ IconSetSchema = new Schema {
 	status: 'number'
 	orderNum: 'number'
 }
+
+IconSetSchema.statics.listByPage = (page, pageCount, cb)->
+	skipCount = (page-1) * pageCount
+	this
+		.find({
+			status: 1
+		})
+		.sort('-updateTime')
+		.skip(skipCount)
+		.limit(pageCount)
+		.exec cb
 
 IconSetModel = mongoose.model 'IconGroups', IconSetSchema
 

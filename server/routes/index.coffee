@@ -8,22 +8,15 @@ module.exports = (app)->
 
 	app.get '/', (req, res)->
 		PAGE_COUNT = 5
+		page = 1
+		pageVolumn = 6
 
 		async.parallel {
 			themeList: (cb)->
-				page = 1
-				pageVolumn = 6
 				ThemeModel.listByPage(page, pageVolumn, cb)
 
 			wallpaperList: (cb)->
-				WallpaperModel
-					.find({
-						status: 2
-					})
-					.skip(0)
-					.limit(PAGE_COUNT)
-					.sort('-updateTime')
-					.exec cb
+				WallpaperModel.listByPage(page, pageVolumn, cb)
 
 		}, (err, results)->
 

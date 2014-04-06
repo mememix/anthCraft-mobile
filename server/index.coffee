@@ -53,6 +53,9 @@ exports.launch = (callback)->
 			app.set 'port', process.env.PORT or __config.port or 3000
 			app.set 'host', process.env.HOST or __config.host or '0.0.0.0'
 
+			# Using behind a reverse proxy
+			app.enable('trust proxy')
+
 			# View engine settings
 			app.set('view engine', 'ejs')
 			app.locals({
@@ -77,23 +80,35 @@ exports.launch = (callback)->
 			app.use express.methodOverride()
 			app.use flash()
 
-			# development only
-			if __config.debug
-				app.use(Livereload({ port: __config.liveReloadPort }))
-				app.use(express.static(path.join(__dirname, '../.tmp')))
-				app.use(express.static(path.join(__dirname, '../app')))
-				app.use(express.errorHandler())
-			# production or others env
-			else
-				app.use(express.favicon(path.join(__dirname, '../public/favicon.ico')))
-				app.use(express.static(path.join(__dirname, '../public')))
-
 			# Passport
 			passport = passportUtil.passport
 			app.use passport.initialize()
 			app.use passport.session()
 
 			app.use app.router
+
+			# development only
+			if __config.debug
+				app.use(Livereload({ port: __config.liveReloadPort }))
+				app.use(express.static(path.join(__dirname, '../.tmp')))
+				app.use(express.static(path.join(__dirname, '../app')))
+				app.use(express.errorHandler({ dumpExceptions: true, showStack: true }))
+			# production or others env
+			else
+				app.use(express.favicon(path.join(__dirname, '../public/favicon.ico')))
+				app.use(express.static(path.join(__dirname, '../public')))
+
+			# 404
+			app.use (req, res, next)->
+				res.render 404, { status: 404, url: req.url }
+
+			# 500, When next(err)...
+			app.use (err, req, res, next)->
+				__log '500 error!'
+				res.render '500', {
+					status: err.status or 500
+					error: err
+				}
 
 			cb()
 		]

@@ -1,6 +1,11 @@
+mongoose = require 'mongoose'
+WallpaperModel = mongoose.model 'wallpaper'
+IconSetModel = mongoose.model 'IconGroups'
+
 anthpack = require 'anthpack'
 fs = require 'fs'
 path = require 'path'
+extendUtil = require '../../utils/extendUtil'
 
 module.exports = (app)->
 
@@ -51,14 +56,37 @@ module.exports = (app)->
 
 	app.put '/design/theme/:themeId/chose/wallpaper/:wpId', __auth, (req, res, next)->
 		themeId = req.param('themeId')
+		packData = req.session.packData
 
 		# Chose or upload wallpaper
 		wpId = req.param('wpId')
-		res.end 'todo: chose wallpaper'
+
+		WallpaperModel.findById wpId, (err, result)->
+			return next(err) if err
+
+			packData.packInfo.wallpaper.wallpaper = result.bigPath
+			packData.packInfo.wallpaper['wallpaper-hd'] = result.bigPath
+
+			req.session.packData = packData
+			res.json {
+				success: true
+			}
 
 	app.put '/design/theme/:themeId/chose/iconset/:iconSet', __auth, (req, res, next)->
 		themeId = req.param('themeId')
+		packData = req.session.packData
 
 		iconsetId = req.param('iconSet')
 
-		res.end 'todo: chose iconset'
+		IconSetModel.findById iconsetId, (err, result)->
+			return next(err) if err
+
+			# Extend packInfo with wallpaper and other icons
+			packInfo = extendUtil {}, packData.packInfo, result.icons
+
+			req.session.packData.packInfo = packInfo
+
+			res.json {
+				success: true
+			}
+

@@ -27,5 +27,14 @@ module.exports = (app)->
 
 			return next(err) if err
 
+			# Create packData in session
+			req.session.packData = {
+				meta: {
+					_id: result.themeId
+					userId: req.user.userId
+				}
+				packInfo: {}
+			}
+
 			res.render 'design/index', result
 

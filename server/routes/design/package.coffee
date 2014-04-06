@@ -7,9 +7,16 @@ module.exports = (app)->
 	# Generate preview images
 	app.post '/design/theme/:themeId/preview', __auth, (req, res, next)->
 		themeId = req.param('themeId')
-		packData = req.body
+		packData = req.session.packData
+		packData.themeId = themeId
 
-		res.end 'todo: return preview images'
+		# Generate preview images and theme thumbnail
+		anthpack.preview packInfo, (err, previews, thumbnail)->
+			return next(err) if err
+			res.json {
+				previewList: previews
+				thumbnail: thumbnail
+			}
 
 	app.post '/design/theme/:themeId/package', __auth, (req, res, next)->
 		themeId = req.param('themeId')

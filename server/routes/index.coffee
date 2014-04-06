@@ -7,6 +7,9 @@ async = require 'async'
 module.exports = (app)->
 
 	app.get '/', (req, res)->
+		res.redirect '/store'
+
+	app.get '/store', (req, res)->
 		PAGE_COUNT = 5
 		page = 1
 		pageVolumn = 6
@@ -27,7 +30,7 @@ module.exports = (app)->
 				wallpapers: results.wallpaperList
 			}
 
-	app.get '/more/theme?page=:page', (req, res)->
+	app.get '/store/more/theme?page=:page', (req, res)->
 		page = req.param('page')
 		pageVolumn = 6
 		ThemeModel.listByPage page, pageVolumn, (err, list)->
@@ -35,7 +38,7 @@ module.exports = (app)->
 
 			res.json list
 
-	app.get '/more/wallpaper?page=:page', (req, res)->
+	app.get '/store/more/wallpaper?page=:page', (req, res)->
 		page = req.param('page')
 		pageVolumn = 6
 		WallpaperModel.listByPage page, pageVolumn, (err, list)->

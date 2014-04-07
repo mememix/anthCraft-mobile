@@ -3,6 +3,7 @@ passport = require 'passport'
 LocalStrategy = require('passport-local').Strategy
 extendUtil = require './extendUtil'
 queryString = require 'querystring'
+crypto = require 'crypto'
 
 exports.initPassport = ->
 
@@ -26,13 +27,16 @@ exports.initPassport = ->
 			# 303 用户被封禁
 			# 100  登录成功
 
+			# encrypt password with md5
+			password_md5 = crypto.createHash('md5').update(password).digest('hex')
+
 			# Deep copy from configs
 			reqOpts = extendUtil {}, __config.apiService.account.validateUser
 
 			# Append params
 			reqOpts.path += '?' + queryString.stringify {
 				username: username
-				password: password
+				password: password_md5
 			}
 
 			# Send http request to remote server
@@ -78,12 +82,15 @@ exports.register = (user, done)->
 	# 101 注册失败
 	# 100  注册成功
 
+	# encrypt password with md5
+	password_md5 = crypto.createHash('md5').update(user.password).digest('hex')
+
 	reqOpts = extendUtil {}, __config.apiService.account.registerUser
 	# Append params
 	reqOpts.path += '?' + queryString.stringify {
 		source: 4
 		username: user.username
-		password: user.password
+		password: password_md5
 		email: user.email
 	}
 

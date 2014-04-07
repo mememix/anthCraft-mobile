@@ -1,12 +1,23 @@
 {{-include partials/pageHead.ejs }}
+{{-include partials/headerStore.ejs }}
+<div class="theme-detail form">
 
-	{{-include partials/headerStore.ejs }}
-  <div class="container">
+  <div class="labes col-xs-6">
     <p><label>Name:</label>{{=theme.title}}</p>
-    <p><label>Rate:</label></p>
+    <p><label>Rate:</label>
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star-empty"></i>
+    </p>
     <p><label>Label:</label>{{=theme.size}}</p>
-<a href="/store/theme/{{=theme._id}}/download" class="btn btn-default btn-lg cy-btn">Download</a>
-    {{-include partials/themePreview.ejs }}
-
   </div>
+  <div class="right col-xs-6">
+    <a href="/store/theme/{{=theme._id}}/download" class="btn btn-default btn-lg cy-btn">Download</a>
+  </div>
+  
+  {{-include partials/themePreview.ejs }}
+
+</div>
 {{-include partials/pageFoot.ejs }}

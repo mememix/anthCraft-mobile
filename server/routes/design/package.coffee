@@ -5,6 +5,7 @@ IconSetModel = mongoose.model 'IconGroups'
 anthpack = require 'anthpack'
 fs = require 'fs'
 path = require 'path'
+async = require 'async'
 extendUtil = require '../../utils/extendUtil'
 
 module.exports = (app)->
@@ -18,6 +19,11 @@ module.exports = (app)->
 		# Generate preview images and theme thumbnail
 		anthpack.preview packInfo, (err, previews, thumbnail)->
 			return next(err) if err
+
+			packData = req.session.packData
+			packData.meta.preview = previews
+			packData.meta.thumbnail = thumbnail
+
 			res.json {
 				previewList: previews
 				thumbnail: thumbnail
@@ -31,6 +37,7 @@ module.exports = (app)->
 
 	app.post '/design/theme/:themeId/upload/wallpaper', __auth, (req, res, next)->
 		themeId = req.param('themeId')
+		packData = req.session.packData
 
 		imgPath = req.files.wpFile
 
@@ -50,8 +57,17 @@ module.exports = (app)->
 			# Remove temp files
 			fs.unlink(imgPath)
 
+			wpUrl = path.resolve(result)
+
+			# Update session data
+			packData.packInfo.wallpaper.wallpaper = wpUrl
+			packData.packInfo.wallpaper['wallpaper-hd'] = wpUrl
+
+			# req.session.packData = packData
+
 			res.json {
-				url: path.resolve(result)
+				success: true
+				url: wpUrl
 			}
 
 	app.put '/design/theme/:themeId/chose/wallpaper/:wpId', __auth, (req, res, next)->
@@ -67,7 +83,8 @@ module.exports = (app)->
 			packData.packInfo.wallpaper.wallpaper = result.bigPath
 			packData.packInfo.wallpaper['wallpaper-hd'] = result.bigPath
 
-			req.session.packData = packData
+			# req.session.packData = packData
+
 			res.json {
 				success: true
 			}
@@ -82,6 +99,7 @@ module.exports = (app)->
 			return next(err) if err
 
 			# Extend packInfo with wallpaper and other icons
+			# result.icons not include wallpaper
 			packInfo = extendUtil {}, packData.packInfo, result.icons
 
 			req.session.packData.packInfo = packInfo

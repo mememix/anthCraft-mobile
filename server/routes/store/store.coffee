@@ -40,6 +40,23 @@ module.exports = (app)->
 
 			res.render 'themeDetail', {
 				theme: theme
+				screens:[
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+				]
 			}
 
 

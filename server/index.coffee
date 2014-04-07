@@ -102,12 +102,12 @@ exports.launch = (callback)->
 
 			# 404
 			app.use (req, res, next)->
-				res.status = 404
+				res.status(404)
 				res.render 404, { status: 404, url: req.url }
 
 			# 500, When next(err)...
 			app.use (err, req, res, next)->
-				res.status = 500
+				res.status(500)
 				res.render '500', {
 					status: err.status or 500
 					error: err

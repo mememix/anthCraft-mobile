@@ -16,38 +16,14 @@
             g.src='//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-
-        <!-- build:js scripts/vendor/jquery.js -->
-				<!-- <script src="/bower_components/jquery/dist/jquery.js"></script> -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/vendor/modernizr.js -->
-				<!-- <script src="/bower_components/modernizr/modernizr.js"></script> -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/main.js -->
-				<!-- <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script> -->
-				<script src="bower_components/switchery/dist/switchery.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js scripts/async-local-storage.js -->
-        <script src="/scripts/async.localStorage.js"></script>
-				<!-- <script src="/scripts/async.localStorage.examples.js"></script> -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/fullscreensnippet.js -->
-        <!-- <script src="scripts/fullscreensnippet.js"></script> -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/fastclick.js -->
-        <script src="/scripts/fastclick.js"></script>
-				<!-- <script src="/scripts/fastclick.example.js"></script> -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/module.js -->
+        <!-- build:js({.tmp,app}) /scripts/module.js -->
+        <script src="bower_components/switchery/dist/switchery.js"></script>
         <script src="/scripts/vendor/Swipe-master/swipe.js"></script>
         <script src="/scripts/module/switch.js"></script>
         <script src="/scripts/module/slide.js"></script>
+        <!-- endbuild -->
+        <!-- build:js({.tmp,app}) /scripts/main.js -->
+
         <!-- endbuild -->
 </body>
 </html>

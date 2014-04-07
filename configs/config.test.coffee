@@ -3,8 +3,8 @@ path = require 'path'
 basePath = path.join(__dirname, '..')
 
 module.exports = {
-	debug: true
-	port: 9527
+	debug: false
+	port: 10086
 	liveReloadPort: 35729
 	host: '0.0.0.0'
 
@@ -29,7 +29,7 @@ module.exports = {
 			# http://10.12.0.71:8080/shop/user/login3.do?username=chenhua&password=asdf1234(本地访问)
 			validateUser: {
 				host: 'localhost',
-				port: 9527,
+				port: 10086,
 				path: '/user/login3.do',
 				method: 'GET',
 				headers: {
@@ -42,7 +42,7 @@ module.exports = {
 			# http://10.12.0.71:8080/shop/user/register2.do?email=&username=&password=&source=4(本地访问)
 			registerUser: {
 			    host: 'localhost',
-			    port: 9527,
+			    port: 10086,
 			    path: '/user/register2.do',
 			    method: 'GET',
 			    headers: {

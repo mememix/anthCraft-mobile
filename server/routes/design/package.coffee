@@ -8,10 +8,10 @@ path = require 'path'
 async = require 'async'
 extendUtil = require '../../utils/extendUtil'
 
-module.exports = (app)->
+module.exports = (app, middlewares)->
 
 	# Generate preview images
-	app.post '/design/theme/:themeId/preview', __auth, (req, res, next)->
+	app.post '/design/theme/:themeId/preview', middlewares.auth, (req, res, next)->
 		themeId = req.param('themeId')
 		packData = req.session.packData
 		packData.themeId = themeId
@@ -29,7 +29,7 @@ module.exports = (app)->
 				thumbnail: thumbnail
 			}
 
-	app.post '/design/theme/:themeId/package', __auth, (req, res, next)->
+	app.post '/design/theme/:themeId/package', middlewares.auth, (req, res, next)->
 		themeId = req.param('themeId')
 		themeTitle = req.body.themeTitle
 		isShare = req.body.isShare
@@ -94,7 +94,7 @@ module.exports = (app)->
 					apkFile: results.packageFiles[4]
 				}
 
-	app.post '/design/theme/:themeId/upload/wallpaper', __auth, (req, res, next)->
+	app.post '/design/theme/:themeId/upload/wallpaper', middlewares.auth, (req, res, next)->
 		themeId = req.param('themeId')
 		packData = req.session.packData
 
@@ -129,7 +129,7 @@ module.exports = (app)->
 				url: wpUrl
 			}
 
-	app.put '/design/theme/:themeId/chose/wallpaper/:wpId', __auth, (req, res, next)->
+	app.put '/design/theme/:themeId/chose/wallpaper/:wpId', middlewares.auth, (req, res, next)->
 		themeId = req.param('themeId')
 		packData = req.session.packData
 
@@ -148,7 +148,7 @@ module.exports = (app)->
 				success: true
 			}
 
-	app.put '/design/theme/:themeId/chose/iconset/:iconSet', __auth, (req, res, next)->
+	app.put '/design/theme/:themeId/chose/iconset/:iconSet', middlewares.auth, (req, res, next)->
 		themeId = req.param('themeId')
 		packData = req.session.packData
 

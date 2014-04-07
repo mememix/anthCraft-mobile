@@ -3,14 +3,14 @@ WallpaperModel = mongoose.model 'wallpaper'
 IconSetModel = mongoose.model 'IconGroups'
 async = require 'async'
 
-module.exports = (app)->
+module.exports = (app, middlewares)->
 
 	# design/index page, aka wallpaper diy page
-	app.get '/design', __auth, (req, res)->
+	app.get '/design', middlewares.auth, (req, res)->
 		# Default to theme diy page
 		res.redirect '/design/theme'
 
-	app.get '/design/theme', __auth, (req, res)->
+	app.get '/design/theme', middlewares.auth, (req, res)->
 		page = 1
 		pageVolumn = 6
 

@@ -47,7 +47,6 @@ exports.launch = (callback)->
 		]
 		init_passport: [ 'init_app', (cb)->
 			passportUtil.initPassport()
-			global.__auth = passportUtil.auth
 			cb()
 		]
 		init_app: [ 'connect_db', (cb)->
@@ -122,7 +121,9 @@ exports.launch = (callback)->
 				if isErr
 					__logger.error('Load route file ', file)
 					throw 'Load routes error!'
-				require(file)(app)
+				require(file)(app, {
+					auth: passportUtil.auth
+				})
 
 			cb()
 		]

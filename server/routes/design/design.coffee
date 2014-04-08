@@ -23,6 +23,24 @@ module.exports = (app, middlewares)->
 
 			themeId: (cb)->
 				cb null, mongoose.Types.ObjectId.createPk()
+			screens: (cb)->
+				cb null, [
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+					{
+						src:"/images/detail.jpg"
+					}
+				]
 		}, (err, result)->
 
 			return next(err) if err

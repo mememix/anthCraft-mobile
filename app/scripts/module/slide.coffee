@@ -1,26 +1,34 @@
+slide = (id,mu)->
+	menus = document.querySelectorAll(mu)
+	if menus.length is 0
+		return
+	activeNo = 0
+	menus[activeNo].className = menus[activeNo].className.replace(' active','')
+	menus[activeNo].className += ' active'
+	onclick =(ele, index)->
+		if ele.ontouchend is not 'undefinded'
+			ele.ontouchend = ()->
+				swip.slide(index)
+		else
+			ele.onclick = ()->
+				swip.slide(index)
 
-menus = document.querySelectorAll('.menu-bar .btn')
-activeNo = 0
+	onclick menu,index for menu,index in menus
 
-swip = new Swipe(document.getElementById('slider'),{
-  continuous: false
-  disableScroll: false
-  stopPropagation: false
-  callback: (index, elem)->
-		 menus[activeNo].className = 
-			 menus[activeNo].className.replace(' active','')
-		 menus[index].className += ' active' 
-		 activeNo = index
-  transitionEnd: (index, elem)->
-})
+	swip = new Swipe(document.getElementById(id),{
+		continuous: false
+		disableScroll: false
+		stopPropagation: true
+		callback: (index, elem)->
+			menus[activeNo].className = menus[activeNo].className.replace(' active','')
+			menus[index].className += ' active' 
+			activeNo = index
+		transitionEnd: (index, elem)->
+	})
 
+#master slider
+slide('slider','.menu-bar .btn')
 
-onclick =(ele, index)->
-	 if ele.ontouchend is not 'undefinded'
-		 ele.ontouchend = ()->
-			 swip.slide(index)
-	 else
-		 ele.onclick = ()->
-			 swip.slide(index)
+#sub slider
+slide('sub-slider','.sub-menu-bar .btn')
 
-onclick menu,index for menu,index in menus

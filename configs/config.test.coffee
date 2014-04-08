@@ -53,23 +53,23 @@ module.exports = {
 	}
 
 	log4js: {
-		appenders: [
-			{ type: "console" }
-			{
-				type: 'file'
-				filename: "#{basePath}/logs/anthpack.log"
-				maxLogSize: 204800
-				backups: 3
-				category: "anthpack"
-			}
-			{
-				type: 'file'
-				filename: "#{basePath}/logs/master.log"
-				maxLogSize: 204800
-				backups: 3
-				category: "master"
-			}
-		],
-		replaceConsole: true
+		# appenders: [
+		# 	{ type: "console" }
+		# 	{
+		# 		type: 'file'
+		# 		filename: "#{basePath}/logs/anthpack.log"
+		# 		maxLogSize: 204800
+		# 		backups: 3
+		# 		category: "anthpack"
+		# 	}
+		# 	{
+		# 		type: 'file'
+		# 		filename: "#{basePath}/logs/master.log"
+		# 		maxLogSize: 204800
+		# 		backups: 3
+		# 		category: "master"
+		# 	}
+		# ],
+		# replaceConsole: false
 	}
 }

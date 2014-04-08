@@ -32,7 +32,7 @@ module.exports = (app)->
 			}
 
 
-	# Load details
+	# Theme detail page
 	app.get '/store/theme/:id', (req, res, next)->
 		themeId = req.param('id')
 		ThemeModel.findById themeId, (err, theme)->
@@ -58,14 +58,15 @@ module.exports = (app)->
 					}
 				]
 			}
-	
-  # wall paper
+
+	# Wallpaper detail page
 	app.get '/store/wallpaper/:id', (req, res, next)->
 		paperId = req.param('id')
-		WallpaperModel.findById paperId, (err, wallpaper)-> 
+		WallpaperModel.findById paperId, (err, wallpaper)->
 			return next(err) if err
-			res.render 'store/wallpaperDetail',wallpaper 
-		
+
+			res.render 'store/wallpaperDetail', wallpaper
+
 	# Download theme with statistic
 	app.get '/store/theme/:id/download', (req, res, next)->
 

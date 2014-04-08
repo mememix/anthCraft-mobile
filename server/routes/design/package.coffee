@@ -2,7 +2,7 @@ mongoose = require 'mongoose'
 WallpaperModel = mongoose.model 'wallpaper'
 IconSetModel = mongoose.model 'IconGroups'
 
-anthpack = require 'anthpack'
+anthPack = require 'anthpack'
 fs = require 'fs'
 path = require 'path'
 async = require 'async'
@@ -99,12 +99,12 @@ module.exports = (app, middlewares)->
 		themeId = req.param('themeId')
 		packData = req.session.packData
 
-		imgPath = req.files.wpFile
+		imgPath = req.files.wpFile.path
 
 		anthPack.format {
 			themeId: themeId
 			type: 'wallpaper'
-			name: 'wallpaper'
+			name: 'wallpaper-hd'
 			file: imgPath
 			scale: {
 				width: 481
@@ -120,8 +120,16 @@ module.exports = (app, middlewares)->
 			wpUrl = path.resolve(result)
 
 			# Update session data
-			packData.packInfo.wallpaper.wallpaper = wpUrl
-			packData.packInfo.wallpaper['wallpaper-hd'] = wpUrl
+			packData.packInfo.wallpaper = {
+				wallpaper: {
+					capital: 'Wallpaper'
+					src: wpUrl
+				}
+				'wallpaper-hd': {
+					capital: 'Wallpaper'
+					src: wpUrl
+				}
+			}
 
 			# req.session.packData = packData
 

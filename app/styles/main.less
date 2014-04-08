@@ -70,6 +70,21 @@ h1{
 	text-align: center;
 }
 
+.jscroll-inner{
+	&:after{
+		clear: both;
+	}
+}
+.jscroll-added {
+	clear: both;
+	padding-top: 15px;
+	.loading{
+		color: #999;
+		font-size: 3em;
+		text-align: center;
+	}
+}
+
 .layout {
 	&:before,&:after{
 		display: table;

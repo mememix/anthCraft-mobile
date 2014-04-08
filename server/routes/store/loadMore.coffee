@@ -15,7 +15,7 @@ module.exports = (app)->
 			#res.json list
 			res.render 'partials/moreTheme', {
 				themes: list
-				next_page: page++
+				next_page: ++page
 			}
 
 	app.get '/store/more/wallpaper', (req, res)->
@@ -24,4 +24,8 @@ module.exports = (app)->
 		WallpaperModel.listByPage page, pageVolumn, (err, list)->
 			return next(err) if err
 
-			res.json list
+			#res.json list
+			res.render 'partials/moreWallpaper', {
+				wallpapers: list
+				next_page: ++page
+			}

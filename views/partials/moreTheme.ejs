@@ -1,0 +1,9 @@
+{{themes.forEach(function(theme) { }}
+<a href="/store/theme/{{=theme._id}}" class="col-xs-4">
+	<div class="layout-container">
+		<img src="/images/detail.jpg"></img>
+		<p class="info"><span class="ellipsis">{{=theme.title}}</span><span class="pull-right price">Free</span></p>
+	</div>
+</a>
+{{ }) }}
+<a href="/store/more/theme?page={{=next_page}}">next page</a>

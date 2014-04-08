@@ -7,12 +7,16 @@ module.exports = (app)->
 
 	# Load more data
 	app.get '/store/more/theme', (req, res)->
-		page = req.param('page')
+		page = req.param('page') || 1
 		pageVolumn = 6
 		ThemeModel.listByPage page, pageVolumn, (err, list)->
 			return next(err) if err
 
-			res.json list
+			#res.json list
+			res.render 'partials/moreTheme', {
+				themes: list
+				next_page: page++
+			}
 
 	app.get '/store/more/wallpaper', (req, res)->
 		page = req.param('page')

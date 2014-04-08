@@ -2,12 +2,8 @@
 	<div id="slider" class="swipe">
 		<div class="swipe-wrap">
 			{{screens.forEach(function(screen) { }}
-			<div>
-				<a href="#" class="col-xs-4">
-					<div class="layout-container">
-						<img src="{{=screen.src}}"></img>
-					</div>
-				</a>
+			<div class="preview-container">
+				<img src="{{=screen.src}}"></img>
 			</div>
 			{{ }) }}
 		</div>

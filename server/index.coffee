@@ -48,7 +48,7 @@ exports.launch = (callback)->
 			cb()
 		]
 		init_anthpack: [ 'init_logger', (cb)->
-			anthpack.config(__cofnig.anthpack, log4js.getLogger('anthpack'))
+			anthpack.config(__config.anthPack, log4js.getLogger('anthpack'))
 			cb()
 		]
 		init_passport: [ 'init_app', (cb)->

@@ -1,5 +1,7 @@
 <div class="layout theme">
 
+	<div class="scroll">
+
 	{{themes.forEach(function(theme) { }}
 		<a href="/store/theme/{{=theme._id}}" class="col-xs-4">
 			<div class="layout-container">
@@ -8,4 +10,7 @@
 			</div>
 		</a>
 	{{ }) }}
+
+	<a href="/store/more/theme?page=1">next page</a>
+	</div>
 </div>

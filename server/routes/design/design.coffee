@@ -3,6 +3,8 @@ MaterialModel = mongoose.model 'resource'
 IconSetModel = mongoose.model 'IconGroups'
 async = require 'async'
 
+themeConfig = require '../../../configs/themeConfig.coffee'
+
 module.exports = (app, middlewares)->
 
 	# design/index page, aka wallpaper diy page
@@ -51,7 +53,7 @@ module.exports = (app, middlewares)->
 					_id: result.themeId
 					userId: req.user.userId
 				}
-				packInfo: {}
+				packInfo: themeConfig.defaultPackInfo
 			}
 
 			res.render 'design/index', result

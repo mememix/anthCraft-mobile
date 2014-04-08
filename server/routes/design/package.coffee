@@ -1,6 +1,7 @@
 mongoose = require 'mongoose'
 WallpaperModel = mongoose.model 'wallpaper'
 IconSetModel = mongoose.model 'IconGroups'
+ThemeModel = mongoose.model 'theme'
 
 anthPack = require 'anthpack'
 fs = require 'fs'
@@ -83,16 +84,16 @@ module.exports = (app, middlewares)->
 		], (err, results)->
 			if err
 				# show package fail page
-				res.render 'packageFailed', {
+				res.render 'design/packageFailed', {
 					success: false
 					message: err
 				}
 			else
 				# show package success page
-				res.render 'packageSuccess', {
+				res.render 'design/packageSuccess', {
 					success: true
 					themeId: themeId
-					apkFile: results.packageFiles[4]
+					apkFile: results.packageFile[4]
 				}
 
 	app.post '/design/theme/:themeId/upload/wallpaper', middlewares.auth, (req, res, next)->
@@ -117,17 +118,15 @@ module.exports = (app, middlewares)->
 			# Remove temp files
 			fs.unlink(imgPath)
 
-			wpUrl = path.resolve(result)
-
 			# Update session data
 			packData.packInfo.wallpaper = {
 				wallpaper: {
 					capital: 'Wallpaper'
-					src: wpUrl
+					src: result
 				}
 				'wallpaper-hd': {
 					capital: 'Wallpaper'
-					src: wpUrl
+					src: result
 				}
 			}
 
@@ -135,7 +134,7 @@ module.exports = (app, middlewares)->
 
 			res.json {
 				success: true
-				url: wpUrl
+				url: result
 			}
 
 	app.put '/design/theme/:themeId/chose/wallpaper/:wpId', middlewares.auth, (req, res, next)->

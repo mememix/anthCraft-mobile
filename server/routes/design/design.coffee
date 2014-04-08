@@ -62,7 +62,11 @@ module.exports = (app, middlewares)->
 		MaterialModel.listWallpaperByPage page, pageVolumn, (err, result)->
 			return next(err) if err
 
-			res.json result
+			#res.json result
+			res.render 'design/moreWallpaper',{ 
+				wallpapers:result
+				next_page: ++page
+			}
 
 	app.get '/design/more/iconset', (req, res)->
 		page = req.param('page')
@@ -70,4 +74,8 @@ module.exports = (app, middlewares)->
 		IconSetModel.listByPage page, pageVolumn, (err, result)->
 			return next(err) if err
 
-			res.json result
+			#res.json result
+			res.render 'design/moreIcon',{ 
+				icons:result
+				next_page: ++page
+			}

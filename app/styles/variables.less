@@ -1,11 +1,12 @@
 //== Colors
 //
-@brand-green: #2a8c93;           
+@brand-green: #2a8c93;
 @brand-white: #fef4e9;
 @gray: #fafafa;
 @black: #000;
 @orange: #fe987b;
 @nav-height: 80px;
+@title-green: #35b0b6;
 
 //== Others
 
@@ -30,4 +31,12 @@
 	width:@w;
 	height:@h;
 	.box-shadow(1px,1px,5px,#ddd);
+}
+.logo (@w:75px;@h:75px;@s:100%){
+	display:inline-block;
+	text-indent:-9999px;
+	width:@w;
+	height:@h;
+	background: url('/styles/image/logo.png') center center no-repeat;
+	background-size: @s;
 }

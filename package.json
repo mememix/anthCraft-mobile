@@ -51,7 +51,8 @@
     "grunt-contrib-less": "~0.11.0",
     "jpegtran-bin": "~0.2.6",
     "grunt-express-server": "~0.4.13",
-    "gifsicle": "~0.1.5"
+    "gifsicle": "~0.1.5",
+    "cheerio": "~0.14.0"
   },
   "engines": {
     "node": ">=0.8.0"

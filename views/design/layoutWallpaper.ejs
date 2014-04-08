@@ -1,7 +1,11 @@
 <div class="layout wallpaper">
-
-	<input type="file" />
-
+	<div class="col-xs-offset-8">
+		<label for="up-wallpaper" class="cy-file-btn">
+			<i class="icon icon-folder"></i>
+			File
+		</label>
+		<input id="up-wallpaper" type="file" style="display:none"/>
+	</div>
 	{{ wallpapers.forEach(function(wallpaper) { }}
 		<div class="col-xs-6">
 			<div class="layout-container">

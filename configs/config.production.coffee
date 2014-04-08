@@ -3,8 +3,8 @@ path = require 'path'
 basePath = path.join(__dirname, '..')
 
 module.exports = {
-	debug: true
-	port: 9527
+	debug: false
+	port: 3721
 	liveReloadPort: 35729
 	host: '0.0.0.0'
 
@@ -12,7 +12,7 @@ module.exports = {
 	modelPath: "#{basePath}/server/models"
 	viewPath: "#{basePath}/views"
 
-	resourcePath: "e:/worktop/anthCraft/app/resources"
+	resourcePath: "/home/webadmin/anthCraft-dist/public/resources"
 	viewVars: {
 		RESOURCE_PATH: '/resources'
 		WALLPAPER_PATH: '/resources/wallpaper'
@@ -20,7 +20,7 @@ module.exports = {
 	}
 
 	mongodb: {
-		url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"
+		url: "mongodb://10.60.145.18:27017/anthcraft"
 	}
 
 	apiService: {

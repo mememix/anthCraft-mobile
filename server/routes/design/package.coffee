@@ -71,6 +71,7 @@ module.exports = (app, middlewares)->
 				anthPack.packTheme packParams, (err, packagePaths)->
 					callback(err) if err
 					__log "Success package."
+					theme.packageTime = new Date()
 					theme.packageFile = packagePaths
 					theme.status = 0
 

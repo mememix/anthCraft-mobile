@@ -119,11 +119,18 @@ exports.register = (user, done)->
 exports.auth = (req, res, next)->
 	return next() if req.user
 
-	if req.is('json')
-		return res.json 203, {
-			login: '/login'
-		}
-	res.redirect('/login')
+	# if req.is('json')
+	# 	return res.json 203, {
+	# 		login: '/login'
+	# 	}
+	# res.redirect('/login')
+
+	# ALLOW annoymous package theme
+	req.user = {
+		userId: 0
+		name: 'Annoymous'
+	}
+	next()
 
 	return
 

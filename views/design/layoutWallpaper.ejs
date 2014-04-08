@@ -9,7 +9,7 @@
 	{{ wallpapers.forEach(function(wallpaper) { }}
 		<div class="col-xs-6">
 			<div class="layout-container">
-				<img src="{{RESOURCE_PATH}}{{wallpaper.smallPath}}"></img>
+				<img src="{{RESOURCE_PATH}}{{wallpaper.files[0].path}}"></img>
 			</div>
 		</div>
 	{{ }) }}

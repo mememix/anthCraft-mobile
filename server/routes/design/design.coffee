@@ -1,5 +1,5 @@
 mongoose = require 'mongoose'
-WallpaperModel = mongoose.model 'wallpaper'
+MaterialModel = mongoose.model 'resource'
 IconSetModel = mongoose.model 'IconGroups'
 async = require 'async'
 
@@ -16,7 +16,7 @@ module.exports = (app, middlewares)->
 
 		async.parallel {
 			wallpapers: (cb)->
-				WallpaperModel.listByPage(page, pageVolumn, cb)
+				MaterialModel.listWallpaperByPage(page, pageVolumn, cb)
 
 			iconSets: (cb)->
 				IconSetModel.listByPage(page, pageVolumn, cb)
@@ -56,3 +56,18 @@ module.exports = (app, middlewares)->
 
 			res.render 'design/index', result
 
+	app.get '/design/more/wallpaper', (req, res)->
+		page = req.param('page')
+		pageVolumn = 6
+		MaterialModel.listWallpaperByPage page, pageVolumn, (err, result)->
+			return next(err) if err
+
+			res.json result
+
+	app.get '/design/more/iconset', (req, res)->
+		page = req.param('page')
+		pageVolumn = 6
+		IconSetModel.listByPage page, pageVolumn, (err, result)->
+			return next(err) if err
+
+			res.json result

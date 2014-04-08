@@ -24,6 +24,9 @@ module.exports = {
 
 	apiService: {
 		account: {
+			login_aesKey: 'nadcmalogin'
+			register_aesKey: 'nadcmaregister'
+
 			# http://themes.c-launcher.com/user/login3.do?username=chenhua&password=asdf1234(正式路径)
 			# http://test.themes.c-launcher.com/user/login3.do?username=chenhua&password=asdf1234(测试路径)
 			# http://10.12.0.71:8080/shop/user/login3.do?username=chenhua&password=asdf1234(本地访问)

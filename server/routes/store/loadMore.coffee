@@ -6,7 +6,7 @@ ThemeModel = mongoose.model('theme')
 module.exports = (app)->
 
 	# Load more data
-	app.get '/store/more/theme?page=:page', (req, res)->
+	app.get '/store/more/theme', (req, res)->
 		page = req.param('page')
 		pageVolumn = 6
 		ThemeModel.listByPage page, pageVolumn, (err, list)->
@@ -14,7 +14,7 @@ module.exports = (app)->
 
 			res.json list
 
-	app.get '/store/more/wallpaper?page=:page', (req, res)->
+	app.get '/store/more/wallpaper', (req, res)->
 		page = req.param('page')
 		pageVolumn = 6
 		WallpaperModel.listByPage page, pageVolumn, (err, list)->

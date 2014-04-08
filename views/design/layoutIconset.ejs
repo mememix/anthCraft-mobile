@@ -1,4 +1,4 @@
-<div class="layout icon-container">
+<div class="layout icon-container scroll">
 	{{iconSets.forEach(function(iconset) { }}
 	<div class="col-xs-4">
 		<div class="layout-container">
@@ -6,7 +6,10 @@
 		</div>
 	</div>
 	{{ }) }}
+
+	{{ if(wallpapers && wallpapers.length) { }}
 	<div class="clearfix more">
-		<a class="btn cy-btn" href="/store/more/theme?page=1">More</a>
+		<a class="btn cy-btn" href="/design/more/iconset?page=1">More</a>
 	</div>
+	{{ } }}
 </div>

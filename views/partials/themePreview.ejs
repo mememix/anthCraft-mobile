@@ -1,0 +1,18 @@
+<div class="layout theme-preview">
+	<div id="sub-slider" class="swipe" slider>
+		<div class="swipe-wrap">
+			{{screens.forEach(function(screen) { }}
+			<div class="preview-container">
+				<img src="{{=screen.src}}"></img>
+			</div>
+			{{ }) }}
+		</div>
+	</div>
+
+	<div class="sub-menu-bar">
+		{{screens.forEach(function(screen) { }}
+		<a class="cy-dot-btn btn" role="button">
+		</a>
+		{{ }) }}
+	</div>
+</div>

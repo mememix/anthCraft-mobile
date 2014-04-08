@@ -65,8 +65,12 @@ h1{
 	}
 }
 
-.layout {
+.preview-container{
+	display: block;
+	text-align: center;
+}
 
+.layout {
 	&:before,&:after{
 		display: table;
 		content: ' ';
@@ -97,3 +101,20 @@ h1{
 	}
 }
 
+.splider{
+	padding:0;
+	height:20px;
+	border-right:1px solid #23abb3;
+	border-left:1px solid #197f84;
+}
+.splider.navbar-brand{
+	margin-top:17px;
+}
+
+.ellipsis{
+	display: inline-block;
+	max-width: 70%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

@@ -10,6 +10,7 @@ flash = require 'connect-flash'
 log4js = require 'log4js'
 fileUtil = require './utils/fileUtil'
 passportUtil = require './utils/passport'
+packageInfo = require '../package.json'
 
 exports.launch = (callback)->
 	app = express()
@@ -19,7 +20,7 @@ exports.launch = (callback)->
 		load_configs: [ (cb)->
 			configType = process.env.NODE_ENV
 			global.__config = require('../configs/config.' + configType)
-
+			global.__config.packageInfo = packageInfo
 			cb()
 		]
 		init_logger: [ 'load_configs', (cb)->

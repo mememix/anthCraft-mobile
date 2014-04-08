@@ -5,6 +5,12 @@ extendUtil = require './extendUtil'
 queryString = require 'querystring'
 crypto = require 'crypto'
 
+# aes(md5(password))
+encryptPassword = (str, key)->
+	cipher = crypto.createCipher('aes-128-ecb', key)
+	str_md5 = crypto.createHash('md5').update(str).digest('hex')
+	cipher.update(str_md5, 'utf8', 'hex') + cipher.final('hex')
+
 exports.initPassport = ->
 
 	passport.serializeUser (user, done)->
@@ -27,8 +33,8 @@ exports.initPassport = ->
 			# 303 用户被封禁
 			# 100  登录成功
 
-			# encrypt password with md5
-			password_md5 = crypto.createHash('md5').update(password).digest('hex')
+			# encrypt password with md5 and aes
+			password_enc = encryptPassword(password, __config.apiService.account.login_aesKey)
 
 			# Deep copy from configs
 			reqOpts = extendUtil {}, __config.apiService.account.validateUser
@@ -36,7 +42,7 @@ exports.initPassport = ->
 			# Append params
 			reqOpts.path += '?' + queryString.stringify {
 				username: username
-				password: password_md5
+				password: password_enc
 			}
 
 			# Send http request to remote server
@@ -82,15 +88,15 @@ exports.register = (user, done)->
 	# 101 注册失败
 	# 100  注册成功
 
-	# encrypt password with md5
-	password_md5 = crypto.createHash('md5').update(user.password).digest('hex')
+	# encrypt password with md5 and aes
+	password_enc = encryptPassword(password, __config.apiService.account.register_aesKey)
 
 	reqOpts = extendUtil {}, __config.apiService.account.registerUser
 	# Append params
 	reqOpts.path += '?' + queryString.stringify {
 		source: 4
 		username: user.username
-		password: password_md5
+		password: password_enc
 		email: user.email
 	}
 

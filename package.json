@@ -55,5 +55,8 @@
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "mocha -t 5000 --compilers coffee:coffee-script/register --reporter spec test/**/*.coffee"
   }
 }

@@ -15,7 +15,7 @@ body {
     font: normal 100% 'arial','Microsoft Yahei';
     color: @brand-white;
     background: @gray;
-    overflow: auto;
+    overflow: hidden;
 }
 .navbar-default {
     padding: 0 13px;
@@ -68,6 +68,12 @@ h1{
 .preview-container{
 	display: block;
 	text-align: center;
+}
+
+.scroll,.layout{
+	height: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .jscroll-inner{

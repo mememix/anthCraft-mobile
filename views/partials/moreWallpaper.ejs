@@ -1,0 +1,11 @@
+{{ wallpapers.forEach(function(wallpaper) { }}
+<a href="/store/wallpaper/{{=wallpaper._id}}" class="col-xs-6">
+	<div class="layout-container">
+		<img src="{{RESOURCE_PATH}}{{wallpaper.smallPath}}"></img>
+	</div>
+</a>
+{{ }) }}
+
+{{ if(wallpapers && wallpapers.length) { }}
+<a href="/store/more/wallpaper?page={{=next_page}}">next page</a>
+{{ } }}

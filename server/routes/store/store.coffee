@@ -38,7 +38,7 @@ module.exports = (app)->
 		ThemeModel.findById themeId, (err, theme)->
 			return next(err) if err
 
-			res.render 'themeDetail', {
+			res.render 'store/themeDetail', {
 				theme: theme
 				screens:[
 					{
@@ -58,8 +58,14 @@ module.exports = (app)->
 					}
 				]
 			}
-
-
+	
+  # wall paper
+	app.get '/store/wallpaper/:id', (req, res, next)->
+		paperId = req.param('id')
+		WallpaperModel.findById paperId, (err, wallpaper)-> 
+			return next(err) if err
+			res.render 'store/wallpaperDetail',wallpaper 
+		
 	# Download theme with statistic
 	app.get '/store/theme/:id/download', (req, res, next)->
 

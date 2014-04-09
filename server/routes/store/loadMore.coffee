@@ -13,7 +13,7 @@ module.exports = (app)->
 			return next(err) if err
 
 			#res.json list
-			res.render 'partials/moreTheme', {
+			res.render 'store/moreTheme', {
 				themes: list
 				next_page: ++page
 			}
@@ -25,7 +25,7 @@ module.exports = (app)->
 			return next(err) if err
 
 			#res.json list
-			res.render 'partials/moreWallpaper', {
+			res.render 'store/moreWallpaper', {
 				wallpapers: list
 				next_page: ++page
 			}

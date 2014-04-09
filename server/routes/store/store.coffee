@@ -26,7 +26,7 @@ module.exports = (app)->
 
 			return next(err) if err
 
-			res.render 'index', {
+			res.render 'store/index', {
 				themes: results.themeList
 				wallpapers: results.wallpaperList
 				username: req.cookies.username 
@@ -58,6 +58,7 @@ module.exports = (app)->
 						src:"/images/detail.jpg"
 					}
 				]
+				username: req.cookies.username 
 			}
 
 	# Wallpaper detail page

@@ -53,7 +53,7 @@ module.exports = (app, middlewares)->
 				}
 				packInfo: {}
 			}
-
+			result.username = req.user.userId
 			res.render 'design/index', result
 
 	app.get '/design/more/wallpaper', (req, res)->

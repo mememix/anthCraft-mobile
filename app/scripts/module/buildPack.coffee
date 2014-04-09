@@ -40,7 +40,22 @@ build = ()->
   $.ajax({
     url:'/design/theme/' + themeid + '/preview'
     type: 'POST'
-  })
+  }).done((data)->
+      prefix = $('#sub-slider').data('prefix')
+      for url in data.previewList
+        preview += """
+        <div class="preview-container">
+             <div class="loader">
+                <img class="thum" src="#{prefix}#{url}"></img>
+                <img class="loading" src="/images/default.png"></img>
+             </div>
+        </div>
+        """
+      $('#sub-slider .swipe-wrap').empty().html(preview)
+  )
+
+
+
 
 this.designBuild = build
 

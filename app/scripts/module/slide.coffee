@@ -35,6 +35,8 @@ slide('slider','.menu-bar .btn')
 #sub slider
 slide('sub-slider','.sub-menu-bar .btn')
 
+me.slide = slide
+
 
 #prevent default on tag <a href=""></a>
 stopClick = (s,d)->

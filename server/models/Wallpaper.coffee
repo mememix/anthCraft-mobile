@@ -79,7 +79,7 @@ WallpaperSchema.statics.listByPage = (page, pageCount, cb)->
 		.find({
 			status: 2
 		})
-		.sort('-sortNums')
+		.sort('-wallpaperId')
 		.skip(skipCount)
 		.limit(pageCount)
 		.exec cb

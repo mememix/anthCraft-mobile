@@ -15,8 +15,9 @@ module.exports = {
 	resourcePath: "e:/worktop/anthCraft/app/resources"
 	viewVars: {
     	RESOURCE_PATH: 'http://test.designer.c-launcher.com/resources'
-		WALLPAPER_PATH: 'http://test.designer.c-launcher.com/resources/wallpaper'
+		WALLPAPER_PATH: 'http://test.designer.c-launcher.com/resources/wallpaper/img'
 		THEME_PATH: 'http://test.designer.c-launcher.com/resources/themes'
+		THEME_THUMBNAIL_PATH: 'http://test.designer.c-launcher.com/resources/thumbnail'
 	}
 
 	mongodb: {

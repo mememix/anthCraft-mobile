@@ -2,11 +2,11 @@
 <div class="wallpaper-detail">
 	{{-include ../partials/header.ejs }}
 	<div class="right col-xs-offset-6">
-		<a href="/store/wallpaper/{{=wallpaperId}}/download?path={{bigPath}}" download class="btn btn-default btn-lg cy-btn">Download</a>
+		<a href="/store/wallpaper/{{=wallpaperId}}/download?path={{=bigPath}}" download class="btn btn-default btn-lg cy-btn">Download</a>
 	</div>
 	<hr>
 	<div class="loader">
-		<img class="thum" src="{{RESOURCE_PATH}}{{smallPath}}"></img>
+		<img class="thum" src="{{=WALLPAPER_PATH}}{{=smallPath}}"></img>
 		<img class="loading" src="/images/default.png"></img>
 	</div>
 

@@ -7,6 +7,7 @@ Livereload = require 'connect-livereload'
 getMethodOverride = require 'get-methodoverride'
 flash = require 'connect-flash'
 
+anthpack = require 'anthpack'
 log4js = require 'log4js'
 fileUtil = require './utils/fileUtil'
 passportUtil = require './utils/passport'
@@ -44,6 +45,10 @@ exports.launch = (callback)->
 					__logger.error('Load model file ', file)
 					throw 'Load models error!'
 				require(file)(app)
+			cb()
+		]
+		init_anthpack: [ 'init_logger', (cb)->
+			anthpack.config(__config.anthPack, log4js.getLogger('anthpack'))
 			cb()
 		]
 		init_passport: [ 'init_app', (cb)->

@@ -56,6 +56,15 @@ module.exports = {
 		}
 	}
 
+	anthPack: {
+		base_path: "e:/worktop/anthCraft/app/"
+		package_path: "/resources/themes"
+		develop_path: "/resources/upload"
+		preview_path: "/resources/preview"
+		thumb_path: "/resources/thumbnail"
+		archive_path: "/resources/themeArchives"
+	}
+
 	log4js: {
 		appenders: [
 			{ type: "console" }

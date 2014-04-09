@@ -1,0 +1,33 @@
+//== Colors
+//
+@brand-green: #2a8c93;           
+@brand-white: #fef4e9;
+@gray: #fafafa;
+@black: #000;
+@orange: #fe987b;
+@nav-height: 80px;
+
+//== Others
+
+@raius: 5px;
+
+
+//== shadow
+
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000){
+	box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+}
+
+.border-raius (@top: 1px,@right: 1px,@bottom: 1px,@left: 1px){
+	border-radius: @arguments;
+}
+
+.icon (@w:75px;@h:75px;){
+	display:inline-block;
+	text-indent:-9999px;
+	width:@w;
+	height:@h;
+	.box-shadow(1px,1px,5px,#ddd);
+}

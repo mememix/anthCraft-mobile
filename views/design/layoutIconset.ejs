@@ -1,7 +1,7 @@
 <div class="layout icon-container scroll">
 	{{iconSets.forEach(function(iconset) { }}
 	<div class="col-xs-4">
-		<div class="layout-container">
+    <div class="layout-container" data-iconset="{{=iconset._id}}">
 			<div class="loader">
 				<img class="thum" src="{{RESOURCE_PATH}}{{iconset.preview}}"></img>
 				<img class="loading" src="/images/default.png"></img>

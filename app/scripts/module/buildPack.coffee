@@ -37,7 +37,12 @@ this.designIconset  = iconset
 
 #step 3: preview package and build a package 
 build = ()->
-  themeid = $('.page-package').data('themeid')
+  $.ajax({
+    url:'/design/theme/' + themeid + '/preview'
+    type: 'POST'
+  })
+
+this.designBuild = build
 
 wallpaper()
 iconset()

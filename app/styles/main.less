@@ -77,8 +77,9 @@ h1{
 .scroll,.layout{
 	height: 100%;
 	padding-bottom:150px;
-	overflow-y: auto;
 	overflow-x: hidden;
+	overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .jscroll-inner{
@@ -131,6 +132,9 @@ h1{
 		.price {
 			color:@brand-green;
 		}
+	}
+	.selected{
+		.box-shadow(0,0,8px 1px,@brand-green);
 	}
 }
 

@@ -1,11 +1,15 @@
 {{-include ../partials/pageHead.ejs }}
-{{-include ../partials/header.ejs }}
 <div class="wallpaper-detail">
+	{{-include ../partials/header.ejs }}
 	<div class="right col-xs-offset-6">
 		<a href="/store/wallpaper/{{=wallpaperId}}/download" download class="btn btn-default btn-lg cy-btn">Download</a>
 	</div>
 	<hr>
-	<img src="/images/default.png" alt="{{=wallpaperId}}">
+	<div class="loader">
+		<img class="thum" src="{{RESOURCE_PATH}}{{smallPath}}"></img>
+		<img class="loading" src="/images/default.png"></img>
+	</div>
+
 </div>
 
 {{-include ../partials/pageFoot.ejs }}

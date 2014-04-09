@@ -3,7 +3,10 @@
 		<div class="swipe-wrap">
 			{{screens.forEach(function(screen) { }}
 			<div class="preview-container">
-				<img src="{{=screen.src}}"></img>
+				<div class="loader">
+					<img class="thum" src="{{=screen.src}}"></img>
+					<img class="loading" src="/images/default.png"></img>
+				</div>
 			</div>
 			{{ }) }}
 		</div>

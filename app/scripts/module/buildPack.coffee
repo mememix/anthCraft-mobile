@@ -1,9 +1,26 @@
+select = (s)->
+  me = this
+  eles = $(s)
+  activeElement = $(eles[0])
+  activeElement.addClass('selected')
+  me.done = false
+  eles.bind('click',()->
+    if activeElement
+      activeElement.removeClass('selected')
+    $(this).addClass("selected")
+    activeElement = $(this)
+    me.done = true
+  )
+
 #step 1: select wallpaper 
 wallpaper = (id)->
+  select.call this,'.wallpaper .layout-container'
   this.next id
+this.designWallpaper = wallpaper
 
 #step 2: select iconset 
 iconset = (id)->
+  select.call this,'.icon-container .layout-container'
   this.next id
 
 #step 3: preview package and build a package 
@@ -43,9 +60,8 @@ bootstrap = ()->
   flow.push wallpaper
   flow.push iconset
   flow.push build
-
   flow.execute(themeid)
-  
+
 bootstrap()
 
 

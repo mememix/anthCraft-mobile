@@ -7,7 +7,7 @@ slide = (id,mu)->
 	menus[activeNo].className += ' active'
 	onclick =(ele, index)->
 		if ele.ontouchend is not 'undefinded'
-			ele.ontouchend = ()->
+			ele.ontouchstart = ()->
 				swip.slide(index)
 		else
 			ele.onclick = ()->
@@ -32,8 +32,8 @@ slide('slider','.menu-bar .btn')
 #sub slider
 slide('sub-slider','.sub-menu-bar .btn')
 
-#prevent default on tag <a href=""></a>
 
+#prevent default on tag <a href=""></a>
 stopClick = (s,d)->
   end = start = 0;
   diff = d || 5 
@@ -50,6 +50,5 @@ stopClick = (s,d)->
     if Math.abs(end-start) > diff
       e.preventDefault()
   )
-stopClick('a')
-
+stopClick('#slider a')
 this.stopClick = stopClick

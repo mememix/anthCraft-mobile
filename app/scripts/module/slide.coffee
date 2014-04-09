@@ -18,7 +18,7 @@ slide = (id,mu)->
 	swip = new Swipe(document.getElementById(id),{
 		continuous: false
 		disableScroll: false
-		stopPropagation: false
+		stopPropagation: true
 		callback: (index, elem)->
 			menus[activeNo].className = menus[activeNo].className.replace(' active','')
 			menus[index].className += ' active' 

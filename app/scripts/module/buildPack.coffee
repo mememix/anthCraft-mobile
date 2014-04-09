@@ -21,7 +21,7 @@ wallpaper = ()->
     wpId = ele.data('wpid')
     $.ajax({
       url:'/design/theme/' + themeid + '/chose/wallpaper/' + wpId
-      type: 'POST'
+      type: 'PUT'
     })
 this.designWallpaper = wallpaper
 
@@ -31,7 +31,7 @@ iconset = ()->
     iconset = ele.data('iconset')
     $.ajax({
       url:'/design/theme/' + themeid + '/chose/iconset/' + iconset
-      type: 'POST'
+      type: 'PUT'
     })
 this.designIconset  = iconset
 

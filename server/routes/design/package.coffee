@@ -1,5 +1,5 @@
 mongoose = require 'mongoose'
-WallpaperModel = mongoose.model 'wallpaper'
+MaterialModel = mongoose.model 'resource'
 IconSetModel = mongoose.model 'IconGroups'
 ThemeModel = mongoose.model 'theme'
 
@@ -137,11 +137,11 @@ module.exports = (app, middlewares)->
 		# Chose or upload wallpaper
 		wpId = req.param('wpId')
 
-		WallpaperModel.findById wpId, (err, result)->
+		MaterialModel.findById wpId, (err, result)->
 			return next(err) if err
 
-			packData.packInfo.wallpaper.wallpaper.src = result.bigPath
-			packData.packInfo.wallpaper['wallpaper-hd'].src = result.bigPath
+			packData.packInfo.wallpaper.wallpaper.src = result.files[0].path
+			packData.packInfo.wallpaper['wallpaper-hd'].src = result.files[0].path
 
 			# req.session.packData = packData
 

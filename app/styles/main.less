@@ -7,6 +7,7 @@
 @import "module/login.less";
 @import "module/themeDetail.less";
 @import "module/package.less";
+@import "module/diy.less";
 
 html,body{
 	height: 100%;
@@ -26,10 +27,18 @@ body {
   background:#ddd;
 }
 .navbar-default {
-    padding: 0 13px;
+    padding: 0 10px;
     overflow: hidden;
 		.navbar-brand {
 			color: inherit;
+			padding-top: 18px;
+			padding-bottom: 18px;
+		}
+		.logo {
+			background: url('/styles/image/logo.png') 0 center no-repeat;
+			background-size: 25%;
+			padding-left: 50px;
+			padding-right: 0;
 		}
 }
 
@@ -47,11 +56,6 @@ body {
 	bottom:0px;
 }
 
-.logo{ text-align:center;
-	a {
-		.icon(125px,125px)
-	}
-}
 .form{
 	padding:0 35px;
 	color:#000;
@@ -149,7 +153,7 @@ h1{
 	border-left:1px solid #197f84;
 }
 .splider.navbar-brand{
-	margin-top:17px;
+	margin-top: 10px;
 }
 
 .ellipsis{

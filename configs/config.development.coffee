@@ -20,7 +20,8 @@ module.exports = {
 	}
 
 	mongodb: {
-		url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"
+		# url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"
+		url: "mongodb://cy4749.cyou-inc.com:27017/anthCraft_test"
 	}
 
 	apiService: {

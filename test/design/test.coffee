@@ -57,6 +57,16 @@ describe 'Http Server Test', ->
 				.expect 302
 				.end done
 
+		it 'should redirect to wallpaper download url with 302', (done)->
+
+			agent
+				.get '/store/wallpaper/89797/download?path=/test/wallpaper.jpg'
+				# .send {
+				# 	path: '/test/abc.apk'
+				# }
+				.expect 302
+				.end done
+
 	describe.skip 'AnthPack Test', ->
 
 		it 'should upload wallpaper and return formatted image', (done)->

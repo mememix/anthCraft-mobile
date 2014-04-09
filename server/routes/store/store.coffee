@@ -2,6 +2,8 @@ mongoose = require 'mongoose'
 
 WallpaperModel = mongoose.model('wallpaper')
 ThemeModel = mongoose.model('theme')
+DownloadStatisticModel = mongoose.model('DownloadStatistic')
+extendUtil = require '../../utils/extendUtil'
 async = require 'async'
 
 module.exports = (app)->
@@ -11,7 +13,6 @@ module.exports = (app)->
 
 	# Store index page
 	app.get '/store', (req, res, next)->
-		PAGE_COUNT = 5
 		page = 1
 		pageVolumn = 6
 
@@ -69,5 +70,47 @@ module.exports = (app)->
 
 	# Download theme with statistic
 	app.get '/store/theme/:id/download', (req, res, next)->
+		themeId = req.param('id')
+		userEmail = req.user.email
+		downloadPath = req.param('path')
 
-		res.end 'todo: statistic and download file'
+		nowDate = new Date()
+		dateStr = nowDate.toISOString().substr(0,10)
+
+		statistic = new DownloadStatisticModel(extendUtil({
+			userId: req.user.userId
+			userEmail: userEmail
+			resourceType: 0
+			createTime: dateStr
+			source: 0
+			themeId: themeId
+		}, req.session.clientInfo))
+
+		statistic.save (err)->
+			__debug err if err
+
+			# to the real file url
+			res.redirect __config.viewVars.THEME_PATH + downloadPath
+
+	app.get '/store/wallpaper/:id/download', (req, res, next)->
+		wpId = req.param('id')
+		downloadPath = req.param('path')
+		userEmail = req.user.email
+
+		nowDate = new Date()
+		dateStr = nowDate.toISOString().substr(0,10)
+
+		statistic = new DownloadStatisticModel(extendUtil({
+			userId: req.user.userId
+			userEmail: userEmail
+			resourceType: 1
+			createTime: dateStr
+			source: 0
+			themeId: wpId #!! actually is wallpaper id here
+		}, req.session.clientInfo))
+
+		statistic.save (err)->
+			__debug err if err
+
+			# to the real file url
+			res.redirect __config.viewVars.WALLPAPER_PATH + downloadPath

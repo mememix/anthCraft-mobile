@@ -21,7 +21,8 @@ describe 'Http Server Test', ->
 		agent
 			.get('/store')
 			.expect(200)
-			.end done
+			.end (err, res)->
+				done()
 
 	# will use api on test server
 	it.skip 'login user', (done)->
@@ -44,7 +45,29 @@ describe 'Http Server Test', ->
 				clientData.themeId = $('input[name=_id]').val()
 				done()
 
-	describe 'AnthPack Test', ->
+	describe 'Store page Test', ->
+
+		it 'should redirect to theme download url with 302', (done)->
+
+			agent
+				.get '/store/theme/89797/download?path=/test/abc.apk'
+				# .send {
+				# 	path: '/test/abc.apk'
+				# }
+				.expect 302
+				.end done
+
+		it 'should redirect to wallpaper download url with 302', (done)->
+
+			agent
+				.get '/store/wallpaper/89797/download?path=/test/wallpaper.jpg'
+				# .send {
+				# 	path: '/test/abc.apk'
+				# }
+				.expect 302
+				.end done
+
+	describe.skip 'AnthPack Test', ->
 
 		it 'should upload wallpaper and return formatted image', (done)->
 

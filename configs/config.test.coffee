@@ -15,7 +15,9 @@ module.exports = {
 	viewPath: "#{basePath}/views"
 
 	viewVars: {
-		RESOURCE_PATH: '/resources'
+		RESOURCE_PATH: 'http://test.designer.c-launcher.com/resources'
+		WALLPAPER_PATH: 'http://test.designer.c-launcher.com/resources/wallpaper'
+		THEME_PATH: 'http://test.designer.c-launcher.com/resources/themes'
 	}
 
 	mongodb: {
@@ -65,23 +67,23 @@ module.exports = {
 	}
 
 	log4js: {
-		# appenders: [
-		# 	{ type: "console" }
-		# 	{
-		# 		type: 'file'
-		# 		filename: "#{basePath}/logs/anthpack.log"
-		# 		maxLogSize: 204800
-		# 		backups: 3
-		# 		category: "anthpack"
-		# 	}
-		# 	{
-		# 		type: 'file'
-		# 		filename: "#{basePath}/logs/master.log"
-		# 		maxLogSize: 204800
-		# 		backups: 3
-		# 		category: "master"
-		# 	}
-		# ],
-		# replaceConsole: false
+		appenders: [
+			{ type: "console" }
+			{
+				type: 'file'
+				filename: "#{basePath}/logs/anthpack.log"
+				maxLogSize: 204800
+				backups: 3
+				category: "anthpack"
+			}
+			{
+				type: 'file'
+				filename: "#{basePath}/logs/master.log"
+				maxLogSize: 204800
+				backups: 3
+				category: "master"
+			}
+		],
+		replaceConsole: false
 	}
 }

@@ -92,8 +92,15 @@ exports.launch = (callback)->
 			app.use passport.initialize()
 			app.use passport.session()
 
-			# Make session avaliable in all views
+			# Session initialize
 			app.use (req, res, next)->
+				# Default annoymous user
+				req.user = {
+					userId: 0
+					name: 'Annoymous'
+					email: 'null'
+				} if not req.user
+				# Make session avaliable in all views
 				req.session.user = req.user
 				res.locals.session = req.session || {}
 				next()

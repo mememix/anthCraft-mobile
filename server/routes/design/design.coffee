@@ -59,7 +59,7 @@ module.exports = (app, middlewares)->
 			res.render 'design/index', result
 
 	app.get '/design/more/wallpaper', (req, res)->
-		page = req.param('page')
+		page = req.param('page') || 1
 		pageVolumn = 6
 		MaterialModel.listWallpaperByPage page, pageVolumn, (err, result)->
 			return next(err) if err
@@ -78,6 +78,6 @@ module.exports = (app, middlewares)->
 
 			#res.json result
 			res.render 'design/moreIcon',{
-				icons:result
+				iconSets:result
 				next_page: ++page
 			}

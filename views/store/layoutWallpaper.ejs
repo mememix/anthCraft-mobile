@@ -3,7 +3,10 @@
 	{{ wallpapers.forEach(function(wallpaper) { }}
 		<a href="/store/wallpaper/{{=wallpaper._id}}" class="col-xs-6">
 			<div class="layout-container">
-				<img src="{{RESOURCE_PATH}}{{wallpaper.smallPath}}"></img>
+				<div class="loader">
+					<img class="thum" src="{{=RESOURCE_PATH}}/wallpaper{{=wallpaper.smallPath}}"></img>
+					<img class="loading" src="/images/default.png"></img>
+				</div>
 			</div>
 		</a>
 	{{ }) }}

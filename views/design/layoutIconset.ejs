@@ -2,12 +2,16 @@
 	{{iconSets.forEach(function(iconset) { }}
 	<div class="col-xs-4">
 		<div class="layout-container">
-			<img src="{{RESOURCE_PATH}}{{iconset.preview}}"></img>
+			<div class="loader">
+				<img class="thum" src="{{RESOURCE_PATH}}{{iconset.preview}}"></img>
+				<img class="loading" src="/images/default.png"></img>
+			</div>
+
 		</div>
 	</div>
 	{{ }) }}
 
-	{{ if(wallpapers && wallpapers.length) { }}
+	{{ if(iconSets && iconSets.length) { }}
 	<div class="clearfix more">
 		<a class="btn cy-btn" href="/design/more/iconset?page=1">More</a>
 	</div>

@@ -14,14 +14,14 @@ module.exports = {
 
 	resourcePath: "e:/worktop/anthCraft/app/resources"
 	viewVars: {
-		RESOURCE_PATH: '/resources'
-		WALLPAPER_PATH: '/resources/wallpaper'
-		THEME_PATH: '/resources/themes'
+    	RESOURCE_PATH: 'http://test.designer.c-launcher.com/resources'
+		WALLPAPER_PATH: 'http://test.designer.c-launcher.com/resources/wallpaper'
+		THEME_PATH: 'http://test.designer.c-launcher.com/resources/themes'
 	}
 
 	mongodb: {
-		# url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"
-		url: "mongodb://cy4749.cyou-inc.com:27017/anthCraft_test"
+	    #url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"
+	    url: "mongodb://10.12.0.223:27017/anthCraft_test"
 	}
 
 	apiService: {

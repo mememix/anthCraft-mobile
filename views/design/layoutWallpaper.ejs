@@ -1,4 +1,4 @@
-<div class="layout wallpaper scroll">
+<div class="layout wallpaper scroll" >
 	<div class="col-xs-offset-8 text-center">
 		<label for="up-wallpaper" class="cy-file-btn">
 			<i class="icon icon-folder"></i>
@@ -9,7 +9,10 @@
 	{{ wallpapers.forEach(function(wallpaper) { }}
 		<div class="col-xs-6">
 			<div class="layout-container">
-				<img src="{{RESOURCE_PATH}}{{wallpaper.files[0].path}}"></img>
+				<div class="loader">
+					<img class="thum" src="{{RESOURCE_PATH}}{{wallpaper.files[0].path}}"></img>
+					<img class="loading" src="/images/default.png"></img>
+				</div>
 			</div>
 		</div>
 	{{ }) }}

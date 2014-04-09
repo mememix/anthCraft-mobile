@@ -32,3 +32,24 @@ slide('slider','.menu-bar .btn')
 #sub slider
 slide('sub-slider','.sub-menu-bar .btn')
 
+#prevent default on tag <a href=""></a>
+
+stopClick = (s,d)->
+  end = start = 0;
+  diff = d || 5 
+
+  $(s).bind('touchstart',(e)->
+    end = start = e.originalEvent.touches[0].clientX
+  )
+
+  $(s).bind('touchmove',(e)->
+    end = e.originalEvent.touches[0].clientX
+  )
+
+  $(s).bind('touchend',(e)->
+    if Math.abs(end-start) > diff
+      e.preventDefault()
+  )
+stopClick('a')
+
+this.stopClick = stopClick

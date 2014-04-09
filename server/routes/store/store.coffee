@@ -29,6 +29,7 @@ module.exports = (app)->
 			res.render 'index', {
 				themes: results.themeList
 				wallpapers: results.wallpaperList
+				username: req.cookies.username 
 			}
 
 

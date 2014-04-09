@@ -1,6 +1,11 @@
 {{-include partials/pageHead.ejs }}
 <div class="page-store">
-	{{-include partials/headerStore.ejs }}
+
+	{{ if(username) { }}
+		{{-include partials/headerEditor.ejs }}
+	{{ } else { }}
+		{{-include partials/headerStore.ejs }}
+	{{ } }}
 	{{-include partials/navStore.ejs }}
 
 	<div id="slider" class="swipe">

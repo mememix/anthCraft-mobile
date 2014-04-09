@@ -74,7 +74,8 @@ h1{
 }
 
 .scroll,.layout{
-	height: 500px;
+	height: 100%;
+	padding-bottom:150px;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -94,6 +95,13 @@ h1{
 	}
 }
 
+.more {
+	clear: both;
+	.cy-btn{
+		width: 50%;
+		margin-top: 20px;
+	}
+}
 .layout {
 	&:before,&:after{
 		display: table;
@@ -141,4 +149,12 @@ h1{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+//just for scroll bar
+.swipe{
+	height:100%;
+}
+.swipe-wrap{
+	height:100%;
 }

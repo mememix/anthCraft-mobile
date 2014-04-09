@@ -1,4 +1,4 @@
-<div class="layout wallpaper">
+<div class="layout wallpaper scroll">
 	<div class="col-xs-offset-8 text-center">
 		<label for="up-wallpaper" class="cy-file-btn">
 			<i class="icon icon-folder"></i>
@@ -14,5 +14,9 @@
 		</div>
 	{{ }) }}
 
-	<a href="/store/more/wallpaper?page=1">next page</a>
+	{{ if(wallpapers && wallpapers.length) { }}
+	<div class="clearfix more">
+		<a class="btn cy-btn" href="/design/more/wallpaper?page=1">More</a>
+	</div>
+	{{ } }}
 </div>

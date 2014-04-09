@@ -67,6 +67,7 @@ module.exports = (app)->
 		WallpaperModel.findById paperId, (err, wallpaper)->
 			return next(err) if err
 
+			wallpaper.username = req.cookies.username 
 			res.render 'store/wallpaperDetail', wallpaper
 
 	# Download theme with statistic

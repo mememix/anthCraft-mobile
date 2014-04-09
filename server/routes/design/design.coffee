@@ -55,7 +55,7 @@ module.exports = (app, middlewares)->
 				}
 				packInfo: themeConfig.defaultPackInfo
 			}
-			result.username = req.user.userId
+			result.username = req.cookies.username
 			res.render 'design/index', result
 
 	app.get '/design/more/wallpaper', (req, res)->

@@ -46,4 +46,3 @@ this.designBuild = build
 
 wallpaper()
 iconset()
-build()

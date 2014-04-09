@@ -15,13 +15,13 @@ module.exports = (app, middlewares)->
 	app.post '/design/theme/:themeId/preview', middlewares.auth, (req, res, next)->
 		themeId = req.param('themeId')
 		packData = req.session.packData
-		packData.themeId = themeId
+		packData.packInfo.themeId = themeId
 
 		# Generate preview images and theme thumbnail
-		anthpack.preview packInfo, (err, previews, thumbnail)->
+		anthPack.preview packData.packInfo, (err, previews, thumbnail)->
 			return next(err) if err
 
-			packData = req.session.packData
+			# packData = req.session.packData
 			packData.meta.preview = previews
 			packData.meta.thumbnail = thumbnail
 

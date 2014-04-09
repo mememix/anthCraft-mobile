@@ -67,7 +67,7 @@ describe 'Http Server Test', ->
 				.expect 302
 				.end done
 
-	describe.skip 'AnthPack Test', ->
+	describe 'AnthPack Test', ->
 
 		it 'should upload wallpaper and return formatted image', (done)->
 
@@ -83,6 +83,15 @@ describe 'Http Server Test', ->
 
 		it.skip 'should chose the material as theme wallpaper', (done)->
 			# todo
+
+		it 'should return package theme preview images', (done)->
+			agent
+				.post("/design/theme/#{clientData.themeId}/preview")
+				.expect(200, (err, res)->
+					res.body.should.have.property('previewList').with.lengthOf(3)
+					res.body.should.have.property('thumbnail')
+					done()
+				)
 
 		it 'should package theme and return apk download url', (done)->
 			agent

@@ -125,6 +125,7 @@ exports.launch = (callback)->
 
 			# 500, When next(err)...
 			app.use (err, req, res, next)->
+				__logger.error err
 				res.status(500)
 				res.render '500', {
 					status: err.status or 500

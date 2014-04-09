@@ -92,6 +92,12 @@ exports.launch = (callback)->
 			app.use passport.initialize()
 			app.use passport.session()
 
+			# Make session avaliable in all views
+			app.use (req, res, next)->
+				req.session.user = req.user
+				res.locals.session = req.session || {}
+				next()
+
 			app.use app.router
 
 			# development only
@@ -121,12 +127,6 @@ exports.launch = (callback)->
 			cb()
 		]
 		load_routes: [ 'load_models', 'init_app', (cb)->
-
-			# Make session avaliable in all views
-			app.use (req, res, next)->
-				req.session.user = req.user
-				req.locals.session = req.session
-				next()
 
 			fileUtil.traverseFolderSync __config.routePath, /^[._]/, (isErr, file)->
 				__log 'load route: ', file

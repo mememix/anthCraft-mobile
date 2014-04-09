@@ -8,7 +8,7 @@
 	</div>
 	{{ wallpapers.forEach(function(wallpaper,index) { }}
 		<div class="col-xs-6">
-			<div class="layout-container">
+      <div class="layout-container" data-wpid="{{=wallpaper._id}}">
 				<div class="loader">
 					<img class="thum" src="{{RESOURCE_PATH}}{{wallpaper.files[0].path}}"></img>
 					<img class="loading" src="/images/default.png"></img>
@@ -19,7 +19,7 @@
 
 	{{ if(wallpapers && wallpapers.length) { }}
 	<div class="clearfix more">
-		<a class="btn cy-btn" href="/design/more/wallpaper?page=1">More</a>
+		<a class="btn cy-btn" href="/design/more/wallpaper?page=2">More</a>
 	</div>
 	{{ } }}
 </div>

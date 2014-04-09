@@ -1,5 +1,7 @@
+me = this
 scrollFinish = ()->
-  console.log arguments
+  me.designWallpaper()
+  me.designIconset()
 
 $('.scroll').jscroll({
   autoTrigger: false

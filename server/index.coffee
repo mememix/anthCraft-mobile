@@ -122,6 +122,12 @@ exports.launch = (callback)->
 		]
 		load_routes: [ 'load_models', 'init_app', (cb)->
 
+			# Make session avaliable in all views
+			app.use (req, res, next)->
+				req.session.user = req.user
+				req.locals.session = req.session
+				next()
+
 			fileUtil.traverseFolderSync __config.routePath, /^[._]/, (isErr, file)->
 				__log 'load route: ', file
 				if isErr

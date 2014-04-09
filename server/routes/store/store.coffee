@@ -29,7 +29,6 @@ module.exports = (app)->
 			res.render 'store/index', {
 				themes: results.themeList
 				wallpapers: results.wallpaperList
-				username: req.cookies.username 
 			}
 
 
@@ -58,7 +57,6 @@ module.exports = (app)->
 						src:"/images/detail.jpg"
 					}
 				]
-				username: req.cookies.username 
 			}
 
 	# Wallpaper detail page
@@ -67,7 +65,6 @@ module.exports = (app)->
 		WallpaperModel.findById paperId, (err, wallpaper)->
 			return next(err) if err
 
-			wallpaper.username = req.cookies.username 
 			res.render 'store/wallpaperDetail', wallpaper
 
 	# Download theme with statistic

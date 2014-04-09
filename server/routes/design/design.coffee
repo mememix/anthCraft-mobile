@@ -65,7 +65,7 @@ module.exports = (app, middlewares)->
 			return next(err) if err
 
 			#res.json result
-			res.render 'design/moreWallpaper',{ 
+			res.render 'design/moreWallpaper',{
 				wallpapers:result
 				next_page: ++page
 			}
@@ -77,7 +77,7 @@ module.exports = (app, middlewares)->
 			return next(err) if err
 
 			#res.json result
-			res.render 'design/moreIcon',{ 
+			res.render 'design/moreIcon',{
 				icons:result
 				next_page: ++page
 			}

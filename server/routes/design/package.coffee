@@ -119,16 +119,8 @@ module.exports = (app, middlewares)->
 			fs.unlink(imgPath)
 
 			# Update session data
-			packData.packInfo.wallpaper = {
-				wallpaper: {
-					capital: 'Wallpaper'
-					src: result
-				}
-				'wallpaper-hd': {
-					capital: 'Wallpaper'
-					src: result
-				}
-			}
+			packData.packInfo.wallpaper.wallpaper.src = result
+			packData.packInfo.wallpaper['wallpaper-hd'].src = result
 
 			# req.session.packData = packData
 
@@ -147,8 +139,8 @@ module.exports = (app, middlewares)->
 		WallpaperModel.findById wpId, (err, result)->
 			return next(err) if err
 
-			packData.packInfo.wallpaper.wallpaper = result.bigPath
-			packData.packInfo.wallpaper['wallpaper-hd'] = result.bigPath
+			packData.packInfo.wallpaper.wallpaper.src = result.bigPath
+			packData.packInfo.wallpaper['wallpaper-hd'].src = result.bigPath
 
 			# req.session.packData = packData
 

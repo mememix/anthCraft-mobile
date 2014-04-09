@@ -33,7 +33,7 @@ slide = (id,mu)->
 slide('slider','.menu-bar .btn')
 
 #sub slider
-slide('sub-slider','.sub-menu-bar .btn')
+#slide('sub-slider','.sub-menu-bar .btn')
 
 me.slide = slide
 

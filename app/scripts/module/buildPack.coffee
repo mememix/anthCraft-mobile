@@ -51,7 +51,13 @@ build = ()->
              </div>
         </div>
         """
+        menu += """
+          <a class="cy-dot-btn btn" role="button">
+          </a>
+        """
       $('#sub-slider .swipe-wrap').empty().html(preview)
+      $('#sub-slider .sub-menu-bar').empty().html(preview)
+      me.slide('sub-slider','.sub-menu-bar .btn')
   )
 
 

@@ -14,9 +14,13 @@ module.exports = {
 
 	resourcePath: "/home/webadmin/anthCraft-dist/public/resources"
 	viewVars: {
-		RESOURCE_PATH: '/resources'
-		WALLPAPER_PATH: '/resources/wallpaper'
-		THEME_PATH: '/resources/themes'
+		RESOURCE_PATH: 'http://test.designer.c-launcher.com/resources'
+		UPLOAD_PATH: 'http://test.designer.c-launcher.com/resources/upload'
+		WALLPAPER_PATH: 'http://test.designer.c-launcher.com/resources/wallpaper/img'
+		THEME_PATH: 'http://test.designer.c-launcher.com/resources/themes'
+		THEME_THUMBNAIL_PATH: 'http://test.designer.c-launcher.com/resources/thumbnail'
+		THEME_PREVIEW_PATH: 'http://test.designer.c-launcher.com/resources/preview'
+		ICONSET_PATH: 'http://test.designer.c-launcher.com/resources/upload'
 	}
 
 	mongodb: {
@@ -33,7 +37,7 @@ module.exports = {
 			# http://10.12.0.71:8080/shop/user/login3.do?username=chenhua&password=asdf1234(本地访问)
 			validateUser: {
 				host: 'localhost',
-				port: 9527,
+				port: 3721,
 				path: '/user/login3.do',
 				method: 'GET',
 				headers: {
@@ -46,7 +50,7 @@ module.exports = {
 			# http://10.12.0.71:8080/shop/user/register2.do?email=&username=&password=&source=4(本地访问)
 			registerUser: {
 			    host: 'localhost',
-			    port: 9527,
+			    port: 3721,
 			    path: '/user/register2.do',
 			    method: 'GET',
 			    headers: {
@@ -54,6 +58,15 @@ module.exports = {
 			    }
 			}
 		}
+	}
+
+	anthPack: {
+		base_path: "/home/webadmin/anthCraft-dist/public/resources"
+		package_path: "/resources/themes"
+		develop_path: "/resources/upload"
+		preview_path: "/resources/preview"
+		thumb_path: "/resources/thumbnail"
+		archive_path: "/resources/themeArchives"
 	}
 
 	log4js: {

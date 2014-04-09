@@ -166,4 +166,3 @@ module.exports = (app, middlewares)->
 			res.json {
 				success: true
 			}
-

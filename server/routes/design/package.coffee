@@ -93,6 +93,7 @@ module.exports = (app, middlewares)->
 				res.render 'design/packageSuccess', {
 					success: true
 					themeId: themeId
+					fileName: results.title
 					apkFile: results.packageFile[4]
 				}
 

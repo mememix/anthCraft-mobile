@@ -25,59 +25,48 @@ module.exports = (app, middlewares)->
 
 			themeId: (cb)->
 				cb null, mongoose.Types.ObjectId.createPk()
-			screens: (cb)->
-				cb null, [
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-				]
-		}, (err, result)->
+			theme: (cb)->
+        cb null, {
+          preview :
+            [
+              "/images/detail.jpg"
+            ]
+        }
+    }, (err, result)->
 
-			return next(err) if err
+      return next(err) if err
 
-			# Create packData in session
-			req.session.packData = {
-				meta: {
-					_id: result.themeId
-					userId: req.user.userId
-				}
-				packInfo: themeConfig.defaultPackInfo
-			}
-			result.username = req.cookies.username
-			res.render 'design/index', result
+      # Create packData in session
+      req.session.packData = {
+        meta: {
+          _id: result.themeId
+          userId: req.user.userId
+        }
+        packInfo: themeConfig.defaultPackInfo
+      }
+      result.username = req.cookies.username
+      res.render 'design/index', result
 
-	app.get '/design/more/wallpaper', (req, res)->
-		page = req.param('page') || 1
-		pageVolumn = 6
-		MaterialModel.listWallpaperByPage page, pageVolumn, (err, result)->
-			return next(err) if err
+  app.get '/design/more/wallpaper', (req, res)->
+    page = req.param('page') || 1
+    pageVolumn = 6
+    MaterialModel.listWallpaperByPage page, pageVolumn, (err, result)->
+      return next(err) if err
 
-			#res.json result
-			res.render 'design/moreWallpaper',{
-				wallpapers:result
-				next_page: ++page
-			}
+      #res.json result
+      res.render 'design/moreWallpaper',{
+        wallpapers:result
+        next_page: ++page
+      }
 
-	app.get '/design/more/iconset', (req, res)->
-		page = req.param('page')
-		pageVolumn = 6
-		IconSetModel.listByPage page, pageVolumn, (err, result)->
-			return next(err) if err
+  app.get '/design/more/iconset', (req, res)->
+    page = req.param('page')
+    pageVolumn = 6
+    IconSetModel.listByPage page, pageVolumn, (err, result)->
+      return next(err) if err
 
-			#res.json result
-			res.render 'design/moreIcon',{
-				iconSets:result
-				next_page: ++page
-			}
+      #res.json result
+      res.render 'design/moreIcon',{
+        iconSets:result
+        next_page: ++page
+      }

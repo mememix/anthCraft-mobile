@@ -41,23 +41,6 @@ module.exports = (app)->
 
 			res.render 'store/themeDetail', {
 				theme: theme
-				screens:[
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-					{
-						src:"/images/detail.jpg"
-					}
-				]
 			}
 
 	# Wallpaper detail page

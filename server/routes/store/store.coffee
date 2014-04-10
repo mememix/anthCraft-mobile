@@ -39,6 +39,9 @@ module.exports = (app)->
 		ThemeModel.findById themeId, (err, theme)->
 			return next(err) if err
 
+			if theme?.packageFile?[4]
+				return next( new Error('Theme Not Found'))
+
 			res.render 'store/themeDetail', {
 				theme: theme
 			}

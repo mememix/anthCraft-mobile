@@ -1,5 +1,6 @@
+me = this
+swap = slide('#slider','.menu-bar .btn')
 select = (s,cb)->
-  me = this
   eles = $(s)
   activeElement = $(eles[0])
   activeElement.addClass('selected')
@@ -15,7 +16,7 @@ select = (s,cb)->
 
 themeid = $('.page-package').data('themeid')
 
-#step 1: select wallpaper 
+#step 1: select wallpaper
 wallpaper = ()->
   select.call this,'.wallpaper .layout-container',(ele)->
     wpId = ele.data('wpid')
@@ -23,9 +24,10 @@ wallpaper = ()->
       url:'/design/theme/' + themeid + '/chose/wallpaper/' + wpId
       type: 'PUT'
     })
+    swap.slide(1)
 this.designWallpaper = wallpaper
 
-#step 2: select iconset 
+#step 2: select iconset
 iconset = ()->
   select.call this,'.icon-container .layout-container',(ele)->
     iconset = ele.data('iconset')
@@ -33,15 +35,18 @@ iconset = ()->
       url:'/design/theme/' + themeid + '/chose/iconset/' + iconset
       type: 'PUT'
     })
+    swap.slide(2)
 this.designIconset  = iconset
 
-#step 3: preview package and build a package 
+#step 3: preview package and build a package
 build = ()->
   $.ajax({
     url:'/design/theme/' + themeid + '/preview'
     type: 'POST'
+    dataType: 'json'
   }).done((data)->
       prefix = $('#sub-slider').data('prefix')
+      preview = menu = ""
       for url in data.previewList
         preview += """
         <div class="preview-container">
@@ -56,7 +61,7 @@ build = ()->
           </a>
         """
       $('#sub-slider .swipe-wrap').empty().html(preview)
-      $('#sub-slider .sub-menu-bar').empty().html(preview)
+      $('.theme-preview .sub-menu-bar').empty().html(menu)
       me.slide('#sub-slider','.sub-menu-bar .btn')
   )
 

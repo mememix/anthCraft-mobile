@@ -22,26 +22,26 @@ slide = (id,mu)->
     stopPropagation: true
     callback: (index, elem)->
       menus[activeNo].className = menus[activeNo].className.replace(' active','')
-      menus[index].className += ' active' 
+      menus[index].className += ' active'
       activeNo = index
       if $(elem).hasClass('buildpack')
         me.designBuild()
     transitionEnd: (index, elem)->
   })
+  return swip
 
 #master slider
 slide('#slider','.menu-bar .btn')
 
 #sub slider
 slide('.theme-detail #sub-slider','.sub-menu-bar .btn')
-
 me.slide = slide
 
 
 #prevent default on tag <a href=""></a>
 stopClick = (s,d)->
   end = start = 0;
-  diff = d || 5 
+  diff = d || 5
 
   $(s).bind('touchstart',(e)->
     end = start = e.originalEvent.touches[0].clientX

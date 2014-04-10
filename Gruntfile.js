@@ -536,7 +536,7 @@ module.exports = function (grunt) {
                 'coffee',
                 // 'compass:dist',
                 'less:dist',
-                // 'imagemin',
+                'imagemin',
                 // 'svgmin',
                 'htmlmin'
             ]

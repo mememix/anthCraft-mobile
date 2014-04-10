@@ -16,8 +16,12 @@ module.exports = {
 
 	viewVars: {
 		RESOURCE_PATH: 'http://test.designer.c-launcher.com/resources'
-		WALLPAPER_PATH: 'http://test.designer.c-launcher.com/resources/wallpaper'
+		UPLOAD_PATH: 'http://test.designer.c-launcher.com/resources/upload'
+		WALLPAPER_PATH: 'http://test.designer.c-launcher.com/resources/wallpaper/img'
 		THEME_PATH: 'http://test.designer.c-launcher.com/resources/themes'
+		THEME_THUMBNAIL_PATH: 'http://test.designer.c-launcher.com/resources/thumbnail'
+		THEME_PREVIEW_PATH: 'http://test.designer.c-launcher.com/resources/preview'
+		ICONSET_PATH: 'http://test.designer.c-launcher.com/resources/upload'
 	}
 
 	mongodb: {

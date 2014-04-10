@@ -1,28 +1,41 @@
 @import '../common/variables.less';
 
 .diy {
-	.bg {
-		background: url('/images/bg.png') center top no-repeat;
-		background-size: 100%;
-	}
-	h1 {
-		font-size: 60px;
-		line-height: 80px;
-		color: @title-green;
-	}
-	.logo {
-		text-align: center;
-		margin-top: 60px;
-		height: 256px;
-		background: url('/images/icon.png') center top no-repeat;
-		a {
-			margin-top: 70px;
-			.logo(110px,110px,100%);
-		}
-	}
-	.button {
-		height: 227px;
-		margin-top: 97px;
-		background: url('/images/bg.jpg') center top no-repeat;
-	}
+  .bg {
+    background: url('/images/bg.png') center top no-repeat;
+    background-size: 100%;
+  }
+  h1 {
+    font-size: 60px;
+    line-height: 80px;
+    color: @title-green;
+  }
+  .logo {
+    text-align: center;
+    margin-top: 60px;
+    height: 256px;
+    background: url('/images/icon.png') center top no-repeat;
+    a {
+      margin-top: 70px;
+      .logo(110px,110px,100%);
+    }
+  }
+  .button {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    background: url('/images/bg.jpg') center top no-repeat;
+    background-size: cover;
+  }
+
+  .btn.cy-btn {
+    height: 71px;
+    line-height: 53px;
+    width: 400px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
 }

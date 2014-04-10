@@ -8,7 +8,7 @@ module.exports = {
 	liveReloadPort: 35729
 	host: '0.0.0.0'
 
-	resourcePath: "e:/worktop/anthCraft/app/resources"
+	resourcePath: "worktop/anthCraft/app/resources"
 
 	routePath: "#{basePath}/server/routes"
 	modelPath: "#{basePath}/server/models"
@@ -62,7 +62,7 @@ module.exports = {
 	}
 
 	anthPack: {
-		base_path: "e:/worktop/anthCraft/app/"
+		base_path: "worktop/anthCraft/app/"
 		package_path: "/resources/themes"
 		develop_path: "/resources/upload"
 		preview_path: "/resources/preview"

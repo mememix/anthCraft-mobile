@@ -30,11 +30,11 @@ slide = (id,mu)->
   })
   return swip
 
-#master slider
-slide('#slider','.menu-bar .btn')
+#store page slider
+slide('.page-store #slider','.page-store .menu-bar .btn')
 
-#sub slider
-slide('.theme-detail #sub-slider','.sub-menu-bar .btn')
+#themeDetail page slider
+slide('.theme-detail #sub-slider','.theme-detail .sub-menu-bar .btn')
 me.slide = slide
 
 

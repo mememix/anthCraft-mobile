@@ -1,5 +1,5 @@
 me = this
-swap = slide('#slider','.menu-bar .btn')
+swap = slide('.page-package #slider','.page-package .menu-bar .btn')
 select = (s,cb)->
   eles = $(s)
   activeElement = $(eles[0])

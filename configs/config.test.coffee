@@ -25,6 +25,10 @@ module.exports = {
 	mongodb: {
 		url: "mongodb://admin:123@10.127.129.88:27017/anthcraft"
 	}
+	memcached: {
+		hosts: [ "10.127.129.88:11211" ]
+		prefix: 'anthCraft-mobile'
+	}
 
 	apiService: {
 		account: {

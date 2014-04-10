@@ -16,7 +16,8 @@
     "get-methodoverride": "~0.1.2",
     "filesize": "~2.0.3",
     "chalk": "~0.4.0",
-    "moment": "~2.5.1"
+    "moment": "~2.5.1",
+    "connect-memcached": "0.0.6"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

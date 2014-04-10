@@ -12,7 +12,6 @@ module.exports = {
 	modelPath: "#{basePath}/server/models"
 	viewPath: "#{basePath}/views"
 
-	resourcePath: "/home/webadmin/anthCraft-dist/public/resources"
 	viewVars: {
 		RESOURCE_PATH: 'http://test.designer.c-launcher.com/resources'
 		UPLOAD_PATH: 'http://test.designer.c-launcher.com/resources/upload'

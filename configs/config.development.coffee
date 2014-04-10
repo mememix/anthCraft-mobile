@@ -12,7 +12,6 @@ module.exports = {
 	modelPath: "#{basePath}/server/models"
 	viewPath: "#{basePath}/views"
 
-	resourcePath: "worktop/anthCraft/app/resources"
 	viewVars: {
 		RESOURCE_PATH: 'http://test.designer.c-launcher.com/resources'
 		UPLOAD_PATH: 'http://test.designer.c-launcher.com/resources/upload'
@@ -62,7 +61,7 @@ module.exports = {
 	}
 
 	anthPack: {
-		base_path: "worktop/anthCraft/app/"
+		base_path: "/worktop/anthCraft/app/"
 		package_path: "/resources/themes"
 		develop_path: "/resources/upload"
 		preview_path: "/resources/preview"

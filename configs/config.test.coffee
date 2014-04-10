@@ -8,8 +8,6 @@ module.exports = {
 	liveReloadPort: 35729
 	host: '0.0.0.0'
 
-	resourcePath: "worktop/anthCraft/app/resources"
-
 	routePath: "#{basePath}/server/routes"
 	modelPath: "#{basePath}/server/models"
 	viewPath: "#{basePath}/views"

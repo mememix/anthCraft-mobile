@@ -14,6 +14,7 @@
 .icon-yes:before { content: '\e82a'; } /* '' */
 .icon-spin4:before { content: '\e810'; } /* '' */
 .icon-picture:before { content: '\e82e'; } /* '' */
+.icon-camera:before { content: '\e836'; } /* '' */
 .icon-link-ext:before { content: '\e830'; } /* '' */
 .icon-reply:before { content: '\e804'; } /* '' */
 .icon-edit-1:before { content: '\e812'; } /* '' */
@@ -25,8 +26,8 @@
 .icon-dollar:before { content: '\e835'; } /* '' */
 .icon-smile:before { content: '\e813'; } /* '' */
 .icon-frown:before { content: '\e814'; } /* '' */
-.icon-meh:before { content: '\e815'; } /* '' */
 .icon-undo:before { content: '\e81a'; } /* '' */
+.icon-preview:before { content: '\e80b'; } /* '' */
 .icon-user:before { content: '\e80e'; } /* '' */
 .icon-help:before { content: '\e80c'; } /* '' */
 .icon-tools:before { content: '\e806'; } /* '' */
@@ -52,4 +53,4 @@
 .icon-adult:before { content: '\e82c'; } /* '' */
 .icon-t-shirt:before { content: '\e834'; } /* '' */
 .icon-cancel:before { content: '\e80d'; } /* '' */
-.icon-preview:before { content: '\e80b'; } /* '' */
+.icon-meh:before { content: '\e815'; } /* '' */

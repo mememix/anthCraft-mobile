@@ -1,0 +1,217 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Node\\node\\\\node.exe',
+1 verbose cli   'D:\\Node\\node\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.3.21
+3 info using node@v0.10.24
+4 verbose node symlink D:\Node\node\\node.exe
+5 warn package.json anthcraft-mobile@v0.1.0-140415 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'D:\\workSpace\\anthCraft-mobile',
+7 verbose install   [ 'coffee-script',
+7 verbose install     'async',
+7 verbose install     'express',
+7 verbose install     'connect-livereload',
+7 verbose install     'ejs',
+7 verbose install     'mongoose',
+7 verbose install     'log4js',
+7 verbose install     'passport',
+7 verbose install     'passport-local',
+7 verbose install     'connect-flash',
+7 verbose install     'anthpack',
+7 verbose install     'get-methodoverride',
+7 verbose install     'filesize',
+7 verbose install     'chalk',
+7 verbose install     'moment',
+7 verbose install     'grunt',
+7 verbose install     'grunt-contrib-copy',
+7 verbose install     'grunt-contrib-concat',
+7 verbose install     'grunt-contrib-coffee',
+7 verbose install     'grunt-contrib-uglify',
+7 verbose install     'grunt-contrib-compass',
+7 verbose install     'grunt-contrib-jshint',
+7 verbose install     'grunt-browser-sync',
+7 verbose install     'jshint-stylish',
+7 verbose install     'grunt-contrib-cssmin',
+7 verbose install     'grunt-contrib-connect',
+7 verbose install     'grunt-contrib-clean',
+7 verbose install     'grunt-notify',
+7 verbose install     'grunt-contrib-htmlmin',
+7 verbose install     'grunt-bower-requirejs',
+7 verbose install     'grunt-contrib-requirejs',
+7 verbose install     'grunt-contrib-imagemin',
+7 verbose install     'grunt-contrib-watch',
+7 verbose install     'grunt-rev',
+7 verbose install     'grunt-usemin',
+7 verbose install     'grunt-mocha',
+7 verbose install     'grunt-open',
+7 verbose install     'grunt-svgmin',
+7 verbose install     'grunt-concurrent',
+7 verbose install     'load-grunt-tasks',
+7 verbose install     'time-grunt',
+7 verbose install     'grunt-webp',
+7 verbose install     'grunt-modernizr',
+7 verbose install     'grunt-autoshot',
+7 verbose install     'grunt-responsive-images',
+7 verbose install     'grunt-contrib-less',
+7 verbose install     'jpegtran-bin',
+7 verbose install     'grunt-express-server',
+7 verbose install     'gifsicle',
+7 verbose install     'cheerio' ] ]
+8 info preinstall anthcraft-mobile@0.1.0-140415
+9 verbose readDependencies using package.json deps
+10 verbose already installed skipping coffee-script@~1.7.1 D:\workSpace\anthCraft-mobile
+11 verbose already installed skipping async@~0.6.2 D:\workSpace\anthCraft-mobile
+12 verbose already installed skipping express@~3.5.1 D:\workSpace\anthCraft-mobile
+13 verbose already installed skipping connect-livereload@~0.1.4 D:\workSpace\anthCraft-mobile
+14 verbose already installed skipping ejs@~1.0.0 D:\workSpace\anthCraft-mobile
+15 verbose already installed skipping mongoose@~3.8.8 D:\workSpace\anthCraft-mobile
+16 verbose already installed skipping log4js@~0.6.12 D:\workSpace\anthCraft-mobile
+17 verbose already installed skipping grunt-contrib-copy@~0.4.1 D:\workSpace\anthCraft-mobile
+18 verbose already installed skipping passport@~0.2.0 D:\workSpace\anthCraft-mobile
+19 verbose already installed skipping grunt-contrib-concat@~0.3.0 D:\workSpace\anthCraft-mobile
+20 verbose already installed skipping passport-local@~1.0.0 D:\workSpace\anthCraft-mobile
+21 verbose already installed skipping grunt-contrib-coffee@~0.7.0 D:\workSpace\anthCraft-mobile
+22 verbose already installed skipping connect-flash@~0.1.1 D:\workSpace\anthCraft-mobile
+23 verbose already installed skipping grunt-contrib-uglify@~0.2.0 D:\workSpace\anthCraft-mobile
+24 verbose already installed skipping anthpack@~2.0.8 D:\workSpace\anthCraft-mobile
+25 verbose already installed skipping grunt-contrib-compass@~0.7.0 D:\workSpace\anthCraft-mobile
+26 verbose already installed skipping get-methodoverride@~0.1.2 D:\workSpace\anthCraft-mobile
+27 verbose already installed skipping grunt-contrib-jshint@~0.7.0 D:\workSpace\anthCraft-mobile
+28 verbose already installed skipping filesize@~2.0.3 D:\workSpace\anthCraft-mobile
+29 verbose already installed skipping grunt-browser-sync@~0.5.7 D:\workSpace\anthCraft-mobile
+30 verbose already installed skipping chalk@~0.4.0 D:\workSpace\anthCraft-mobile
+31 verbose cache add [ 'moment@~2.5.1', null ]
+32 verbose cache add name=undefined spec="moment@~2.5.1" args=["moment@~2.5.1",null]
+33 verbose parsed url { protocol: null,
+33 verbose parsed url   slashes: null,
+33 verbose parsed url   auth: null,
+33 verbose parsed url   host: null,
+33 verbose parsed url   port: null,
+33 verbose parsed url   hostname: null,
+33 verbose parsed url   hash: null,
+33 verbose parsed url   search: null,
+33 verbose parsed url   query: null,
+33 verbose parsed url   pathname: 'moment@~2.5.1',
+33 verbose parsed url   path: 'moment@~2.5.1',
+33 verbose parsed url   href: 'moment@~2.5.1' }
+34 verbose cache add name="moment" spec="~2.5.1" args=["moment","~2.5.1"]
+35 verbose parsed url { protocol: null,
+35 verbose parsed url   slashes: null,
+35 verbose parsed url   auth: null,
+35 verbose parsed url   host: null,
+35 verbose parsed url   port: null,
+35 verbose parsed url   hostname: null,
+35 verbose parsed url   hash: null,
+35 verbose parsed url   search: null,
+35 verbose parsed url   query: null,
+35 verbose parsed url   pathname: '~2.5.1',
+35 verbose parsed url   path: '~2.5.1',
+35 verbose parsed url   href: '~2.5.1' }
+36 verbose addNamed [ 'moment', '~2.5.1' ]
+37 verbose addNamed [ null, '>=2.5.1-0 <2.6.0-0' ]
+38 verbose already installed skipping grunt@~0.4.1 D:\workSpace\anthCraft-mobile
+39 silly lockFile 10e95e81-moment-2-5-1 moment@~2.5.1
+40 verbose lock moment@~2.5.1 C:\Users\xiatian\AppData\Roaming\npm-cache\10e95e81-moment-2-5-1.lock
+41 silly addNameRange { name: 'moment', range: '>=2.5.1-0 <2.6.0-0', hasData: false }
+42 verbose url raw moment
+43 verbose url resolving [ 'http://registry.cnpmjs.org/', './moment' ]
+44 verbose url resolved http://registry.cnpmjs.org/moment
+45 info trying registry request attempt 1 at 10:34:48
+46 http GET http://registry.cnpmjs.org/moment
+47 info retry will retry, error on last attempt: Error: Invalid protocol
+48 verbose already installed skipping grunt-contrib-watch@~0.4.0 D:\workSpace\anthCraft-mobile
+49 verbose already installed skipping jshint-stylish@~0.1.5 D:\workSpace\anthCraft-mobile
+50 verbose already installed skipping grunt-contrib-cssmin@~0.7.0 D:\workSpace\anthCraft-mobile
+51 verbose already installed skipping grunt-rev@~0.1.0 D:\workSpace\anthCraft-mobile
+52 verbose already installed skipping grunt-contrib-connect@~0.5.0 D:\workSpace\anthCraft-mobile
+53 verbose already installed skipping grunt-usemin@~0.1.10 D:\workSpace\anthCraft-mobile
+54 verbose already installed skipping grunt-contrib-clean@~0.5.0 D:\workSpace\anthCraft-mobile
+55 verbose already installed skipping grunt-mocha@~0.4.0 D:\workSpace\anthCraft-mobile
+56 verbose already installed skipping grunt-notify@~0.2.16 D:\workSpace\anthCraft-mobile
+57 verbose already installed skipping grunt-open@~0.2.0 D:\workSpace\anthCraft-mobile
+58 verbose already installed skipping grunt-contrib-htmlmin@~0.1.3 D:\workSpace\anthCraft-mobile
+59 verbose already installed skipping grunt-svgmin@~0.2.0 D:\workSpace\anthCraft-mobile
+60 verbose already installed skipping grunt-bower-requirejs@~0.4.1 D:\workSpace\anthCraft-mobile
+61 verbose already installed skipping grunt-contrib-requirejs@~0.4.0 D:\workSpace\anthCraft-mobile
+62 verbose already installed skipping grunt-contrib-imagemin@~0.2.0 D:\workSpace\anthCraft-mobile
+63 verbose already installed skipping grunt-express-server@~0.4.13 D:\workSpace\anthCraft-mobile
+64 verbose already installed skipping grunt-concurrent@~0.4.0 D:\workSpace\anthCraft-mobile
+65 verbose already installed skipping gifsicle@~0.1.5 D:\workSpace\anthCraft-mobile
+66 verbose already installed skipping load-grunt-tasks@~0.2.0 D:\workSpace\anthCraft-mobile
+67 verbose cache add [ 'cheerio@~0.14.0', null ]
+68 verbose cache add name=undefined spec="cheerio@~0.14.0" args=["cheerio@~0.14.0",null]
+69 verbose parsed url { protocol: null,
+69 verbose parsed url   slashes: null,
+69 verbose parsed url   auth: null,
+69 verbose parsed url   host: null,
+69 verbose parsed url   port: null,
+69 verbose parsed url   hostname: null,
+69 verbose parsed url   hash: null,
+69 verbose parsed url   search: null,
+69 verbose parsed url   query: null,
+69 verbose parsed url   pathname: 'cheerio@~0.14.0',
+69 verbose parsed url   path: 'cheerio@~0.14.0',
+69 verbose parsed url   href: 'cheerio@~0.14.0' }
+70 verbose cache add name="cheerio" spec="~0.14.0" args=["cheerio","~0.14.0"]
+71 verbose parsed url { protocol: null,
+71 verbose parsed url   slashes: null,
+71 verbose parsed url   auth: null,
+71 verbose parsed url   host: null,
+71 verbose parsed url   port: null,
+71 verbose parsed url   hostname: null,
+71 verbose parsed url   hash: null,
+71 verbose parsed url   search: null,
+71 verbose parsed url   query: null,
+71 verbose parsed url   pathname: '~0.14.0',
+71 verbose parsed url   path: '~0.14.0',
+71 verbose parsed url   href: '~0.14.0' }
+72 verbose addNamed [ 'cheerio', '~0.14.0' ]
+73 verbose addNamed [ null, '>=0.14.0-0 <0.15.0-0' ]
+74 silly lockFile 410683e1-cheerio-0-14-0 cheerio@~0.14.0
+75 verbose lock cheerio@~0.14.0 C:\Users\xiatian\AppData\Roaming\npm-cache\410683e1-cheerio-0-14-0.lock
+76 verbose already installed skipping time-grunt@~0.2.0 D:\workSpace\anthCraft-mobile
+77 verbose already installed skipping grunt-webp@~0.0.1 D:\workSpace\anthCraft-mobile
+78 verbose already installed skipping grunt-modernizr@~0.3.0 D:\workSpace\anthCraft-mobile
+79 verbose already installed skipping grunt-autoshot@~0.2.0 D:\workSpace\anthCraft-mobile
+80 verbose already installed skipping grunt-responsive-images@~0.0.3 D:\workSpace\anthCraft-mobile
+81 verbose already installed skipping grunt-contrib-less@~0.11.0 D:\workSpace\anthCraft-mobile
+82 verbose already installed skipping jpegtran-bin@~0.2.6 D:\workSpace\anthCraft-mobile
+83 silly addNameRange { name: 'cheerio',
+83 silly addNameRange   range: '>=0.14.0-0 <0.15.0-0',
+83 silly addNameRange   hasData: false }
+84 verbose url raw cheerio
+85 verbose url resolving [ 'http://registry.cnpmjs.org/', './cheerio' ]
+86 verbose url resolved http://registry.cnpmjs.org/cheerio
+87 info trying registry request attempt 1 at 10:34:48
+88 verbose etag "9GPZY3ZJ91O5AICGXA8PUE4X2"
+89 http GET http://registry.cnpmjs.org/cheerio
+90 info retry will retry, error on last attempt: Error: Invalid protocol
+91 info trying registry request attempt 2 at 10:34:58
+92 http GET http://registry.cnpmjs.org/moment
+93 info retry will retry, error on last attempt: Error: Invalid protocol
+94 info trying registry request attempt 2 at 10:34:58
+95 verbose etag "9GPZY3ZJ91O5AICGXA8PUE4X2"
+96 http GET http://registry.cnpmjs.org/cheerio
+97 info retry will retry, error on last attempt: Error: Invalid protocol
+98 info trying registry request attempt 3 at 10:35:58
+99 http GET http://registry.cnpmjs.org/moment
+100 silly lockFile 10e95e81-moment-2-5-1 moment@~2.5.1
+101 silly lockFile 10e95e81-moment-2-5-1 moment@~2.5.1
+102 error Error: Invalid protocol
+102 error     at Request.init (D:\Node\node\node_modules\npm\node_modules\request\request.js:335:51)
+102 error     at new Request (D:\Node\node\node_modules\npm\node_modules\request\request.js:99:8)
+102 error     at request (D:\Node\node\node_modules\npm\node_modules\request\index.js:55:11)
+102 error     at RegClient.makeRequest (D:\Node\node\node_modules\npm\node_modules\npm-registry-client\lib\request.js:211:13)
+102 error     at RegClient.<anonymous> (D:\Node\node\node_modules\npm\node_modules\npm-registry-client\lib\request.js:117:17)
+102 error     at null._onTimeout (D:\Node\node\node_modules\npm\node_modules\retry\lib\retry_operation.js:32:10)
+102 error     at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)
+103 error If you need help, you may report this *entire* log,
+103 error including the npm and node versions, at:
+103 error     <http://github.com/isaacs/npm/issues>
+104 error System Windows_NT 6.1.7601
+105 error command "D:\\Node\\node\\\\node.exe" "D:\\Node\\node\\node_modules\\npm\\bin\\npm-cli.js" "install"
+106 error cwd D:\workSpace\anthCraft-mobile
+107 error node -v v0.10.24
+108 error npm -v 1.3.21
+109 verbose exit [ 1, true ]

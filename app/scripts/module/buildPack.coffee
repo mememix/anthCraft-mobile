@@ -57,7 +57,7 @@ build = ()->
         """
       $('#sub-slider .swipe-wrap').empty().html(preview)
       $('#sub-slider .sub-menu-bar').empty().html(preview)
-      me.slide('sub-slider','.sub-menu-bar .btn')
+      me.slide('#sub-slider','.sub-menu-bar .btn')
   )
 
 

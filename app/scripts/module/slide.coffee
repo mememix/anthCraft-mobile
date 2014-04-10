@@ -16,7 +16,7 @@ slide = (id,mu)->
 
   onclick menu,index for menu,index in menus
 
-  swip = new Swipe(document.getElementById(id),{
+  swip = new Swipe(document.querySelector(id),{
     continuous: false
     disableScroll: false
     stopPropagation: true
@@ -30,10 +30,10 @@ slide = (id,mu)->
   })
 
 #master slider
-slide('slider','.menu-bar .btn')
+slide('#slider','.menu-bar .btn')
 
 #sub slider
-#slide('sub-slider','.sub-menu-bar .btn')
+slide('.theme-detail #sub-slider','.sub-menu-bar .btn')
 
 me.slide = slide
 

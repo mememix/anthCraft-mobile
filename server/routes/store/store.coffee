@@ -36,10 +36,11 @@ module.exports = (app)->
 	# Theme detail page
 	app.get '/store/theme/:id', (req, res, next)->
 		themeId = req.param('id')
+
 		ThemeModel.findById themeId, (err, theme)->
 			return next(err) if err
 
-			if theme?.packageFile?[4]
+			if not theme?.packageFile?[4]
 				return next( new Error('Theme Not Found'))
 
 			res.render 'store/themeDetail', {

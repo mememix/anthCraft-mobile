@@ -78,7 +78,7 @@ exports.launch = (callback)->
 
 			app.use express.cookieParser()
 			app.use express.bodyParser()
-			app.use express.session({
+			app.use express.cookieSession({
 				secret: "anthcraft-mobile"
 				# Session keep 1h alive
 				cookie: { maxAge: 60 * 60 * 1000 }

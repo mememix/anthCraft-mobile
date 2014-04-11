@@ -85,7 +85,7 @@ module.exports = (app)->
 		}, req.session.clientInfo))
 
 		statistic.save (err)->
-			__debug err if err
+			__logger.error err if err
 
 			# to the real file url
 			res.redirect __config.viewVars.THEME_PATH + downloadPath
@@ -108,7 +108,7 @@ module.exports = (app)->
 		}, req.session.clientInfo))
 
 		statistic.save (err)->
-			__debug err if err
+			__logger.error err if err
 
 			# to the real file url
 			res.redirect __config.viewVars.WALLPAPER_PATH + downloadPath

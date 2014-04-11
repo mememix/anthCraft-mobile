@@ -40,9 +40,9 @@ module.exports = {
 			# http://test.themes.c-launcher.com/user/login3.do?username=chenhua&password=asdf1234(测试路径)
 			# http://10.12.0.71:8080/shop/user/login3.do?username=chenhua&password=asdf1234(本地访问)
 			validateUser: {
-				host: 'localhost',
-				port: 9527,
-				path: '/user/login3.do',
+				host: '10.12.0.71',
+				port: 8080,
+				path: '/shop/user/login3.do',
 				method: 'GET',
 				headers: {
 					accept: 'application/json'
@@ -53,18 +53,19 @@ module.exports = {
 			# http://test.themes.c-launcher.com/user/register2.do?email=&username=&password=&source=4(测试路径)
 			# http://10.12.0.71:8080/shop/user/register2.do?email=&username=&password=&source=4(本地访问)
 			registerUser: {
-			    host: 'localhost',
-			    port: 9527,
-			    path: '/user/register2.do',
-			    method: 'GET',
-			    headers: {
-			        accept: 'application/json'
-			    }
+				host: '10.12.0.71',
+				port: 8080,
+				path: '/shop/user/register2.do',
+				method: 'GET',
+				headers: {
+					accept: 'application/json'
+				}
 			}
 		}
 	}
 
 	anthPack: {
+		debug_mode: true
 		base_path: "worktop/anthCraft/app/"
 		package_path: "/resources/themes"
 		develop_path: "/resources/upload"

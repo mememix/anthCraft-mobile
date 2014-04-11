@@ -9,6 +9,16 @@ async = require 'async'
 module.exports = (app)->
 
 	app.get '/', (req, res)->
+		# Read statistics data from query string
+		serial = req.param('serial')
+		userIp = req.headers['X-Real-IP'] || req.connection.remoteAddress
+		__log "New visitor with ip[#{userIp}] and IMEI[#{serial}]. "
+
+		req.session.clientInfo = {
+			serial: serial
+			userMac: userIp
+		}
+
 		res.redirect '/store'
 
 	# Store index page

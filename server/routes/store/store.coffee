@@ -9,6 +9,16 @@ async = require 'async'
 module.exports = (app)->
 
 	app.get '/', (req, res)->
+		# Read statistics data from query string
+		serial = req.param('serial')
+		userIp = req.headers['X-Real-IP'] || req.connection.remoteAddress
+		__log "New visitor with ip[#{userIp}] and IMEI[#{serial}]. "
+
+		req.session.clientInfo = {
+			serial: serial
+			userMac: userIp
+		}
+
 		res.redirect '/store'
 
 	# Store index page
@@ -75,7 +85,7 @@ module.exports = (app)->
 		}, req.session.clientInfo))
 
 		statistic.save (err)->
-			__debug err if err
+			__logger.error err if err
 
 			# to the real file url
 			res.redirect __config.viewVars.THEME_PATH + downloadPath
@@ -98,7 +108,7 @@ module.exports = (app)->
 		}, req.session.clientInfo))
 
 		statistic.save (err)->
-			__debug err if err
+			__logger.error err if err
 
 			# to the real file url
 			res.redirect __config.viewVars.WALLPAPER_PATH + downloadPath

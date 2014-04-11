@@ -38,6 +38,7 @@ module.exports = {
 
 	anthPack: {
 		#!! 资源文件夹路径（与anthCraft-dist共享）
+		debug_mode: true
 		base_path: "/home/webadmin/anthCraft-dist/public/resources"
 		package_path: "/resources/themes"
 		develop_path: "/resources/upload"

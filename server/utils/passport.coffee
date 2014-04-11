@@ -89,7 +89,7 @@ exports.register = (user, done)->
 	# 100  注册成功
 
 	# encrypt password with md5 and aes
-	password_enc = encryptPassword(password, __config.apiService.account.register_aesKey)
+	password_enc = encryptPassword(user.password, __config.apiService.account.register_aesKey)
 
 	reqOpts = extendUtil {}, __config.apiService.account.registerUser
 	# Append params

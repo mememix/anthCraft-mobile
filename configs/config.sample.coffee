@@ -30,6 +30,11 @@ module.exports = {
 		#!! MongoDB 连接配置
 		url: "mongodb://10.60.145.18:27017/anthcraft"
 	}
+	memcached: {
+		#!! Memcached 连接配置
+		hosts: [ "10.127.129.88:11211" ]
+		prefix: 'anthCraft-mobile'
+	}
 
 	anthPack: {
 		#!! 资源文件夹路径（与anthCraft-dist共享）

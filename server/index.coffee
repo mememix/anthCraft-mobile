@@ -5,6 +5,8 @@ mongoose = require 'mongoose'
 path = require 'path'
 Livereload = require 'connect-livereload'
 getMethodOverride = require 'get-methodoverride'
+# inherit from express.session.Store
+MemcachedStore = require('connect-memcached')(express)
 flash = require 'connect-flash'
 
 anthpack = require 'anthpack'
@@ -78,10 +80,11 @@ exports.launch = (callback)->
 
 			app.use express.cookieParser()
 			app.use express.bodyParser()
-			app.use express.cookieSession({
+			app.use express.session({
 				secret: "anthcraft-mobile"
 				# Session keep 1h alive
 				cookie: { maxAge: 60 * 60 * 1000 }
+				store: new MemcachedStore(__config.memcached)
 			})
 			app.use express.methodOverride()
 			app.use getMethodOverride

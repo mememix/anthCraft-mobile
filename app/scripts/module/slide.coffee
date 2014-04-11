@@ -21,6 +21,8 @@ slide = (id,mu)->
     disableScroll: false
     stopPropagation: true
     callback: (index, elem)->
+      if index >= menus.length
+        index=menus.length-1
       menus[activeNo].className = menus[activeNo].className.replace(' active','')
       menus[index].className += ' active'
       activeNo = index

@@ -1,9 +1,8 @@
 <div class="layout form buildpack">
-  <form action="/design/theme/{{=themeId}}/package" method="post">
     <div class="row">
       <label for="inputPassword" class="col-xs-2 control-label">Name:</label>
       <div class="col-xs-10">
-        <input type="text" class="form-control" id="inputPassword" placeholder="Happy Family">
+        <input id="inputPassword" type="text" class="form-control" id="inputPassword" placeholder="Happy Family">
       </div>
     </div>
 
@@ -12,15 +11,14 @@
         Share:
       </label>
       <div class="col-xs-10">
-        <input type="checkbox" class="js-switch" checked />
+        <input id="shared" type="checkbox" class="js-switch" checked />
       </div>
     </div>
 
     <div class="form-group">
       <input type="hidden" name="_id" value="{{=themeId}}" />
-      <button class="btn btn-default btn-lg cy-btn" type="submit">Package</button>
+      <button class="btn btn-default btn-lg cy-btn" id="actBuild">Package</button>
     </div>
-  </form>
   {{-include ../partials/themePreview.ejs }}
 </div>
 

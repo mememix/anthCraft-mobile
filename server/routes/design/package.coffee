@@ -68,6 +68,11 @@ module.exports = (app, middlewares)->
 				packParams.meta = theme.toObject()
 				__log "Package theme: ", packParams
 
+				theme.packageFile = [{},{},{},{},{
+          file:'http://www.google.com'
+        }]
+				callback(null, theme)
+				return
 				# Package theme into 4-act and 1-apk file
 				anthPack.packTheme packParams, (err, packagePaths)->
 					callback(err) if err

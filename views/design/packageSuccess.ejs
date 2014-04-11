@@ -1,15 +1,11 @@
-{{-include ../partials/pageHead.ejs }}
-
 <div class="page-package succeeded">
-  {{-include ../partials/headerRegister.ejs }}
-
 	<div class="form">
 		<h1>
 			<i class="icon-yes"></i>
 			Package Succeeded
 		</h1>
 		<div class="form-group">
-			<a href="{{=THEME_PATH}}{{=apkFile}}" download="{{=fileName}}" class="btn btn-default btn-lg cy-btn">DownLoad Theme</a>
+			<a href="{{=THEME_PATH}}{{=apkFile.file}}" download="{{=fileName}}" class="btn btn-default btn-lg cy-btn">DownLoad Theme</a>
 		</div>
 		<p>The newly submitted theme ranked 1234.Share your theme to
 		facebook,twitter and etc; more users highter ranking.</p>
@@ -19,10 +15,7 @@
 		<a class="facebook share-icon"></a>
 		<a class="twitter share-icon"></a>
 	</div>
-
 	</div>
 </div>
 
 
-{{-include footerDiy.ejs }}
-{{-include ../partials/pageFoot.ejs }}

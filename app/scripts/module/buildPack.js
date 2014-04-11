@@ -9,7 +9,8 @@
    */
   var $          = require('jQuery')
     , uploadfile = require('uploadfile')
-    , slide      = require('slide');
+    , slide      = require('slide')
+    , validate   = require('validate');
 
   function select (s,cb) {
     var eles          = $(s)
@@ -110,6 +111,18 @@
     });
   }
 
+  function packValidate(){
+    return this.check(function(input){
+      if(!input.value){
+        return false;
+      }else{
+        return true;
+      }
+    },[{
+      error:'Oops,name is required'
+    }]);
+  }
+
   //build pack main page logic
   exports.buildPack = function(){
     //make all view slidable,and get themeid from div.page-package
@@ -119,8 +132,12 @@
     wallpaper(themeid,swap);
     iconset(themeid,swap);
 
+    var validator = validate('#pkinfos');
     $('#actBuild').click(function(){
-      pack(themeid,swap);
+      var error = packValidate.call(validator).error;
+      if(!error){
+        pack(themeid,swap);
+      }
     });
   };
 

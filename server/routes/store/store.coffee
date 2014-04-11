@@ -15,13 +15,14 @@ module.exports = (app)->
 	app.get '/store', (req, res, next)->
 		page = 1
 		pageVolumn = 6
+		wallVolum  = 8
 
 		async.parallel {
 			themeList: (cb)->
 				ThemeModel.listByPage(page, pageVolumn, cb)
 
 			wallpaperList: (cb)->
-				WallpaperModel.listByPage(page, pageVolumn, cb)
+				WallpaperModel.listByPage(page, wallVolum, cb)
 
 		}, (err, results)->
 

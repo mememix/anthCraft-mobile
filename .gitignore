@@ -5,3 +5,4 @@ dist
 app/bower_components
 logs/*
 !logs/.gitkeep
+npm-debug.log

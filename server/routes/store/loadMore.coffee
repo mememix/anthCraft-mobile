@@ -20,7 +20,7 @@ module.exports = (app)->
 
 	app.get '/store/more/wallpaper', (req, res)->
 		page = req.param('page')
-		pageVolumn = 6
+		pageVolumn = 8
 		WallpaperModel.listByPage page, pageVolumn, (err, list)->
 			return next(err) if err
 

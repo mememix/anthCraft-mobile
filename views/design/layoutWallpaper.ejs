@@ -1,10 +1,17 @@
 <div class="layout wallpaper scroll" >
-	<div class="col-xs-offset-8 text-center">
-		<label for="up-wallpaper" class="cy-file-btn">
+  <div class="col-xs-4 text-center">
+		<label for="wallpaper-camera" class="cy-file-btn">
+			<i class="icon icon-camera"></i>
+			Camera
+		</label>
+		<input id="wallpaper-camera" type="file" accept="image/*" capture="camera" style="display:none"/>
+  </div>
+	<div class="col-xs-4 text-center">
+		<label for="wallpaper-image" class="cy-file-btn">
 			<i class="icon icon-folder"></i>
 			File
 		</label>
-		<input id="up-wallpaper" type="file" style="display:none"/>
+		<input id="wallpaper-image" type="file" accept="image/png" capture="local" style="display:none"/>
 	</div>
 	{{ wallpapers.forEach(function(wallpaper,index) { }}
 		<div class="col-xs-6">

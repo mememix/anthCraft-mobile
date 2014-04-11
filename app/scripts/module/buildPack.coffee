@@ -18,6 +18,9 @@ themeid = $('.page-package').data('themeid')
 
 #step 1: select wallpaper
 wallpaper = ()->
+  #upload wallpaper
+  me.uploadfile('/design/theme/' + themeid + '/upload/wallpaper')
+  #choose wallpaper 
   select.call this,'.wallpaper .layout-container',(ele)->
     wpId = ele.data('wpid')
     $.ajax({

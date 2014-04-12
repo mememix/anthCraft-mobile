@@ -15,7 +15,6 @@ module.exports = (app)->
 		'301': 'login faild',
 		'303': 'User was blocked'
 	}
-	
 
 	app.get '/login', (req, res)->
 

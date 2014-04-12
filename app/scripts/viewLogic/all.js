@@ -4,6 +4,7 @@
    * module dependence
    */
    var loadimg  = require('loadimg')
+     , toTop = require('toTop')
      , scroll   = require('scroll');
 
 

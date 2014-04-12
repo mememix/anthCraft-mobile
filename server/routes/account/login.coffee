@@ -22,8 +22,7 @@ module.exports = (app)->
 			maxAge: 1000*60*60*24*30
 		} if remember
 
-		# next()
-		
+		next()
 	, passport.authenticate 'local', {
 		successRedirect: '/',
 		failureRedirect: '/login'

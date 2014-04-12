@@ -2,23 +2,31 @@ mongoose = require 'mongoose'
 
 WallpaperModel = mongoose.model('wallpaper')
 ThemeModel = mongoose.model('theme')
+IPLibModel = mongoose.model('IPLib')
 DownloadStatisticModel = mongoose.model('DownloadStatistic')
+util = require '../../utils'
 extendUtil = require '../../utils/extendUtil'
 async = require 'async'
 
 module.exports = (app)->
 
-	app.get '/', (req, res)->
+	app.all '*', (req, res, next)->
+		clientInfo = {}
 		# Read statistics data from query string
-		serial = req.param('serial')
-		userIp = req.headers['X-Real-IP'] || req.connection.remoteAddress
-		__log "New visitor with ip[#{userIp}] and IMEI[#{serial}]. "
+		# Refresh clientInfo every request
+		clientInfo.userIp = req.headers['X-Real-IP'] || req.connection.remoteAddress
 
-		req.session.clientInfo = {
-			serial: serial
-			userMac: userIp
-		}
+		IPLibModel.getCountry util.dotIp2Num(clientInfo.userIp), (err, result)->
+			__debug err, result
+			clientInfo.country = result.code
+			__log "New visitor comes from country[#{result.country}] with ip[#{clientInfo.userIp}] and IMEI[#{clientInfo.serial}]. "
+			req.session.clientInfo = clientInfo
 
+			next()
+
+	app.get '/', (req, res)->
+		# Serial(IMEI) comes from the index url called by c-Laucher client
+		req.session.clientInfo.serial = req.param('serial')
 		res.redirect '/store'
 
 	# Store index page

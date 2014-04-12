@@ -1,6 +1,5 @@
 'use strict';
 var mongoose = require('mongoose');
-var autoinc = require('mongoose-id-autoinc2');
 var fileUtil = require('./fileUtil');
 
 exports.loadRoutes = function(routePath, app) {
@@ -20,23 +19,14 @@ exports.loadConfigs = function() {
 	return global.__config;
 };
 
-exports.connectDB = function(cb) {
-	__log('Connectting MongoDB server...');
-	// Connect MongoDB
-	mongoose.connect(global.__config.mongo);
-	var db = mongoose.connection;
+exports.dotIp2Num = function dot2num(dot) {
+	var ValidIpAddressRegex = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
 
-	db.on('error', function(err) {
-		cb(err);
-	});
+	if(!ValidIpAddressRegex.test(dot)) {
+		return 0;
+	}
 
-	db.once('open', function callback () {
-		// yay!
-		// Init autoinc module
-		autoinc.init(db, 'counter', mongoose);
+    var d = dot.split('.');
+    return ((((((+d[0])*256)+(+d[1]))*256)+(+d[2]))*256)+(+d[3]);
+}
 
-		__log('MongoDB server connectted!');
-		cb();
-	});
-
-};

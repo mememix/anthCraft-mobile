@@ -27,11 +27,11 @@
 			<label>
 				<input type="checkbox" name="remember" value="1">Remember me
 			</label>
-			{{ if(typeof message !== 'undefined') { }}
-				<span class="text-danger">{{=message}}</span>
-			{{ } }}
 			<a href="#" class="pull-right brand-green">Retrieve password</a>
 		</div>
+    {{ if(typeof message !== 'undefined') { }}
+      <p class="text-danger">{{=message}}</p>
+    {{ } }}
 	</form>
 	<hr>
 	<form role="form" class="form sinup">

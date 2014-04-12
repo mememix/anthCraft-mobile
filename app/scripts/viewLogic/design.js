@@ -119,20 +119,36 @@
     ]);
   }
 
+  var history = {};
+  function themebuilded(themeid,flag){
+    if(flag){
+      history[themeid] = true;
+    }else{
+      return history[themeid] || false;
+    }
+  }
+
   //build pack main page logic
   exports.design = function(){
     //make all view slidable,and get themeid from div.page-package
     var  themeid = $('.page-package').data('themeid')
-    ,    swap    = slide('.page-package #slider'
-                        ,'.page-package .menu-bar .btn'
-                        ,function(){
-                          buildPreview(themeid);
-                        });
+      ,  validator = validate('#pkinfos')
+      ,  swap = slide('.page-package #slider'
+            ,'.page-package .menu-bar .btn'
+            ,function(index,elem){
+              if(!themebuilded(themeid) && $(elem).hasClass('buildpack')){
+                buildPreview(themeid);
+                themebuilded(themeid,true);
+              }
+            });
 
     wallpaper(themeid,swap);
     iconset(themeid,swap);
 
-    var validator = validate('#pkinfos');
+    $('.buildpack').bind('touchstart',function(e){ 
+      e.stopPropagation();
+    });
+
     $('#actBuild').click(function(){
       var error = packValidate.call(validator).error;
       if(!error){

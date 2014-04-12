@@ -17,6 +17,7 @@
      , all    = require('all')
      , login  = require('login')
      , register = require('register')
+     , store = require('store')
 		 , design = require('design');
 
 
@@ -25,6 +26,7 @@
 	 app.when('/design/theme',design);
    app.when('/login',login);
    app.when('/register',register);
+   app.when('/store',store);
 	 app.any(all);
 
 })(window,require);

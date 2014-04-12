@@ -38,9 +38,8 @@
     var menus = $(mu);
     if(menus.length === 0){ return; }
     var activeNo = 0;
-    if(!$(menus[activeNo]).hasClass('active')){
-      $(menus[activeNo]).addClass('active');
-    }
+    $(menus[activeNo]).removeClass('active');
+    $(menus[activeNo]).addClass('active');
 
     menus.each(function(index,ele){
       touch(ele,index,swip);

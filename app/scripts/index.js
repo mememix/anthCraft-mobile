@@ -20,7 +20,7 @@
 		 , location = require('location')
      , scroll   = require('scroll')
 	 //logic module
-		 , buildPack = require('buildPack');
+		 , design = require('design');
 
 
 	 //this route module should be abstract in to a 
@@ -67,7 +67,7 @@
 
 	 var app = route();
 
-	 app.when('/design/theme',buildPack);
+	 app.when('/design/theme',design);
 	 app.any(bootstrap);
 
 })(window);

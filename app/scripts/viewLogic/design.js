@@ -124,7 +124,7 @@
   }
 
   //build pack main page logic
-  exports.buildPack = function(){
+  exports.design = function(){
     //make all view slidable,and get themeid from div.page-package
     var swap    = slide('.page-package #slider','.page-package .menu-bar .btn')
       , themeid = $('.page-package').data('themeid');

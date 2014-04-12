@@ -17,6 +17,7 @@
 			 //fadein image on load
 			 loadimg('.thum');
 		 });
+     toTop();
    };
 
 })(window,require);

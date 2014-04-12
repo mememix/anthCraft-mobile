@@ -1,8 +1,4 @@
-(function(exports){
-
-  function require(id){
-    return exports[id];
-  }
+(function(exports,require){
 
   /*
    * module dependence
@@ -18,4 +14,4 @@
     });
   };
 
-})(window);
+})(window,require);

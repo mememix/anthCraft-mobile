@@ -1,11 +1,26 @@
 @import '../common/variables.less';
 @import '../common/button.less';
 
-.page-login{
+.page-login,.page-register{
 	 input[type='email'],input[type='password']
 	 ,input[type='text'] {
 		 height: 40px;
 	 }
+}
+
+.page-register{
+   .error-tips{
+     position: absolute;
+     bottom: -18px;
+     left: 0;
+     text-indent: 50px;
+   }
+
+   .input-group{
+     margin-bottom: 25px;
+   }
+}
+.page-login{
 	 .logo {
 	 	text-align: center;
 	 	a {
@@ -30,6 +45,16 @@
 		 color:@brand-green;
 	 }
 
+   .error-tips{
+     position: absolute;
+     bottom: -18px;
+     left: 0;
+     text-indent: 50px;
+   }
+
+   .input-group{
+     margin-bottom: 25px;
+   }
 }
 
 .error-tips {

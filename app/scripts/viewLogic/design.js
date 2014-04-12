@@ -1,8 +1,4 @@
-(function(exports){
-
-  function require(id){
-    return exports[id];
-  }
+(function(exports,require){
 
   /*
    * module dependence
@@ -10,7 +6,9 @@
   var $          = require('jQuery')
     , uploadfile = require('uploadfile')
     , slide      = require('slide')
-    , validate   = require('validate');
+    , validate   = require('validate')
+    , rules      = require('validate.plugin')
+    , required   = rules.required;
 
   function select (s,cb) {
     var eles          = $(s)
@@ -111,16 +109,14 @@
     });
   }
 
+  function name (input){
+    this.use(required,input,'package name is required');
+  }
+
   function packValidate(){
-    return this.check(function(input){
-      if(!input.value){
-        return false;
-      }else{
-        return true;
-      }
-    },[{
-      error:'Oops,name is required'
-    }]);
+    return this.check([
+      name
+    ]);
   }
 
   //build pack main page logic
@@ -141,4 +137,4 @@
     });
   };
 
-})(window);
+})(window,require);

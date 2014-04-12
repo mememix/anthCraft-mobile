@@ -13,29 +13,25 @@
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-adult"></i></span>
-				<input type="text" name="username" class="form-control error" placeholder="Username" value="{{=username}}" autofocus>
-				<i class="icon-warn"></i>
-				<i class="icon-success"></i>
+				<input type="text" name="username" class="form-control" placeholder="Username" value="{{=username}}" autofocus>
 			</div>
-			<span class="error-tips">error</span>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-key"></i></span>
 				<input type="password" name="password" class="form-control" placeholder="PassWord">
 			</div>
-			<span class="error-tips">error</span>
 		</div>
 		<button type="submit" class="btn btn-default btn-lg cy-btn">Login</button>
 		<div class="checkbox">
 			<label>
 				<input type="checkbox" name="remember" value="1">Remember me
 			</label>
-			{{ if(typeof message !== 'undefined') { }}
-				<span class="text-danger">{{=message}}</span>
-			{{ } }}
 			<a href="#" class="pull-right brand-green">Retrieve password</a>
 		</div>
+    {{ if(typeof message !== 'undefined') { }}
+      <p class="text-danger">{{=message}}</p>
+    {{ } }}
 	</form>
 	<hr>
 	<form role="form" class="form sinup">

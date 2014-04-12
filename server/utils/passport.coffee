@@ -60,8 +60,7 @@ exports.initPassport = ->
 							done null, data.user
 						else
 							done null, false, {
-								code: data.code
-								message: 'Validate fail.'
+								message: data.code
 							}
 					catch e
 						# throw new Error('Server error!')

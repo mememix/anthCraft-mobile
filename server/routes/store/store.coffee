@@ -11,22 +11,28 @@ async = require 'async'
 module.exports = (app)->
 
 	app.all '*', (req, res, next)->
-		clientInfo = {}
 		# Read statistics data from query string
 		# Refresh clientInfo every request
-		clientInfo.userIp = req.headers['X-Real-IP'] || req.connection.remoteAddress
+		userIp = req.headers['X-Real-IP'] || req.connection.remoteAddress
+		req.session.clientInfo = {} if not req.session.clientInfo
+		req.session.clientInfo.serial = req.param('serial') if not req.session.clientInfo.serial
 
-		IPLibModel.getCountry util.dotIp2Num(clientInfo.userIp), (err, result)->
-			__debug err, result
-			clientInfo.country = result.code
-			__log "New visitor comes from country[#{result.country}] with ip[#{clientInfo.userIp}] and IMEI[#{clientInfo.serial}]. "
-			req.session.clientInfo = clientInfo
+		if not req.session.clientInfo.country
+			IPLibModel.getCountry util.dotIp2Num(userIp), (err, result)->
+				req.session.clientInfo.userIp = userIp
+				req.session.clientInfo.country = result.code
+				# Disable log
+				# __log "New visitor comes from country[#{req.session.clientInfo.country}] with
+				# 	ip[#{req.session.clientInfo.userIp}] and
+				# 	IMEI[#{req.session.clientInfo.serial}]. "
 
+				next()
+		else
 			next()
 
 	app.get '/', (req, res)->
 		# Serial(IMEI) comes from the index url called by c-Laucher client
-		req.session.clientInfo.serial = req.param('serial')
+		# req.session.clientInfo.serial = req.param('serial')
 		res.redirect '/store'
 
 	# Store index page

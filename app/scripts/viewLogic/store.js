@@ -12,7 +12,11 @@
      //store page slider
      slide('.page-store #slider','.page-store .menu-bar .slidable');
      //themeDetail page slider
-     slide('.theme-detail #sub-slider','.theme-detail .sub-menu-bar .btn');
+     slide('.theme-detail #sub-slider','.theme-detail .sub-menu-bar .btn',
+           function(){},
+           function(){},
+           true
+          );
 
      stopClick('.page-store .diy',function(){
        location.href = '/design';

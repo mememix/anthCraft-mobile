@@ -42,9 +42,9 @@
     };
   }
 
-  exports.slide = function(id,mu,cb,te){
+  exports.slide = function(id,mu,cb,te,continuous){
     var swip = new Swipe(document.querySelector(id),{
-      continuous: false,
+      continuous: continuous || false,
       disableScroll: false,
       stopPropagation: true,
       callback: function(index, elem){

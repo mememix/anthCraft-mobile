@@ -70,7 +70,7 @@ module.exports = (app, middlewares)->
 
 				# Package theme into 4-act and 1-apk file
 				anthPack.packTheme packParams, (err, packagePaths)->
-					callback(err) if err
+					return callback(err) if err
 					__log "Success package."
 					theme.packageTime = new Date()
 					theme.packageFile = packagePaths

@@ -34,7 +34,9 @@
     */
   function wallpaper(themeid,swap){
     //upload wallpaper on user choosed image
-    uploadfile('/design/theme/' + themeid + '/upload/wallpaper');
+    uploadfile('/design/theme/' + themeid + '/upload/wallpaper',function(){
+      swap.slide(1);
+    });
     //when user chooseed wallpaper,swap to next iconset view
     //and send http requrest to server
     select.call(this,'.wallpaper',function(ele){

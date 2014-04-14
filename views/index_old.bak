@@ -1,0 +1,41 @@
+{{-include partials/pageHead.ejs }}
+<div class="page-index" onclick="goto('/design')">
+  <!-- layout diy -->
+  <div class="layout diy">
+    <div class="bg">
+      <h1>Turn your picture Be a theme</h1>
+      <div class="logo">
+        <a href="#" class="logo">CLauncher</a>
+      </div>
+      <div class="button">
+        <a href='/design' class="btn btn-default btn-lg cy-btn">DIY Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JS and analytics only. -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script>
+  function goto(src){
+    location.href=src;
+  } 
+</script>
+
+
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+   g.src='//www.google-analytics.com/ga.js';
+   s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+</body>
+</html>

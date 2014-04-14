@@ -4,7 +4,7 @@
 
   {{-include partials/headerRegister.ejs }}
 
-	<form role="form" class="form register" method="post" action="/register">
+	<form class="form register" >
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-mail"></i></span>
@@ -30,10 +30,15 @@
 			</div>
 		</div>
 		<div class="form-group">
-      <p class="text-danger">{{=message}}</p>
-			<button type="submit" class="btn btn-default btn-lg cy-btn">Sign up</button>
+      <p id="msg" class="text-danger">{{=message}}</p>
+			<button id="login-btn" type="submit" class="btn btn-default btn-lg cy-btn">Sign up</button>
 		</div>
 	</form>
+
+  <div class="register-success" style="padding:30px;display:none">
+      <h1 style="margin:50px 0 200px 0;color:#dedede">Register Success</h1>
+			<a href="/login" class="btn btn-default btn-lg cy-btn">Login</a>
+  </div>
 </div>
 
 

@@ -4,7 +4,9 @@
    * module dependence
    */
   
-   var slide = require('slide');
+   var slide     = require('slide')
+     , location = require('location')
+     , stopClick = require('stopClick');
 
    exports.store = function(){
      //store page slider
@@ -12,6 +14,9 @@
      //themeDetail page slider
      slide('.theme-detail #sub-slider','.theme-detail .sub-menu-bar .btn');
 
+     stopClick('.page-store .diy',function(){
+       location.href = '/design';
+     });
    };
 
 })(window,require);

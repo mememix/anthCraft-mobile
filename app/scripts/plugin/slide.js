@@ -3,8 +3,9 @@
   /*
    * module dependence
    */
-  var Swipe = require('Swipe')
-    , $     = require('jQuery');
+  var Swipe     = require('Swipe')
+    , $         = require('jQuery')
+    , stopClick = require('stopClick');
 
   function touch(ele,index,swip){
     if(ele.ontouchstart !== 'undefinded'){
@@ -18,21 +19,6 @@
     }
   }
 
-  function stopClick (s,d){
-    var end = 0 ,start = 0;
-    var diff = d || 5;
-    $(s).bind('touchstart',function(e){
-      end = start = e.originalEvent.touches[0].clientX;
-    });
-    $(s).bind('touchmove',function(e){
-      end = e.originalEvent.touches[0].clientX;
-    });
-    $(s).bind('touchend',function(e){
-      if(Math.abs(end-start) > diff){
-        e.preventDefault();
-      }
-    });
-  }
 
   function menuLogic(mu,swip){
     var menus = $(mu);

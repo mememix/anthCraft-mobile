@@ -7,6 +7,8 @@ themeConfig = require '../../../configs/themeConfig.coffee'
 
 module.exports = (app, middlewares)->
 
+	pageVolumn = 6
+	iconVolumn = 9
 	# design/index page, aka wallpaper diy page
 	app.get '/design', middlewares.auth, (req, res)->
 		# Default to theme diy page
@@ -14,14 +16,13 @@ module.exports = (app, middlewares)->
 
 	app.get '/design/theme', middlewares.auth, (req, res)->
 		page = 1
-		pageVolumn = 6
 
 		async.parallel {
 			wallpapers: (cb)->
 				MaterialModel.listWallpaperByPage(page, pageVolumn, cb)
 
 			iconSets: (cb)->
-				IconSetModel.listByPage(page, pageVolumn, cb)
+				IconSetModel.listByPage(page, iconVolumn, cb)
 
 			themeId: (cb)->
 				cb null, mongoose.Types.ObjectId.createPk()
@@ -49,7 +50,6 @@ module.exports = (app, middlewares)->
 
   app.get '/design/more/wallpaper', (req, res)->
     page = req.param('page') || 1
-    pageVolumn = 6
     MaterialModel.listWallpaperByPage page, pageVolumn, (err, result)->
       return next(err) if err
 
@@ -61,8 +61,7 @@ module.exports = (app, middlewares)->
 
   app.get '/design/more/iconset', (req, res)->
     page = req.param('page')
-    pageVolumn = 6
-    IconSetModel.listByPage page, pageVolumn, (err, result)->
+    IconSetModel.listByPage page, iconVolumn, (err, result)->
       return next(err) if err
 
       #res.json result

@@ -40,9 +40,9 @@ module.exports = {
 			# http://test.themes.c-launcher.com/user/login3.do?username=chenhua&password=asdf1234(测试路径)
 			# http://10.12.0.71:8080/shop/user/login3.do?username=chenhua&password=asdf1234(本地访问)
 			validateUser: {
-				host: '10.12.0.71',
-				port: 8080,
-				path: '/shop/user/login3.do',
+				host: 'test.themes.c-launcher.com',
+				port: 80,
+				path: '/user/login3.do',
 				method: 'GET',
 				headers: {
 					accept: 'application/json'
@@ -53,9 +53,9 @@ module.exports = {
 			# http://test.themes.c-launcher.com/user/register2.do?email=&username=&password=&source=4(测试路径)
 			# http://10.12.0.71:8080/shop/user/register2.do?email=&username=&password=&source=4(本地访问)
 			registerUser: {
-				host: '10.12.0.71',
-				port: 8080,
-				path: '/shop/user/register2.do',
+				host: 'test.themes.c-launcher.com',
+				port: 80,
+				path: '/user/register2.do',
 				method: 'GET',
 				headers: {
 					accept: 'application/json'

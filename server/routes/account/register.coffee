@@ -39,16 +39,13 @@ module.exports = (app)->
 
 		if user.password isnt password2
 			req.flash 'message', 'Wrong password2'
-			res.redirect '/register'
+			# res.redirect '/register'
 			return
 
 		# Register user through remote server
 		passport.register user, (err, result)->
 			return next(err) if err
-
-			if result.code is 100
-				res.redirect '/login'
-			else
-				req.flash 'code', result.code
-				res.redirect '/register'
+			req.flash 'code', result.code
+			result.msg = lang[result.code]
+			res.json result
 

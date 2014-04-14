@@ -8,19 +8,22 @@
     xhr.send(form);
   }
 
-  function onchange(input,url){
+  function onchange(input,url,cb){
     input.onchange = function () {
       var file = input.files[0];
       upload(file,url);
+      if(cb){
+        cb(file);
+      }
     };
   }
 
-  exports.uploadfile = function(url,s){
+  exports.uploadfile = function(url,cb){
     if(!url){ return; }
-    s = s || 'input[type=file]';
+    var s = 'input[type=file]';
     var inputs = document.querySelectorAll(s);
     for (var i = 0, len = inputs.length; i < len; i++) {
-      onchange(inputs[i],url); 
+      onchange(inputs[i],url,cb); 
     }
   };
 })(window);

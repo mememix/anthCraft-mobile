@@ -127,6 +127,11 @@ defaultPackInfo: {
             capital: "Theme Icon"
             src: "/default_theme/customize_mat/default_customize_icon.png"
         }
+        "customize_cover": {
+            capital: "Icon Cover"
+            src: "/default_theme/customize_mat/default_customize_cover.png"
+        }
+
     }
 
     dock_icon: {

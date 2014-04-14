@@ -407,6 +407,7 @@ module.exports = function (grunt) {
                 dest: '<%= yeoman.dist %>/public'
             },
             html: [
+                '<%= yeoman.views %>/index.ejs',
                 '<%= yeoman.views %>/partials/pageFoot.ejs',
                 '<%= yeoman.views %>/partials/pageHead.ejs'
             ]
@@ -489,7 +490,8 @@ module.exports = function (grunt) {
                         'images/{,**/}*.{webp,gif}',
                         // 'scripts/{,**/}*.js',
                         // 'styles/vendor/{,**/}*',
-                        'styles/webicon/{,**/}*'
+                        'styles/webicon/{,**/}*',
+                        'styles/welcome.jpg'
                     ]
                 }, {
                     expand: true,

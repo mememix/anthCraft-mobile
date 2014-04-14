@@ -52,7 +52,7 @@
 	<div class="layout">
 		<div class="info-bar">
 			<div class="labes col-xs-6">
-				<p><label>Name:</label>{{=theme.title}}</p>
+				<p><label>Name:</label> {{=theme.title}}</p>
 				<p><label>Rate:</label>
 					<i class="icon-star"></i>
 					<i class="icon-star"></i>
@@ -60,10 +60,10 @@
 					<i class="icon-star"></i>
 					<i class="icon-star-empty"></i>
 				</p>
-				<p><label>Label:</label>{{=theme.size}}</p>
+				<p><label>Size:</label> {{=Math.round(theme.packageFile[4].size/1024/1024*100)/100}}MB</p>
 			</div>
 			<div class="right col-xs-6">
-				<a href="/store/theme/{{=theme.themeId}}/download?path={{=theme.packageFile[4].src}}" download class="btn btn-default btn-lg cy-btn">Download</a>
+				<a href="/store/theme/{{=theme.themeId}}/download?path={{=theme.packageFile[4].file}}" class="btn btn-default btn-lg cy-btn">Download</a>
 			</div>
 		</div>
 		{{-include ../partials/themePreview.ejs }}

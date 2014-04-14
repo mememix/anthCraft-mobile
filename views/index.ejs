@@ -1,34 +1,38 @@
-{{-include partials/pageHead.ejs }}
-<div class="page-index" onclick="goto('/design')">
-  <!-- layout diy -->
-  <div class="layout diy">
-    <div class="bg">
-      <h1>Turn your picture Be a theme</h1>
-      <div class="logo">
-        <a href="#" class="logo">CLauncher</a>
-      </div>
-      <div class="button">
-        <a href='/design' class="btn btn-default btn-lg cy-btn">DIY Now</a>
-      </div>
-    </div>
-  </div>
-</div>
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=480,target-densitydpi=device-dpi,user-scalable=no" />
+		<title>C-launcher: Awesome launcher for Android!</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta property="og:type" content="article"/>
+		<meta property="og:url" content="http://www.c-launcher.com" />
+		<meta property="og:site_name" content="cLauncher"/>
+    <style>
+      html,body{
+        height: 100%;
+        margin:0;
+        padding:0;
+      }
+      .welcome{
+        width: 100%;
+        background: url('images/welcome.jpg');
+        background-size: cover;
+        height:100%;
+        display:block;
+      }
+    </style>
+</head>
+<body>
 
-<!-- JS and analytics only. -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-
-<script>
-  function goto(src){
-    location.href=src;
-  } 
-</script>
-
-
-<!--[if lt IE 7]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-<![endif]-->
+  <a href="/design" width="100%" class="welcome">
+    <img src="images/welcome.jpg">
+  </a>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

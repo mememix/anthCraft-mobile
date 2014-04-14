@@ -27,7 +27,7 @@ module.exports = (app)->
 	app.get '/', (req, res)->
 		# Serial(IMEI) comes from the index url called by c-Laucher client
 		req.session.clientInfo.serial = req.param('serial')
-		res.redirect '/store'
+		res.render 'index'
 
 	# Store index page
 	app.get '/store', (req, res, next)->

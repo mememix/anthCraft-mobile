@@ -21,8 +21,11 @@ module.exports = (app)->
 		# Restore username from cookies
 		username = req.cookies.username || ''
 
+		flashError = req.flash('error')
+		__debug "Flash error: ", flashError
+
 		res.render 'login', {
-			message:  lang[req.flash('error')]
+			message:  lang[flashError]
 			username: username
 		}
 
@@ -40,4 +43,5 @@ module.exports = (app)->
 		successRedirect: '/',
 		failureRedirect: '/login'
 		failureFlash: true
+		successFlash: true
 	}

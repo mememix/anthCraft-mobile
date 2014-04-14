@@ -1,6 +1,53 @@
 {{-include ../partials/pageHead.ejs }}
 <div class="wallpaper-detail">
-	{{-include ../partials/header.ejs }}
+{{ if(session.user) { }}
+<nav class="navbar navbar-default brand-bg" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+      <a class="navbar-brand ellipsis" href="/store">
+        <i class="icon-left-open-big"></i>
+        Wallpaper
+      </a>
+			<div class="pull-right">
+				<a href="http://www.c-launcher.com/main/ld1/clauncher_121040000.apk" download class="navbar-brand">
+					<small>
+						<i class="icon-download-1"></i>
+						CLauncher
+					</small>
+				</a>
+				<span class="splider navbar-brand"></span>
+				<a href="/login" class="navbar-brand">
+					<i class="icon-user"></i>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</nav>
+{{ } else { }}
+<nav class="navbar navbar-default brand-bg" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+      <a class="navbar-brand ellipsis" href="/store">
+        <i class="icon-left-open-big"></i>
+        Wallpaper
+      </a>
+			<div class="pull-right">
+				<a href="/login" class="navbar-brand ">
+					Login
+				</a>
+				<span class="splider navbar-brand"></span>
+				<a href="/register" class="navbar-brand ">
+					Register
+				</a>
+			</div>
+		</div>
+
+	</div>
+</nav>
+{{ } }}
+
+
 	<div class="right col-xs-offset-6">
 		<a href="/store/wallpaper/{{=wallpaperId}}/download?path={{=bigPath}}" download class="btn btn-default btn-lg cy-btn">Download</a>
 	</div>

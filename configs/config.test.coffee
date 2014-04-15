@@ -65,7 +65,7 @@ module.exports = {
 
 	anthPack: {
 		debug_mode: true
-		base_path: "worktop/anthCraft/app/"
+		base_path: "e:/worktop/anthCraft/app/"
 		package_path: "/resources/themes"
 		develop_path: "/resources/upload"
 		preview_path: "/resources/preview"

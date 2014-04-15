@@ -7,3 +7,5 @@ app/bower_components
 logs/*
 !logs/.gitkeep
 npm-debug.log
+configs/*
+!configs/config.sample.coffee

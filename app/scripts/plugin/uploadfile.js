@@ -1,19 +1,30 @@
 (function(exports) {
-  function upload(file, url) {
-    var form = new FormData(),
-    xhr = new XMLHttpRequest();
 
+  /*
+   * module dependence
+   */
+
+  var $ = require('jQuery');
+
+  function upload(file, url) {
+    var form = new FormData();
     form.append('image', file);
-    xhr.open('post', url, true);
-    xhr.send(form);
+
+    return $.ajax({
+      url:url,
+      type: 'post',
+      data:form,
+      contentType:false,
+      processData:false
+    });
   }
 
   function onchange(input,url,cb){
     input.onchange = function () {
       var file = input.files[0];
-      upload(file,url);
+      var promis = upload(file,url);
       if(cb){
-        cb(file);
+        cb(file,promis);
       }
     };
   }

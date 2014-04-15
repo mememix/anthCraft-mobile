@@ -39,8 +39,17 @@
     */
   function wallpaper(themeid,swap){
     //upload wallpaper on user choosed image
-    uploadfile('/design/theme/' + themeid + '/upload/wallpaper',function(){
-      swap.slide(1);
+    uploadfile('/design/theme/' + themeid + '/upload/wallpaper',function(file,defer){
+			mask.show('Uploading Wallpaper...');
+			defer.done(function(){
+				mask.hide();
+        swap.slide(1);
+			}).fail(function(){
+        mask.msg('Opps,uploading failed.');
+        setTimeout(function(){
+          mask.hide();
+        },700);
+      });
     });
     //when user chooseed wallpaper,swap to next iconset view
     //and send http requrest to server

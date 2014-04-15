@@ -9,6 +9,7 @@
     , validate   = require('validate')
     , rules      = require('validate.plugin')
     , mask       = require('mask')
+    , dirty      = false
     , required   = rules.required;
 
   function select (s,cb) {
@@ -20,6 +21,9 @@
     activeElement.addClass('selected');
 
     eles.on('click','.layout-container',function(){
+      if(activeElement !== $(this)){
+        dirty = true;
+      }
       if(activeElement){
         activeElement.removeClass('selected');
       }
@@ -42,14 +46,18 @@
     //and send http requrest to server
     select.call(this,'.wallpaper',function(ele){
       var wallpaperId = ele.data('wpid');
-      mask.show();
+      mask.show('Setting Wallpaper ...');
       $.ajax({
         url:'/design/theme/' + themeid + '/chose/wallpaper/' + wallpaperId,
         type: 'PUT'
       }).done(function(){
         swap.slide(1);
-      }).always(function(){
         mask.hide();
+      }).fail(function(){
+        mask.msg('Opps,wallpaper setting error.');
+        setTimeout(function(){
+          mask.hide();
+        },700);
       });
     });
   }
@@ -60,19 +68,27 @@
   function iconset(themeid,swap){
     select.call(this,'.icon-container',function(ele){
       var iconset = ele.data('iconset');
-      mask.show();
+      mask.show('Setting icon ...');
       $.ajax({
         url:'/design/theme/' + themeid + '/chose/iconset/' + iconset,
         type: 'PUT'
       }).done(function(){
         swap.slide(2);
-      }).always(function(){
         mask.hide();
+      }).fail(function(){
+        mask.msg('Opps,icon setting  error.');
+        setTimeout(function(){
+          mask.hide();
+        },700);
       });
     });
   }
 
   function buildPreview(themeid){
+    if(!dirty){
+      return;
+    }
+    $('.page-package .theme-preview .thum').hide();
     $.ajax({
       url:'/design/theme/' + themeid + '/preview',
       type: 'POST',
@@ -98,9 +114,12 @@
       slide('#sub-slider','.sub-menu-bar .btn');
     });
   }
+  slide('#sub-slider','.sub-menu-bar .btn');
+
   exports.designBuild = buildPreview;
 
   function pack(themeid,swap){
+    dirty = false;
     var url = '/design/theme/' +themeid +'/package';
     var element = $(this);
     packaging(element);
@@ -127,7 +146,7 @@
   }
 
   function packaging(ele){
-    mask.show();
+    mask.show('Waiting for a minutes,we are build your theme...');
     ele.text('Packaging...');
   }
 

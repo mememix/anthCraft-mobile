@@ -17,9 +17,44 @@
     </div>
 
     <div class="form-group">
-      <input type="hidden" name="_id" value="{{=themeId}}" />
+      <input type="hidden" name="_id" value/>
       <button class="btn btn-default btn-lg cy-btn" id="actBuild">Package</button>
     </div>
-  {{-include ../partials/themePreview.ejs }}
+    <div class="theme-preview" >
+      <div id="sub-slider" class="swipe" slider data-prefix>
+        <div class="swipe-wrap">
+          <div class="preview-container">
+            <div class="loader">
+              <img class="thum" src="/images/wallpaper.jpg"></img>
+              <img class="loading" src="/images/default.png"></img>
+            </div>
+          </div>
+          <div class="preview-container">
+            <div class="loader">
+              <img class="thum" src="/images/desktop.jpg"></img>
+              <img class="loading" src="/images/default.png"></img>
+            </div>
+          </div>
+          <div class="preview-container">
+            <div class="loader">
+              <img class="thum" src="/images/drawer.jpg"></img>
+              <img class="loading" src="/images/default.png"></img>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sub-menu-bar">
+        <a class="cy-dot-btn btn" role="button">
+        </a>
+        <a class="cy-dot-btn btn" role="button">
+        </a>
+        <a class="cy-dot-btn btn" role="button">
+        </a>
+      </div>
+    </div>
+
+
 </div>
 

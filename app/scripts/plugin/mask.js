@@ -11,12 +11,26 @@
      e.preventDefault();
    });
 
+   var msg = $('.mask .msg');
+
+   var icon = $('.mask .processing');
+
   exports.mask = {
-    show:function(){
+    show:function(info){
+      icon.show();
+      info = info || '';
+      msg.text(info);
       ele.show();
     },
-    hide:function(){
+    hide:function(info){
+      icon.show();
+      info = info || '';
+      msg.text(info);
       ele.hide();
+    },
+    msg : function(info){
+      icon.hide();
+      msg.text(info);
     },
     element: ele
   };

@@ -146,7 +146,7 @@
   }
 
   function packaging(ele){
-    mask.show('Waiting for a minutes,we are build your theme...');
+    mask.show('Theme is building...');
     ele.text('Packaging...');
   }
 

@@ -96,13 +96,13 @@ module.exports = (app, middlewares)->
 		], (err, results)->
 			if err
 				# show package fail page
-				res.render 'design/packageFailed', {
+				res.json {
 					success: false
 					message: err
 				}
 			else
 				# show package success page
-				res.render 'design/packageSuccess', {
+				res.json {
 					success: true
 					themeId: themeId
 					fileName: results.title

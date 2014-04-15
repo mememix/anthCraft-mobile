@@ -11,7 +11,10 @@
 
       {{-include layoutPackage.ejs }}
 
-      <div id="resultPage"></div>
+      <div id="resultPage">
+        {{-include packageFailed.ejs }}
+        {{-include packageSuccess.ejs }}
+      </div>
     </div>
   </div>
   {{-include footerDiy.ejs }}

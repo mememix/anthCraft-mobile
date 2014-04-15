@@ -5,7 +5,8 @@
    */
   
    var slide     = require('slide')
-     , location = require('location')
+     , $         = require('jQuery')
+     , location  = require('location')
      , stopClick = require('stopClick');
 
    exports.store = function(){
@@ -21,6 +22,14 @@
      stopClick('.page-store .diy',function(){
        location.href = '/design';
      });
+     themeDetail();
    };
+
+   function themeDetail(){
+     $('.theme-detail .info-bar').hide();
+     $('.theme-detail .theme-preview').style('-webkit-transform', 'scale3d(1.5,1.5,0)');
+   }
+
+   exports.scale = themeDetail;
 
 })(window,require);

@@ -1,4 +1,4 @@
-{{ if(session.user) { }}
+{{ if(session.user && session.user.userId) { }}
 <nav class="navbar navbar-default brand-bg" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">

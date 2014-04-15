@@ -113,7 +113,7 @@ module.exports = (app, middlewares)->
 		themeId = req.session.themeId
 		packData = req.session.packData
 
-		imgPath = req.files.wpFile.path
+		imgPath = req.files.image.path
 
 		anthPack.format {
 			themeId: themeId

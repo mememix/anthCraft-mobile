@@ -169,7 +169,7 @@
     $('#resultPage .failed').hide();
 
     var btn = $('#resultPage .succeeded .cy-btn');
-    var path = btn[0].href + data.apkFile.file;
+    var path = btn.data('path') + data.apkFile.file;
     btn.attr('href',path);
     btn.attr('download',data.fileName + '.apk');
   }

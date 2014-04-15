@@ -50,21 +50,21 @@ module.exports = (app, middlewares)->
 	app.get '/design/more/wallpaper', (req, res)->
 		page = req.param('page') || 1
 		MaterialModel.listWallpaperByPage page, pageVolumn, (err, result)->
-		return next(err) if err
+			return next(err) if err
 
-		#res.json result
-		res.render 'design/moreWallpaper', {
-			wallpapers: result
-			next_page: ++page
-		}
+			#res.json result
+			res.render 'design/moreWallpaper', {
+				wallpapers: result
+				next_page: ++page
+			}
 
 	app.get '/design/more/iconset', (req, res)->
 		page = req.param('page')
 		IconSetModel.listByPage page, iconVolumn, (err, result)->
-		return next(err) if err
+			return next(err) if err
 
-		#res.json result
-		res.render 'design/moreIcon', {
-			iconSets: result
-			next_page: ++page
-		}
+			#res.json result
+			res.render 'design/moreIcon', {
+				iconSets: result
+				next_page: ++page
+			}

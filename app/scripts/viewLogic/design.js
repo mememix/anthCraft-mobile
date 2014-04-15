@@ -8,6 +8,7 @@
     , slide      = require('slide')
     , validate   = require('validate')
     , rules      = require('validate.plugin')
+    , mask       = require('mask')
     , required   = rules.required;
 
   function select (s,cb) {
@@ -93,6 +94,8 @@
 
   function pack(themeid,swap){
     var url = '/design/theme/' +themeid +'/package';
+    var element = $(this);
+    packaging(element);
     $.ajax({
       url: url,
       type: 'POST',
@@ -111,7 +114,18 @@
       buildFailed();
     }).always(function(){
       swap.slide(3);
+      packageDone(element);
     });
+  }
+
+  function packaging(ele){
+    mask.show();
+    ele.text('Packaging...');
+  }
+
+  function packageDone(ele){
+    mask.hide();
+    ele.text('Package');
   }
 
   function buildSuccess(data){
@@ -170,7 +184,7 @@
     $('#actBuild').click(function(){
       var error = packValidate.call(validator).error;
       if(!error){
-        pack(themeid,swap);
+        pack.call(this,themeid,swap);
       }
     });
 

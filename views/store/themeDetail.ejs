@@ -1,10 +1,58 @@
 {{-include ../partials/pageHead.ejs }}
 <div class="theme-detail">
-	{{-include ../partials/header.ejs }}
+
+{{ if(session.user && session.user.Id) { }}
+<nav class="navbar navbar-default brand-bg" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+      <a class="navbar-brand ellipsis" href="/store">
+        <i class="icon-left-open-big"></i>
+        {{=theme.title}}
+      </a>
+			<div class="pull-right">
+				<a href="http://www.c-launcher.com/main/ld1/clauncher_121040000.apk" download class="navbar-brand">
+					<small>
+						<i class="icon-download-1"></i>
+						CLauncher
+					</small>
+				</a>
+				<span class="splider navbar-brand"></span>
+				<a href="/login" class="navbar-brand">
+          <img class="avatar" src="{{=session.user.avatar}}"/>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</nav>
+{{ } else { }}
+<nav class="navbar navbar-default brand-bg" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+      <a class="navbar-brand ellipsis" href="/store">
+        <i class="icon-left-open-big"></i>
+        {{=theme.title}}
+      </a>
+			<div class="pull-right">
+				<a href="/login" class="navbar-brand ">
+					Login
+				</a>
+				<span class="splider navbar-brand"></span>
+				<a href="/register" class="navbar-brand ">
+					Register
+				</a>
+			</div>
+		</div>
+
+	</div>
+</nav>
+{{ } }}
+
+
 	<div class="layout">
 		<div class="info-bar">
 			<div class="labes col-xs-6">
-				<p><label>Name:</label>{{=theme.title}}</p>
+				<p><label>Name:</label> {{=theme.title}}</p>
 				<p><label>Rate:</label>
 					<i class="icon-star"></i>
 					<i class="icon-star"></i>
@@ -12,10 +60,10 @@
 					<i class="icon-star"></i>
 					<i class="icon-star-empty"></i>
 				</p>
-				<p><label>Label:</label>{{=theme.size}}</p>
+				<p><label>Size:</label> {{=Math.round(theme.packageFile[4].size/1024/1024*100)/100}}MB</p>
 			</div>
 			<div class="right col-xs-6">
-				<a href="/store/theme/{{=theme.themeId}}/download?path={{=theme.packageFile[4].src}}" download class="btn btn-default btn-lg cy-btn">Download</a>
+				<a href="/store/theme/{{=theme.themeId}}/download?path={{=theme.packageFile[4].file}}" class="btn btn-default btn-lg cy-btn">Download</a>
 			</div>
 		</div>
 		{{-include ../partials/themePreview.ejs }}

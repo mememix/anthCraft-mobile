@@ -1,4 +1,4 @@
-{{ if(session.user) { }}
+{{ if(session.user && session.user.userId) { }}
 <nav class="navbar navbar-default brand-bg" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -14,7 +14,7 @@
 				</a>
 				<span class="splider navbar-brand"></span>
 				<a href="/login" class="navbar-brand">
-					<i class="icon-user"></i>
+          <img class="avatar" src="{{=session.user.avatar}}"/>
 				</a>
 			</div>
 		</div>

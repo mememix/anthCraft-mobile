@@ -17,6 +17,27 @@
    };
 
 
+   function sendRegist(user){
+       $.ajax({
+         url:'/register',
+         type:'POST',
+         data: {
+          email:user.email,
+          username:user.username,
+          password:user.password,
+          password2:user.password2
+         }
+       }).done(function(data){
+         if(data.code === 100){
+           $('.register').hide();
+           $('.register-success').show();
+         }else{
+           $('#msg').text(data.msg);
+         }
+       });
+   }
+
+
    var p = $('input[type=password]');
 
    function equal(msg){
@@ -50,16 +71,25 @@
    exports.register = function(){
      var register = validate('form.register');
 
-     $('form.register').on('submit',function(e){
+
+     $('form.register').bind('submit',function(e){
+       e.preventDefault();
+       var form = this;
        var error = register.check([
          email,
          username,
          password,
          password
        ]).error;
+
        
-       if(error){
-         e.preventDefault();
+       if(!error){
+         sendRegist({
+          username:form.username.value,
+          email:form.email.value,
+          password:form.password.value,
+          password2:form.password2.value
+         });
        }
      });
    };

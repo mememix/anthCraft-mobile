@@ -7,8 +7,8 @@ themeConfig = require '../../../configs/themeConfig.coffee'
 
 module.exports = (app, middlewares)->
 
-	pageVolumn = 6
-	iconVolumn = 9
+	pageVolumn = 8
+	iconVolumn = 12
 	# design/index page, aka wallpaper diy page
 	app.get '/design', middlewares.auth, (req, res)->
 		# Default to theme diy page

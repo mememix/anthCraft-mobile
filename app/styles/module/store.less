@@ -37,11 +37,21 @@
   height: 100%;
 }
 
+.theme{
+  .layout-container:active{
+    .box-shadow(0,0,8px 1px,@brand-green);
+  }
+}
+
 .wallpaper{
   .layout-container {
     height: 160px;
     overflow: hidden;
     padding: 0;
+    background: #e7e7e7;
+  }
+  .layout-container:active{
+    .box-shadow(0,0,8px 1px,@brand-green);
   }
 
   img{
@@ -51,10 +61,6 @@
     width: auto;
     height: 180px;
   }
-  .layout-container{
-    background: #e7e7e7;
-  }
-
 }
 
 

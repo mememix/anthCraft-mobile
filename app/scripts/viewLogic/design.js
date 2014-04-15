@@ -42,11 +42,15 @@
     //and send http requrest to server
     select.call(this,'.wallpaper',function(ele){
       var wallpaperId = ele.data('wpid');
+      mask.show();
       $.ajax({
         url:'/design/theme/' + themeid + '/chose/wallpaper/' + wallpaperId,
         type: 'PUT'
+      }).done(function(){
+        swap.slide(1);
+      }).always(function(){
+        mask.hide();
       });
-      swap.slide(1);
     });
   }
 
@@ -56,11 +60,15 @@
   function iconset(themeid,swap){
     select.call(this,'.icon-container',function(ele){
       var iconset = ele.data('iconset');
+      mask.show();
       $.ajax({
         url:'/design/theme/' + themeid + '/chose/iconset/' + iconset,
         type: 'PUT'
+      }).done(function(){
+        swap.slide(2);
+      }).always(function(){
+        mask.hide();
       });
-      swap.slide(2);
     });
   }
 

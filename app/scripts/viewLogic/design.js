@@ -98,7 +98,7 @@
       type: 'POST',
       data:{
        themeTitle:$('#inputPassword')[0].value,
-       isShare:$('#shared')[0].checked
+       isShare:$('#shared')[0].checked ? 1 : 0
       },
       dataType: 'html'
     }).done(function(dom){

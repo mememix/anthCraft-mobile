@@ -8,12 +8,13 @@ fs = require 'fs'
 path = require 'path'
 async = require 'async'
 extendUtil = require '../../utils/extendUtil'
+themeConfig = require '../../../configs/themeConfig.coffee'
 
 module.exports = (app, middlewares)->
 
 	# Generate preview images
-	app.post '/design/theme/:themeId/preview', middlewares.auth, (req, res, next)->
-		themeId = req.param('themeId')
+	app.post '/design/theme/:hash/preview', middlewares.auth, (req, res, next)->
+		themeId = req.session.themeId
 		packData = req.session.packData
 		packData.packInfo.themeId = themeId
 
@@ -30,8 +31,8 @@ module.exports = (app, middlewares)->
 				thumbnail: thumbnail
 			}
 
-	app.post '/design/theme/:themeId/package', middlewares.auth, (req, res, next)->
-		themeId = req.param('themeId')
+	app.post '/design/theme/:hash/package', middlewares.auth, (req, res, next)->
+		themeId = req.session.themeId
 		themeTitle = req.body.themeTitle
 		isShare = req.body.isShare
 
@@ -79,6 +80,17 @@ module.exports = (app, middlewares)->
 					# Everytime theme save, themeId inc
 					# but themeId isnt the real id of the record
 					theme.save (err)->
+						# refresh themeId
+						req.session.themeId = mongoose.Types.ObjectId.createPk()
+						req.session.packData = {
+							meta: {
+								_id: req.session.themeId
+								userId: req.user.userId
+							}
+							# Remain user choice
+							# packInfo: themeConfig.defaultPackInfo
+						}
+
 						callback(err, theme)
 
 		], (err, results)->
@@ -97,8 +109,8 @@ module.exports = (app, middlewares)->
 					apkFile: results.packageFile[4]
 				}
 
-	app.post '/design/theme/:themeId/upload/wallpaper', middlewares.auth, (req, res, next)->
-		themeId = req.param('themeId')
+	app.post '/design/theme/:hash/upload/wallpaper', middlewares.auth, (req, res, next)->
+		themeId = req.session.themeId
 		packData = req.session.packData
 
 		imgPath = req.files.wpFile.path
@@ -130,8 +142,8 @@ module.exports = (app, middlewares)->
 				url: result
 			}
 
-	app.put '/design/theme/:themeId/chose/wallpaper/:wpId', middlewares.auth, (req, res, next)->
-		themeId = req.param('themeId')
+	app.put '/design/theme/:hash/chose/wallpaper/:wpId', middlewares.auth, (req, res, next)->
+		themeId = req.session.themeId
 		packData = req.session.packData
 
 		# Chose or upload wallpaper
@@ -149,8 +161,8 @@ module.exports = (app, middlewares)->
 				success: true
 			}
 
-	app.put '/design/theme/:themeId/chose/iconset/:iconSet', middlewares.auth, (req, res, next)->
-		themeId = req.param('themeId')
+	app.put '/design/theme/:hash/chose/iconset/:iconSet', middlewares.auth, (req, res, next)->
+		themeId = req.session.themeId
 		packData = req.session.packData
 
 		iconsetId = req.param('iconSet')

@@ -1,13 +1,10 @@
-{{-include ../partials/pageHead.ejs }}
-<div class="wallpaper-detail">
 {{ if(session.user && session.user.userId) { }}
 <nav class="navbar navbar-default brand-bg" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-      <a class="navbar-brand ellipsis" href="/store">
-        <i class="icon-left-open-big"></i>
-        Wallpaper
-      </a>
+			<a class="navbar-brand logo" href="/store">
+				C-launcher.com
+			</a>
 			<div class="pull-right">
 				<a href="http://www.c-launcher.com/main/ld1/clauncher_121040000.apk" download class="navbar-brand">
 					<small>
@@ -28,10 +25,9 @@
 <nav class="navbar navbar-default brand-bg" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-      <a class="navbar-brand ellipsis" href="/store">
-        <i class="icon-left-open-big"></i>
-        Wallpaper
-      </a>
+			<a class="navbar-brand logo" href="/store">
+				C-launcher.com
+			</a>
       <div class="pull-right">
         <a href="http://www.c-launcher.com/main/ld1/clauncher_121040000.apk" download class="navbar-brand">
           <small>
@@ -45,20 +41,7 @@
         </a>
       </div>
 		</div>
+
 	</div>
 </nav>
 {{ } }}
-
-
-	<div class="right col-xs-offset-6">
-		<a href="/store/wallpaper/{{=wallpaperId}}/download?path={{=bigPath}}" download class="btn btn-default btn-lg cy-btn">Download</a>
-	</div>
-	<hr>
-	<div class="loader">
-		<img class="thum" src="{{=WALLPAPER_PATH}}{{=smallPath}}"></img>
-		<img class="loading" src="/images/default.png"></img>
-	</div>
-
-</div>
-
-{{-include ../partials/pageFoot.ejs }}

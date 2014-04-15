@@ -22,12 +22,11 @@
      stopClick('.page-store .diy',function(){
        location.href = '/design';
      });
-     themeDetail();
    };
 
    function themeDetail(){
-     $('.theme-detail .info-bar').hide();
-     $('.theme-detail .theme-preview').style('-webkit-transform', 'scale3d(1.5,1.5,0)');
+     $('.theme-detail .info-bar').css('visibility','hidden');
+     $('.theme-detail .theme-preview').css('-webkit-transform', 'scale3d(1.5,1.5,0)');
    }
 
    exports.scale = themeDetail;

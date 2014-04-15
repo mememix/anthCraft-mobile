@@ -98,18 +98,37 @@
       type: 'POST',
       data:{
        themeTitle:$('#inputPassword')[0].value,
-       isShare:$('#shared')[0].checked
+       isShare:$('#shared')[0].checked ? 1 : 0
       },
-      dataType: 'html'
-    }).done(function(dom){
-      $('#resultPage').empty().html(dom);
+      dataType: 'json'
+    }).done(function(data){
+      if(data.success){
+        buildSuccess(data);
+      }else{
+        buildFailed(data);
+      }
+    }).fail(function(){
+      buildFailed();
+    }).always(function(){
       swap.slide(3);
     });
-
-    $('#resultPage').on('click','.tryagain',function(){
-      swap.slide(2);
-    });
   }
+
+  function buildSuccess(data){
+    $('#resultPage .succeeded').show();
+    $('#resultPage .failed').hide();
+
+    var btn = $('#resultPage .succeeded .cy-btn');
+    var path = btn[0].href + data.apkFile.file;
+    btn.attr('href',path);
+    btn.attr('download',data.fileName + '.apk');
+  }
+
+  function buildFailed(){
+    $('#resultPage .succeeded').hide();
+    $('#resultPage .failed').show();
+  }
+
 
   function name (input){
     this.use(required,input,'package name is required');
@@ -153,6 +172,10 @@
       if(!error){
         pack(themeid,swap);
       }
+    });
+
+    $('#resultPage').on('click','.tryagain',function(){
+      swap.slide(2);
     });
   };
 

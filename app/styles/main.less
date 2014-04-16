@@ -57,6 +57,19 @@ body {
     color: @brand-white;
     background: @gray;
     overflow: hidden;
+ 	-webkit-transition:all 0.5s ease-in;  
+	&.normal {
+		-webkit-transform:rotate(0deg);  
+	}
+	&.right {
+		-webkit-transform:rotate(270deg);  
+	}
+	&.left {
+		-webkit-transform:rotate(90deg);  
+	}
+	&.flipped {
+		-webkit-transform:rotate(180deg);  
+	}
 }
 
 .page-index{

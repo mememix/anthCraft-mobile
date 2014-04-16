@@ -9,6 +9,18 @@
 }
 
 .page-register{
+    .form {
+      margin-top: 50px;
+    }
+    .input-group-addon {
+      font-size: 16px;
+    }
+    i::before {
+      width: 2em;
+    }
+    .btn {
+      height: 65px;
+    }
    .error-tips{
      position: absolute;
      bottom: -18px;
@@ -19,8 +31,30 @@
    .input-group{
      margin-bottom: 25px;
    }
+
+    input.form-control {
+      height: 65px;
+    }
 }
 .page-login{
+    h1 {
+      color: #7e8282;
+    }
+    .input-group-addon {
+      font-size: 16px;
+    }
+    i::before {
+      width: 2em;
+    }
+    label {
+      color: #999999;
+    }
+    input.form-control {
+      height: 65px;
+    }
+    i {
+      width: 2em;
+    }
 	 .logo {
 	 	text-align: center;
 	 	a {
@@ -30,13 +64,17 @@
 
 	 .sinup{
 		 .btn{
-			 .cy-btn(@orange);
+        margin-top: 10px;
+        height: 65px;
+			   .cy-btn(@orange);
 		 }
 	 }
 
 	 .login{
 		.btn{
-			.cy-btn(@brand-green);
+        margin-top: 10px;
+        height: 65px;
+  			// .cy-btn(@brand-green);
 		}
 	 }
 

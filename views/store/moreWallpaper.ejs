@@ -1,16 +1,16 @@
 {{ wallpapers.forEach(function(wallpaper) { }}
-<a href="/store/wallpaper/{{=wallpaper._id}}" class="col-xs-6">
-	<div class="layout-container">
+<div class="layout-container">
+	<a href="/store/wallpaper/{{=wallpaper._id}}" class="">
 		<div class="loader">
 			<img class="thum" src="{{=WALLPAPER_PATH}}{{=wallpaper.smallPath}}"></img>
 			<img class="loading" src="/images/default.png"></img>
 		</div>
-	</div>
-</a>
+	</a>
+</div>
 {{ }) }}
 
 {{ if(wallpapers && wallpapers.length) { }}
-<div class="more clearfix">
+<!-- <div class="more clearfix"> -->
 	<a class="btn cy-btn" href="/store/more/wallpaper?page={{=next_page}}">More</a>
-</div>
+<!-- </div> -->
 {{ } }}

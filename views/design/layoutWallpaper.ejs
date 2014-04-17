@@ -14,17 +14,15 @@
 		</label>
 	</div>
 	{{ wallpapers.forEach(function(wallpaper,index) { }}
-		<div class="col-xs-6">
-      <div class="layout-container" data-wpid="{{=wallpaper._id}}">
-				<div class="loader">
-					<img class="thum" src="{{=UPLOAD_PATH}}{{=wallpaper.files[0].path}}"></img>
-					<img class="loading" src="/images/default.png"></img>
-				</div>
+     	<div class="layout-container" data-wpid="{{=wallpaper._id}}">
+			<div class="loader">
+				<img class="thum" src="{{=UPLOAD_PATH}}{{=wallpaper.files[0].path}}"></img>
+				<img class="loading" src="/images/default.png"></img>
 			</div>
 		</div>
 	{{ }) }}
 
-	<div class="clearfix more">
+	<!-- <div class="clearfix more"> -->
 		<a class="btn cy-btn" href="/design/more/wallpaper?page=2">More</a>
-	</div>
+	<!-- </div> -->
 </div>

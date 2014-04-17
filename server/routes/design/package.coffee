@@ -81,7 +81,6 @@ module.exports = (app, middlewares)->
 					# but themeId isnt the real id of the record
 					theme.save (err)->
 						# refresh themeId
-						req.session.themeId = mongoose.Types.ObjectId.createPk()
 						# req.session.packData = {
 						# 	meta: {
 						# 		_id: req.session.themeId
@@ -90,9 +89,6 @@ module.exports = (app, middlewares)->
 						# 	# Remain user choice
 						# 	# packInfo: themeConfig.defaultPackInfo
 						# }
-						req.session.packData.meta._id = req.session.themeId
-						req.session.packData.userId = req.user.userId
-
 						callback(err, theme)
 
 		], (err, results)->
@@ -103,10 +99,14 @@ module.exports = (app, middlewares)->
 					message: err
 				}
 			else
+				req.session.themeId = mongoose.Types.ObjectId.createPk()
+				req.session.packData.meta._id = req.session.themeId
+				req.session.packData.userId = req.user.userId
+
 				# show package success page
 				res.json {
 					success: true
-					themeId: themeId
+					themeId: req.session.themeId
 					fileName: results.title
 					apkFile: results.packageFile[4]
 				}

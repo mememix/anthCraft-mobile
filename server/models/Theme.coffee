@@ -1,5 +1,6 @@
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
+autoinc = require 'mongoose-id-autoinc2'
 
 default_producer = __config.packageInfo.name + '-' + __config.packageInfo.version
 
@@ -147,6 +148,14 @@ ThemeSchema.statics.listByPage = (page, pageCount, cb)->
 		.skip(skipCount)
 		.limit(pageCount)
 		.exec cb
+
+# Config _id auto increase
+ThemeSchema.plugin autoinc.plugin, {
+	model: 'theme',
+	field: 'themeId',
+	start: 100,
+	step: 1
+}
 
 
 module.exports = ThemeModel = mongoose.model 'theme', ThemeSchema

@@ -8,6 +8,7 @@ getMethodOverride = require 'get-methodoverride'
 # inherit from express.session.Store
 MemcachedStore = require('connect-memcached')(express)
 flash = require 'connect-flash'
+autoinc = require 'mongoose-id-autoinc2'
 
 anthpack = require 'anthpack'
 log4js = require 'log4js'
@@ -39,7 +40,11 @@ exports.launch = (callback)->
 			db.on 'error', ()->
 				__logger.error 'MongoDB connection error!'
 
-			db.once 'open', -> cb()
+			db.once 'open', ->
+				# Init autoinc module
+				autoinc.init(db, 'counter', mongoose);
+
+				cb()
 		]
 		load_models: [ 'connect_db', (cb)->
 			fileUtil.traverseFolderSync __config.modelPath, /^[._]/, (isErr, file)->

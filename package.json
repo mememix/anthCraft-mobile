@@ -17,7 +17,8 @@
     "filesize": "~2.0.3",
     "chalk": "~0.4.0",
     "moment": "~2.5.1",
-    "connect-memcached": "0.0.6"
+    "connect-memcached": "0.0.6",
+    "mongoose-id-autoinc2": "~1.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

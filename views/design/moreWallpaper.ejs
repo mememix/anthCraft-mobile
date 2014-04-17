@@ -1,16 +1,14 @@
 {{ wallpapers.forEach(function(wallpaper) { }}
-<div class="col-xs-6">
-  <div class="layout-container" data-wpid="{{=wallpaper._id}}">
-		<div class="loader">
-			<img class="thum" src="{{=UPLOAD_PATH}}{{=wallpaper.files[0].path}}"></img>
-			<img class="loading" src="/images/default.png"></img>
-		</div>
+<div class="layout-container" data-wpid="{{=wallpaper._id}}">
+	<div class="loader">
+		<img class="thum" src="{{=UPLOAD_PATH}}{{=wallpaper.files[0].path}}"></img>
+		<img class="loading" src="/images/default.png"></img>
 	</div>
 </div>
 {{ }) }}
 
 {{ if(wallpapers && wallpapers.length) { }}
-<div class="clearfix more">
+<!-- <div class="clearfix more"> -->
 	<a class="btn cy-btn" href="/design/more/wallpaper?page={{=next_page}}">More</a>
-</div>
+<!-- </div> -->
 {{ } }}

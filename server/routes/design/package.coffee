@@ -82,14 +82,16 @@ module.exports = (app, middlewares)->
 					theme.save (err)->
 						# refresh themeId
 						req.session.themeId = mongoose.Types.ObjectId.createPk()
-						req.session.packData = {
-							meta: {
-								_id: req.session.themeId
-								userId: req.user.userId
-							}
-							# Remain user choice
-							# packInfo: themeConfig.defaultPackInfo
-						}
+						# req.session.packData = {
+						# 	meta: {
+						# 		_id: req.session.themeId
+						# 		userId: req.user.userId
+						# 	}
+						# 	# Remain user choice
+						# 	# packInfo: themeConfig.defaultPackInfo
+						# }
+						req.session.packData.meta._id = req.session.themeId
+						req.session.packData.userId = req.user.userId
 
 						callback(err, theme)
 

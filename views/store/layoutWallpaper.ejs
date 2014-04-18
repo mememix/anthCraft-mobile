@@ -2,7 +2,7 @@
 
 	{{ wallpapers.forEach(function(wallpaper) { }}
 		<div class="layout-container">
-			<a href="/store/wallpaper/{{=wallpaper._id}}" class="">
+			<a href="/store/wallpaper/{{=wallpaper._id}}" target="_blank" class="">
 				<div class="loader">
 					<img class="thum" src="{{=WALLPAPER_PATH}}{{=wallpaper.smallPath}}"></img>
 					<img class="loading" src="/images/default.png"></img>

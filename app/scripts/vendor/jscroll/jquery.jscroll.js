@@ -17,7 +17,7 @@
     // Define the jscroll namespace and default settings
     $.jscroll = {
         defaults: {
-            debug: true,
+            debug: false,
             autoTrigger: true,
             autoTriggerUntil: false,
             loadingHtml: '<small>Loading...</small>',

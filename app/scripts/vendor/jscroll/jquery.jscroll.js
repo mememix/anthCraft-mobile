@@ -42,7 +42,6 @@
             _$body = $('body'),
             _$scroll = _isWindow ? _$window : $e,
             _nextHref = $.trim(_$next.attr('href') + ' ' + _options.contentSelector);
-        debugger;
         // Initialization
         $e.data('jscroll', $.extend({}, _data, {initialized: true, waiting: false, nextHref: _nextHref}));
         _wrapInnerContent();
@@ -108,7 +107,6 @@
 
         // Check if the href for the next set of content has been set
         function _checkNextHref(data) {
-            debugger;
             data = data || $e.data('jscroll');
             if (!data || !data.nextHref) {
                 _debug('warn', 'jScroll: nextSelector not found - destroying');
@@ -121,7 +119,6 @@
         }
 
         function _setBindings() {
-            debugger;
             var $next = $e.find(_options.nextSelector).first();
             if (_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil > 0)) {
                 _nextWrap($next);

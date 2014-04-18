@@ -13,25 +13,19 @@
 
    var msg = $('.mask .msg');
 
-   var icon = $('.mask .process');
 
   exports.mask = {
     show:function(info){
-      icon.show();
       info = info || '';
       msg.text(info);
       ele.show();
-      icon.showw();
     },
     hide:function(info){
-      icon.show();
       info = info || '';
       msg.text(info);
       ele.hide();
-      icon.hide();
     },
     msg : function(info){
-      icon.hide();
       msg.text(info);
     },
     element: ele
